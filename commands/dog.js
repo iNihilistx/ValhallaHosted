@@ -1,6 +1,5 @@
 
 const { MessageEmbed } = require("discord.js")
-const { cyan } = require("../../colours.json");
 const fetch = require('node-fetch');
 
 
@@ -21,7 +20,7 @@ module.exports = {
                 if (!body) return message.reply("whoops! I've broke, try again!")
 
                 let dEmbed = new MesageEmbed()
-                    .setColor(cyan)
+                    .setColor('#FFA500')
                     .setAuthor(`${bot.user.username} DOGS!`, message.guild.iconURL)
                     .setImage(body.message)
                     .setTimestamp()
