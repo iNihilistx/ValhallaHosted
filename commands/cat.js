@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
             if (!body) return message.reply(" Unable to load!")
 
             let embed = new MessageEmbed()
-                .setAuthor(`${bot.user.username} Dogs!`, message.guild.iconURL)
+                .setAuthor(`${bot.user.username} Adorable Cats!`, message.guild.iconURL)
                 .setImage(body.file)
                 .setTimestamp()
                 .setFooter(bot.user.username.toUpperCase(), bot.user.displayAvatarURL)
