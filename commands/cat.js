@@ -1,6 +1,6 @@
 const { MessageEmbed, Message } = require("discord.js")
 const fetch = require('node-fetch');
-const { orange } = require('node-fetch');
+const { orange } = require('../../colors.json');
 
 module.exports.run = async (bot, message, args) => {
 
