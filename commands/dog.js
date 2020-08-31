@@ -22,7 +22,7 @@ module.exports.run = async (bot, message, args) => {
 
 module.exports.config = {
     name: "dog",
-    description: "sends a picture of a cat",
+    description: "sends a picture of a dog",
     usage: "-dog",
     category: "images",
     accessableby: "Members",
