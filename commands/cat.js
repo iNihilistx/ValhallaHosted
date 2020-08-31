@@ -9,14 +9,14 @@ module.exports.run = async (bot, message, args) => {
         .then(res => res.json()).then(body => {
             if (!body) return message.reply(" Unable to load image!")
 
-            let cembed = new MessageEmbed()
+            let cEmbed = new MessageEmbed()
                 .setColor('#FFA500')
                 .setAuthor(`${bot.user.username}: Cattos!`, message.guild.iconURL)
                 .setImage(body.file)
                 .setTimestamp()
                 .setFooter(bot.user.username.toUpperCase(), bot.user.displayAvatarURL)
 
-            msg.edit(cembed)
+            msg.edit(cEmbed)
         })
 }
 
