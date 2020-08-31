@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args) => {
 
             let embed = new MessageEmbed()
                 .setColor(orange)
-                .setAuthor(`${bot.user.username} Adorable Cats!`, message.guild.iconURL)
+                .setAuthor(`${bot.user.username}: Cattos!`, message.guild.iconURL)
                 .setImage(body.file)
                 .setTimestamp()
                 .setFooter(bot.user.username.toUpperCase(), bot.user.displayAvatarURL)
