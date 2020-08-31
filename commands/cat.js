@@ -1,5 +1,6 @@
 const { MessageEmbed, Message } = require("discord.js")
 const fetch = require('node-fetch');
+const { orange } = require('node-fetch');
 
 module.exports.run = async (bot, message, args) => {
 
@@ -10,6 +11,7 @@ module.exports.run = async (bot, message, args) => {
             if (!body) return message.reply(" Unable to load!")
 
             let embed = new MessageEmbed()
+                .setColor(orange)
                 .setAuthor(`${bot.user.username} Adorable Cats!`, message.guild.iconURL)
                 .setImage(body.file)
                 .setTimestamp()
