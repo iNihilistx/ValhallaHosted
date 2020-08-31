@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
     if (!helpArgs[0]) {
         var embed = new Discord.MessageEmbed()
             .setAuthor(`The current available commands:`)
-            .setDescription('```| uptime | member | mute | unmute | kick | ban | Twitch | meme | wholesome | aesthetic | cursed | ```')
+            .setDescription('```| uptime | member | mute | unmute | kick | ban | Twitch | meme | cat | wholesome | aesthetic | cursed | ```')
             .addFields({ name: 'Chosen Prefix', value: '```-```', inline: true })
             .setColor('#D35400')
 
