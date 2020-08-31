@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
 
     fetch("http://aws.random.cat/meow")
         .then(res => res.json()).then(body => {
-            if (!body) return message.reply(" Unable to load!")
+            if (!body) return message.reply(" Unable to load image!")
 
             let embed = new MessageEmbed()
                 .setColor(orange)
