@@ -16,6 +16,7 @@ module.exports.run = async (bot, message, args) => {
                 .setFooter(bot.user.username.toUpperCase(), bot.user.displayAvatarURL)
 
             msg.edit(embed)
+            msg.delete();
         })
 }
 
