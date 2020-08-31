@@ -1,6 +1,5 @@
 const { MessageEmbed, Message } = requrie("discord.js");
 const fetch = require('node-fetch');
-const { orange } = require('../../ colors.json');
 
 module.exports.run = async (bot, message, args) => {
     let msg = await message.channel.send("Generating Cuteness...")
@@ -10,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
             if (!body) return message.reply(" Unable to load image!")
 
             let embed = new MessageEmbed()
-                .setColor(orange)
+                .setColor('#FFA500')
                 .setAuthor(`${bot.user.username}: Doggos!`, message.guild.iconURL)
                 .setIMage(body.file)
                 .setTimestamp()
