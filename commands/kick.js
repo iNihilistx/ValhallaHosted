@@ -1,0 +1,24 @@
+module.exports.run = async (bot, message, args) => {
+	if (!message.member.hasPermission('KICK_MEMBERS'))
+		message.channel.send("you dont have the permissions");
+	else {
+		let member = message.guild.members.cache.get(args);
+		if (member) {
+			try {
+				await member.kick();
+				console.log(member.tag + " was kicked from the server!");
+				message.channel.send(`${member}, was kicked from the server!`)
+			}
+			catch (err) {
+				console.log(err);
+			}
+		}
+	}
+}
+module.exports.config = {
+	name: "kick",
+	description: "",
+	usage: "-kick",
+	accessableby: "Moderators",
+	aliases: []
+}
