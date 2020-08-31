@@ -1,30 +1,34 @@
-const { MessageEmbed, Message } = require("discord.js")
+
+const { MessageEmbed } = require("discord.js")
+const { cyan } = require("../../colours.json");
 const fetch = require('node-fetch');
 
-module.exports.run = async (bot, message, args) => {
 
-    let msg = await message.channel.send("Generating Cuteness...")
+module.exports = {
+    config: {
+        name: "dog",
+        description: "Sends a picture of a dog!",
+        usage: "!dog",
+        category: "miscellaneous",
+        accessableby: "Members",
+        aliases: ["doggo", "puppy"]
+    },
+    run: async (bot, message, args) => {
+        let msg = await message.channel.send("Generating...")
 
-    fetch("https://dog.ceo/api/breeds/image/random")
-        .then(res => res.json()).then(body => {
-            if (!body) return message.reply(" Unable to load image!")
+        fetch(`https://dog.ceo/api/breeds/image/random`)
+            .then(res => res.json()).then(body => {
+                if (!body) return message.reply("whoops! I've broke, try again!")
 
-            let dEmbed = new MessageEmbed()
-                .setColor('#FFA500')
-                .setAuthor(`${bot.user.username}: Doggos!`, message.guild.iconURL)
-                .setImage(body.file)
-                .setTimestamp()
-                .setFooter(bot.user.username.toUpperCase(), bot.user.displayAvatarURL)
+                let dEmbed = new MesageEmbed()
+                    .setColor(cyan)
+                    .setAuthor(`${bot.user.username} DOGS!`, message.guild.iconURL)
+                    .setImage(body.message)
+                    .setTimestamp()
+                    .setFooter(bot.user.username.toUpperCase(), bot.user.displayAvatarURL)
 
-            msg.edit(dEmbed)
-        })
-}
-
-module.exports.config = {
-    name: "dog",
-    description: "sends a picture of a dog",
-    usage: "-dog",
-    category: "images",
-    accessableby: "Members",
-    aliases: ["doggos"]
+                message.channel.send(dEmbed)
+                msg.delete();
+            })
+    }
 }
