@@ -19,7 +19,7 @@ module.exports.run = async (bot, message, args) => {
         })
 }
 
-module.exports.confid = {
+module.exports.config = {
     name: "dog",
     description: "sends pictures of dogs",
     usage: "-dog",
