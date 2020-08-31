@@ -1,29 +1,27 @@
 module.exports.run = async (bot, message, args) => {
+    let args = message.content.substring(PREFIX.length).split(' ');
+    switch (args[0]) {
+        case 'report':
+            message.delete({ timeout: 3000 });
+            let target = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
+            if (!target) return message.channel.send('Please provide a user that you wish to report').then(m => m.delete({ timeout: 15000 }));
 
-    message.delete()
-    // mentioned or grabbed user
-    let target = message.mentions.members.first() || message.guild.members.get(args[0])
-    if (!target) return message.channel.send("Please provide a valid user").then(m => m.delete(15000))
+            let reason = args.slice(2).join(" ");
+            if (!reason) return message.channel.send(`Please provide a reason for reporting **${target.user.username}**`).then(m => m.delete({ timeout: 15000 }));
 
-    // reasoning definition
-    let reason = args.slice(1).join(" ")
-    if (!reason) return message.channel.send(`Please provide a reason for reporting **${target.user.tag}**`).then(m => m.delete(15000))
+            let reportChannel = message.guild.channels.cache.find(x => x.name === "📒▸logs");
 
-    // grab reports channel
-    let sChannel = message.guild.channels.find(x => x.name === "tut-reports")
+            message.channel.send('Your report has been filed to the staff team. Thank you for reporting!').then(m => m.delete({ timeout: 15000 }));
+            reportChannel.send(`**${message.author.username}** has reported **${target.user.username}** for **${reason}**.`);
+            break;
+    };
+};
 
-    // send to reports channel and add tick or cross
-
-    message.channel.send("Your report has been filed to the staff team. Thank you!").then(m => m.delete(15000))
-    sChannel.send(`**${message.author.tag}** has reported **${target.user.tag}** for **${reason}**.`).then(async msg => {
-        await msg.react("✅")
-        await msg.react("❌")
-    })
-
-}
 module.exports.config = {
     name: "report",
-    description: "reports a member within the guild",
-    usage: "-report <user> <reason>",
-    accessableby: "Members"
+    description: "allows a user to report",
+    usage: "-report",
+    accessableby: "Members",
+    aliases: []
+
 }
