@@ -7,7 +7,7 @@ module.exports.run = async (bot, message, args) => {
         .setTitle('Server Information: ')
         .setURL('https://i.imgur.com/G5bui5n.png')
         .setAuthor('Nairobi', 'https://i.imgur.com/G5bui5n.png')
-        .setDescription(`Server information for ${message.guild.name}`)
+        .setDescription(`Server information`)
         .setThumbnail('https://i.imgur.com/G5bui5n.png')
         .addFields(
             { name: "Server Name: ", value: `${message.guild.name}` },
