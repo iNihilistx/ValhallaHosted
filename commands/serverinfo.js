@@ -10,10 +10,10 @@ module.exports.run = async (bot, message, args) => {
         .setDescription(`Server information`)
         .setThumbnail('https://i.imgur.com/G5bui5n.png')
         .addFields(
-            { name: "Server Name: ", value: `${message.guild.user.tag}` },
+            { name: "Server Name: ", value: `${message.guild.name}` },
             { name: "Current Members: ", value: `${message.guild.memberCount}` },
             { name: 'Server Owner: ', value: `${message.guild.owner}`, inline: true },
-            { name: 'Your Username: ', value: `${message.author.username}`, inline: true }
+            { name: 'Your Username: ', value: `${message.member.user.tag}`, inline: true }
         )
         .addField('Creator: ', 'Nairobi', true)
         .setImage('https://i.imgur.com/GlJ2Ucv.jpg')
