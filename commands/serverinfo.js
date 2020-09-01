@@ -5,8 +5,8 @@ module.exports.run = async (bot, message, args) => {
     const serverinfoEmbed = new Discord.MessageEmbed()
         .setColor('#0099ff')
         .setTitle('Server Information')
-        .setURL('https://imgur.com/GlJ2Ucv')
-        .setAuthor('Nairobi', 'https://imgur.com/a/vHpJyH3')
+        .setURL('https://i.imgur.com/G5bui5n.png')
+        .setAuthor('Nairobi', 'https://i.imgur.com/GlJ2Ucv.jpg')
         .setDescription(`The statics for this server`)
         .setThumbnail('https://i.imgur.com/G5bui5n.png')
         .addFields(
@@ -16,9 +16,9 @@ module.exports.run = async (bot, message, args) => {
             { name: 'Your Username', value: `${message.author.username}`, inline: true }
         )
         .addField('Valhalla', true)
-        .setImage('https://imgur.com/G5bui5n')
+        .setImage('https://i.imgur.com/G5bui5n.png')
         .setTimestamp()
-        .setFooter('https://imgur.com/G5bui5n')
+        .setFooter('https://i.imgur.com/G5bui5n.png')
 
     message.channel.send(serverinfoEmbed);
 }
