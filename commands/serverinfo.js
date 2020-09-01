@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
         .setTimestamp()
         .setFooter('Some footer text here', 'https://i.imgur.com/wSTFkRM.png');
 
-    msg.send(exampleEmbed);
+    message.channel.send(exampleEmbed);
 
 }
 module.exports.config = {
