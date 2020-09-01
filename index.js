@@ -14,26 +14,6 @@ bot.on("guildMemberRemove", member => {
     welcomeChannel.send(` ${member} has left the cult`)
 })
 
-bot.on('messageDelete', async message => {
-    if (!message.guild) return;
-    const fetchedLogs = await message.guild.fetchAuditLogs({
-        limit: 1,
-        type: 'MESSAGE_DELETE',
-    });
-    const deletionLog = fetchedLogs.entries.first();
-
-    if (!deletionLog) return message.guild.send(`A message sent by ${message.author.tag} was deleted, but there is no matching audit log`);
-
-    const { executor, target } = deletionLog;
-
-    if (target.id === message.author.id) {
-        message.channel.send(`A message sent by ${message.author.tag} was deleted by ${executor.tag}`);
-    } else {
-        message.channel.send(`A message sent by ${message.author.tag} was deleted, but there is no indication of who deleted the message`);
-    }
-});
-
-
 require("./util/eventHandler")(bot)
 
 const fs = require("fs");
