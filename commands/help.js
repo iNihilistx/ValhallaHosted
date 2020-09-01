@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) => {
             .setAuthor(`The current available commands:`)
             .setDescription('```| uptime | serverinfo |  member | mute | unmute | kick | ban | Twitch | meme | cat | wholesome | aesthetic | cursed | ```')
             .addFields({ name: 'Chosen Prefix: ', value: '```-```', inline: true })
-            .setColor('#D35400')
+            .setColor('#FFA500')
 
         message.channel.send(embed);
     }
