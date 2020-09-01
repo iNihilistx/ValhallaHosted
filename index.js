@@ -26,7 +26,7 @@ bot.on('messageDelete', async message => {
 
     const { executor, target } = deletionLog;
 
-    if (targetid === message.author.id) {
+    if (target.id === message.author.id) {
         message.guild.send(`A message sent by ${message.author.tag} was deleted by ${executor.tag}`);
     } else {
         message.guild.send(`A message sent by ${message.author.tag} was deleted, but there is no indication of who deleted the message`);
