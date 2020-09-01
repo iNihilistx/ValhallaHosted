@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
             { name: 'Server Owner: ', value: 'Flash', inline: true },
             { name: 'Your Username: ', value: `${message.author.username}`, inline: true }
         )
-        .addField('Valhalla')
+        .addField('Valhalla', '2020', true)
         .setImage('https://i.imgur.com/GlJ2Ucv.jpg')
         .setTimestamp()
         .setFooter('Valhalla, created by: Nairobi', 'https://i.imgur.com/G5bui5n.png')
