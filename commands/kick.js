@@ -1,6 +1,6 @@
 module.exports.run = async (bot, message, args) => {
 	if (!message.member.hasPermission('KICK_MEMBERS'))
-		message.channel.send("you dont have the permissions");
+		message.channel.send("You lack the permissions needed for this command!");
 	else {
 		let member = message.guild.members.cache.get(args);
 		if (member) {

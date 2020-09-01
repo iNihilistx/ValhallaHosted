@@ -6,7 +6,7 @@ module.exports.run = async (bot, message) => {
     const messageArray = message.content.split(' ');
     const args = messageArray.slice(1);
 
-    if (!message.member.permissions.has("MANAGE_MESSAGES")) return message.channel.send('Lack of Permissions');
+    if (!message.member.permissions.has("MANAGE_MESSAGES")) return message.channel.send('You lack the permissions needed for this command!');
 
     let deleteAmount;
 

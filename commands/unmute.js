@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) => {
     if (mutedRole) {
         member.roles.remove(mutedRole);
         member.roles.add(verifiedRole);
-        message.channel.send("User was unmuted.");
+        message.channel.send("User has been unmuted.");
     }
 }
 
