@@ -6,8 +6,8 @@ module.exports = (client) => {
         channel.setName(`Members: ${guild.memberCount.toLocaclString()}`)
     }
 
-    bot.on('guildMemberAdd', (member) => updateMembers(member.guild))
-    bot.on('guildMemberRemove', (member) => updateMembers(member.guild))
+    client.on('guildMemberAdd', (member) => updateMembers(member.guild))
+    client.on('guildMemberRemove', (member) => updateMembers(member.guild))
 
     const guild = client.guilds.cache.get('737386427637170239')
     updateMembers(guild)

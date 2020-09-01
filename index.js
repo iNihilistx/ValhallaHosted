@@ -1,7 +1,13 @@
 const Discord = require('discord.js');
 const botsettings = require('./config.json');
+const memberCount = require('/membercount.js')
 
 const bot = new Discord.Client({ disableEveryone: true });
+
+client.on('ready', () = {
+    memberCount(client)
+}
+
 
 bot.on("guildMemberAdd", member => {
     const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === 'welcome')
