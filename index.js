@@ -14,17 +14,6 @@ bot.on("guildMemberRemove", member => {
     welcomeChannel.send(` ${member} has left the cult`)
 })
 
-bot.on("guildMemberAddRole", member => {
-    let user = message.mentions.members.first()
-    if (!member) return message.channel.send("Unable to find member")
-
-    let role = message.mentions.roles.first()
-    if (!role) return message.channel.send("Role is missing")
-
-    message.channel.send(`${member} role has been removed (${role})`)
-    user.roles.add(role)
-})
-
 require("./util/eventHandler")(bot)
 
 const fs = require("fs");
