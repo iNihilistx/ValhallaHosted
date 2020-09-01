@@ -18,7 +18,7 @@ module.exports.run = async (bot, message, args) => {
         .addField('Valhalla')
         .setImage('https://i.imgur.com/GlJ2Ucv.jpg')
         .setTimestamp()
-        .setFooter('https://i.imgur.com/G5bui5n.png')
+        .setFooter('Valhalla, created by: Nairobi', 'https://i.imgur.com/G5bui5n.png')
 
     message.channel.send(serverinfoEmbed);
 }
