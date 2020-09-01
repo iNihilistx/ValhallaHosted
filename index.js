@@ -22,16 +22,17 @@ bot.on('messageDelete', async message => {
     });
     const deletionLog = fetchedLogs.entries.first();
 
-    if (!deletionLog) return console.log(`A message sent by ${message.author.tag} was deleted, but no matching audit log was found.`);
+    if (!deletionLog) return message.guild.send(`A message sent by ${message.author.tag} was deleted, but there is no matching audit log`);
 
     const { executor, target } = deletionLog;
 
-    if (target.id === message.author.id) {
-        console.log(`A message sent by ${message.author.tag} was deleted by ${executor.tag}.`);
+    if (targetid === message.authoir.id) {
+        message.guild.send(`A message sent by ${message.author.tag} was deleted by ${executor.tag}`);
     } else {
-        console.log(`A message sent by ${message.author.tag} was deleted, but we don't know by who.`);
+        message.guild.send(`A message sent by ${message.author.tag} was deleted, but there is no indication of who deleted the message`);
     }
 });
+
 
 require("./util/eventHandler")(bot)
 
