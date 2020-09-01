@@ -14,7 +14,7 @@ bot.on("guildMemberRemove", member => {
     welcomeChannel.send(` ${member} has left the cult`)
 })
 
-client.on('messageDelete', async message => {
+bot.on('messageDelete', async message => {
     if (!message.guild) return;
     const fetchedLogs = await message.guild.fetchAuditLogs({
         limit: 1,
