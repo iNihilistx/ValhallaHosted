@@ -5,7 +5,7 @@ module.exports.run = async (bot, message, args) => {
     const serverinfoEmbed = new Discord.MessageEmbed()
         .setColor('#0099ff')
         .setTitle('Server Information')
-        .setURL('https://imgur.com/a/ga2w8fm')
+        .setURL('https://imgur.com/GlJ2Ucv')
         .setAuthor('Nairobi', 'https://imgur.com/a/vHpJyH3')
         .setDescription(`The statics for this server`)
         .setThumbnail('https://imgur.com/a/vHpJyH3')
