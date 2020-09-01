@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
         .setColor('#0099ff')
         .setTitle('Server Information')
         .setURL('https://i.imgur.com/G5bui5n.png')
-        .setAuthor('Nairobi', 'https://i.imgur.com/GlJ2Ucv.jpg')
+        .setAuthor('Nairobi', 'https://i.imgur.com/G5bui5n.png')
         .setDescription(`The statics for this server`)
         .setThumbnail('https://i.imgur.com/G5bui5n.png')
         .addFields(
@@ -15,8 +15,8 @@ module.exports.run = async (bot, message, args) => {
             { name: 'Server Owner', value: '285691402405281792', inline: true },
             { name: 'Your Username', value: `${message.author.username}`, inline: true }
         )
-        .addField('Valhalla', true)
-        .setImage('https://i.imgur.com/G5bui5n.png')
+        .addField('Valhalla')
+        .setImage('https://i.imgur.com/GlJ2Ucv.jpg')
         .setTimestamp()
         .setFooter('https://i.imgur.com/G5bui5n.png')
 
