@@ -2,31 +2,23 @@ const Discord = require("discord.js")
 const botconfig = require("../config.json");
 
 module.exports.run = async (bot, message, args) => {
-    const exampleEmbed = new Discord.MessageEmbed()
+    const serverinfoEmbed = new Discord.MessageEmbed()
         .setColor('#0099ff')
-        .setTitle('Some title')
-        .setURL('https://discord.js.org/')
-        .setAuthor('Some name', 'https://i.imgur.com/wSTFkRM.png', 'https://discord.js.org')
-        .setDescription('Some description here')
-        .setThumbnail('https://i.imgur.com/wSTFkRM.png')
+        .setTitle('Server Information')
+        .setURL('https://imgur.com/a/ga2w8fm')
+        .setAuthor('Nairobi', 'https://imgur.com/a/vHpJyH3')
+        .setDescription(`The statics for this server`)
+        .setThumbnail('https://imgur.com/a/vHpJyH3')
         .addFields(
-            { name: 'Regular field title', value: 'Some value here' },
-            { name: '\u200B', value: '\u200B' },
-            { name: 'Inline field title', value: 'Some value here', inline: true },
-            { name: 'Inline field title', value: 'Some value here', inline: true },
+            { name: "Server Name: ", value: `${message.guild.name}` },
+            { name: "Current Members: ", value: `${message.guild.memberCount}` },
+            { name: 'Server Owner', value: '285691402405281792', inline: true },
+            { name: 'Your Username', value: `${message.author.username}`, inline: true }
         )
-        .addField('Inline field title', 'Some value here', true)
-        .setImage('https://i.imgur.com/wSTFkRM.png')
+        .addField('Valhalla', true)
+        .setImage('https://imgur.com/a/vHpJyH3')
         .setTimestamp()
-        .setFooter('Some footer text here', 'https://i.imgur.com/wSTFkRM.png');
+        .setFooter('https://imgur.com/a/vHpJyH3')
 
-    message.channel.send(exampleEmbed);
-
-}
-module.exports.config = {
-    name: "serverinfo",
-    description: "shows server information",
-    usage: "-serverinfo",
-    accessableby: "Members",
-    aliases: []
+    message.channel.send(serverinfoEmbed);
 }
