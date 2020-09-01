@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args) => {
         .addFields(
             { name: "Server Name: ", value: `${message.guild.name}` },
             { name: "Current Members: ", value: `${message.guild.memberCount}` },
-            { name: 'Server Owner', value: '285691402405281792', inline: true },
+            { name: 'Server Owner', value: 'Flash', inline: true },
             { name: 'Your Username', value: `${message.author.username}`, inline: true }
         )
         .addField('Valhalla')
