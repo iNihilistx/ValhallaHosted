@@ -3,11 +3,11 @@ const botconfig = require("../config.json");
 
 module.exports.run = async (bot, message, args) => {
     const serverinfoEmbed = new Discord.MessageEmbed()
-        .setColor('#0099ff')
-        .setTitle('Server Information')
+        .setColor('#FFA500')
+        .setTitle('Server Information: ')
         .setURL('https://i.imgur.com/G5bui5n.png')
         .setAuthor('Nairobi', 'https://i.imgur.com/G5bui5n.png')
-        .setDescription(`The statics for this server`)
+        .setDescription(`Server information for ${message.guild.name}`)
         .setThumbnail('https://i.imgur.com/G5bui5n.png')
         .addFields(
             { name: "Server Name: ", value: `${message.guild.name}` },
