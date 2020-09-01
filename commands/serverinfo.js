@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
         .setURL('https://imgur.com/GlJ2Ucv')
         .setAuthor('Nairobi', 'https://imgur.com/a/vHpJyH3')
         .setDescription(`The statics for this server`)
-        .setThumbnail('https://imgur.com/a/vHpJyH3')
+        .setThumbnail('https://imgur.com/G5bui5n')
         .addFields(
             { name: "Server Name: ", value: `${message.guild.name}` },
             { name: "Current Members: ", value: `${message.guild.memberCount}` },
@@ -16,9 +16,9 @@ module.exports.run = async (bot, message, args) => {
             { name: 'Your Username', value: `${message.author.username}`, inline: true }
         )
         .addField('Valhalla', true)
-        .setImage('https://imgur.com/a/vHpJyH3')
+        .setImage('https://imgur.com/G5bui5n')
         .setTimestamp()
-        .setFooter('https://imgur.com/a/vHpJyH3')
+        .setFooter('https://imgur.com/G5bui5n')
 
     message.channel.send(serverinfoEmbed);
 }
