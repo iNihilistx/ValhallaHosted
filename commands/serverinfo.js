@@ -20,5 +20,5 @@ module.exports.run = async (bot, message, args) => {
         .setTimestamp()
         .setFooter('https://imgur.com/a/vHpJyH3')
 
-    message.channel.send(serverinfoEmbed);
+    message.channel.send(serverinfoEmbed)
 }
