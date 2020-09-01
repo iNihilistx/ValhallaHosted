@@ -14,9 +14,9 @@ module.exports.run = async (bot, message) => {
 }
 
 module.exports.config = {
-    name: "purge",
+    name: "addroles",
     description: "",
-    usage: "-purge",
+    usage: "-addrole",
     accessableby: "moderators",
     aliases: []
 }
