@@ -2,28 +2,25 @@ const Discord = require("discord.js")
 const botconfig = require("../config.json");
 
 module.exports.run = async (bot, message, args) => {
-    const ServerEmbed = new Discord.MessageEmbed()
-        .setColor('#FFA500')
-        .setTitle('Server Statistics')
+    const exampleEmbed = new Discord.MessageEmbed()
+        .setColor('#0099ff')
+        .setTitle('Some title')
         .setURL('https://discord.js.org/')
-        .setAuthor('Nairobi')
-        .setDescription(`Server Statistics for ${message.guild.name}`)
-        .setThumbnail('https:/i.imgur.com/wSTFkRM.png')
+        .setAuthor('Some name', 'https://i.imgur.com/wSTFkRM.png', 'https://discord.js.org')
+        .setDescription('Some description here')
+        .setThumbnail('https://i.imgur.com/wSTFkRM.png')
         .addFields(
-            { name: 'Server Name: ', value: `${message.guild.name}` },
-            { name: 'Member Count: ', value: `${message.guild.memberCount}` },
-            { name: 'inline field title', value: 'some values', inline: true },
-            { name: 'inline field title', value: 'some values', inline: true },
+            { name: 'Regular field title', value: 'Some value here' },
+            { name: '\u200B', value: '\u200B' },
+            { name: 'Inline field title', value: 'Some value here', inline: true },
+            { name: 'Inline field title', value: 'Some value here', inline: true },
         )
-
-        .addField('inline field title', 'some value', true)
-        .setImage('https:/i.imgur.com/wSTFkRM.png')
+        .addField('Inline field title', 'Some value here', true)
+        .setImage('https://i.imgur.com/wSTFkRM.png')
         .setTimestamp()
-        .setFooter('Created by Nairobi');
+        .setFooter('Some footer text here', 'https://i.imgur.com/wSTFkRM.png');
 
-    Discord.Channel.send(ServerEmbed);
-
-
+    channel.send(exampleEmbed);
 
 }
 module.exports.config = {
