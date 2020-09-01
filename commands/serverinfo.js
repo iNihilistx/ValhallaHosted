@@ -11,8 +11,17 @@ module.exports.run = async (bot, message, args) => {
         .setThumbnail('https:/i.imgur.com/wSTFkRM.png')
         .addFields(
             { name: 'Server Name: ', value: `${message.guild.name}` },
-            { name: 'Member Count: ', value: `${message.guild.memberCount}` }
+            { name: 'Member Count: ', value: `${message.guild.memberCount}` },
+            { name: 'inline field title', value: 'some values', inline: true },
+            { name: 'inline field title', value: 'some values', inline: true },
         )
+
+        .addField('inline field title', 'some value', true)
+        .setImage('https:/i.imgur.com/wSTFkRM.png')
+        .setTimestamp()
+        .setFooter('Created by Nairobi');
+
+    Discord.Channel.send(ServerEmbed);
 
 
 
