@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
         .setURL('https://imgur.com/GlJ2Ucv')
         .setAuthor('Nairobi', 'https://imgur.com/a/vHpJyH3')
         .setDescription(`The statics for this server`)
-        .setThumbnail('https://imgur.com/G5bui5n')
+        .setThumbnail('https://i.imgur.com/G5bui5n.png')
         .addFields(
             { name: "Server Name: ", value: `${message.guild.name}` },
             { name: "Current Members: ", value: `${message.guild.memberCount}` },
