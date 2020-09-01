@@ -1,5 +1,5 @@
 const discord = require("discord.js");
-const botconfig = require("../botconfig.json");
+const botconfig = require("../config.json");
 
 module.exports.run = async (bot, message, args) => {
     let user = message.mentions.members.first()
