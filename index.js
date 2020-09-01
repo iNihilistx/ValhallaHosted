@@ -14,10 +14,6 @@ bot.on("guildMemberRemove", member => {
     welcomeChannel.send(` ${member} has left the cult`)
 })
 
-bot.on('guildMemberAdd', (guildMember) => {
-    guildMember.addRole(guildMember.guild.roles.find(role => role.name === "MY DUDES"))
-});
-
 require("./util/eventHandler")(bot)
 
 const fs = require("fs");
