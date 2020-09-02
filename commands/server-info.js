@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
             { name: "Server Name: ", value: `${message.guild.name}` },
             { name: "Current Members: ", value: `${message.guild.memberCount}` },
             { name: 'Server Owner: ', value: `${message.guild.owner}`, inline: true },
-            { name: 'Your Username: ', value: `${message.member.user.tag}`, inline: true }
+            { name: 'Requested By: ', value: `${message.member.user.tag}`, inline: true }
         )
         .addField("Server Region: ", message.guild.region, true)
         .setImage(message.guild.iconURL())
