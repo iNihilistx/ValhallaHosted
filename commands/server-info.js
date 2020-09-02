@@ -28,5 +28,5 @@ module.exports.config = {
     description: "shows server information",
     usage: "-serverinfo",
     accessableby: "Members",
-    aliases: ["sinfo"]
+    aliases: [""]
 }
