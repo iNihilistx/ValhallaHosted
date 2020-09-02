@@ -23,7 +23,7 @@ module.exports.run = async (bot, message, args) => {
             { name: 'Server Owner: ', value: `${message.guild.owner} `, inline: true }
         )
         .addField("Server Region: ", message.guild.region, true)
-        .addField("Bot Uptime: ", message.channel.send`${duration(bot.uptime)}`)
+        .addField("Bot Uptime: ", message.channel.send`${duration(bot.uptime)}`, true)
         .setImage(message.guild.iconURL())
         .setTimestamp()
         .setFooter('Valhalla, created by: Nairobi', 'https://i.imgur.com/G5bui5n.png')
