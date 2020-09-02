@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
         .setURL('https://i.imgur.com/G5bui5n.png')
         .setAuthor('Valhalla', 'https://i.imgur.com/G5bui5n.png')
         .setDescription(`Server information`)
-        .setThumbnail('https://i.imgur.com/G5bui5n.png')
+        .setThumbnail(member.user.displayAvatarURL())
         .addFields(
             { name: "Server Name: ", value: `${message.guild.name}` },
             { name: "Current Members: ", value: `${message.guild.memberCount}` },
