@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
             { name: 'Server Owner: ', value: `${message.guild.owner}`, inline: true },
             { name: 'Your Username: ', value: `${message.member.user.tag}`, inline: true }
         )
-        .addField("Region", region[message.guild.region], true)
+        .addField("Region", message.guild.region, true)
         .setImage(message.guild.iconURL())
         .setTimestamp()
         .setFooter('Valhalla, created by: Nairobi', 'https://i.imgur.com/G5bui5n.png')
