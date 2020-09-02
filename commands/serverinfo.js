@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
         .setColor('#FFA500')
         .setTitle('Server Information: ')
         .setURL('https://i.imgur.com/G5bui5n.png')
-        .setAuthor('Nairobi', 'https://i.imgur.com/G5bui5n.png')
+        .setAuthor('Valhalla', 'https://i.imgur.com/G5bui5n.png')
         .setDescription(`Server information`)
         .setThumbnail('https://i.imgur.com/G5bui5n.png')
         .addFields(
