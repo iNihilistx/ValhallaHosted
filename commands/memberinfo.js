@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
     let y = Date.now() - message.guild.members.cache.get(member.id).joinedAt;
     const joined = Math.floor(y / 86400000);
 
-    const joineddate = moment.utc(member.joinedAt).format("dddd, MMMM Do YYYY, HH");
+    const joineddate = moment.utc(member.joinedAt).format("dddd, MMMM Do YYYY");
     let status = member.presence.status;
 
     const userEmbed = new Discord.MessageEmbed()
