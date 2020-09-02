@@ -33,7 +33,7 @@ module.exports.run = async (bot, message, args) => {
 }
 
 module.exports.config = {
-    name: "member",
+    name: "memberinfo",
     description: "Shows the information of a member/user",
     usage: "-memberinfo",
     accessableby: "Members",
