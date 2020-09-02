@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
             { name: 'Your Username: ', value: `${message.member.user.tag}`, inline: true }
         )
         .addField('Creator: ', 'Nairobi', true)
-        .setImage('https://i.imgur.com/GlJ2Ucv.jpg')
+        .setImage(message.guild.iconURL())
         .setTimestamp()
         .setFooter('Valhalla, created by: Nairobi', 'https://i.imgur.com/G5bui5n.png')
 
