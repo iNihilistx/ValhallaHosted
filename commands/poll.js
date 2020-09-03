@@ -1,24 +1,22 @@
-module.exports = (client) => {
-    const channelIds = ['751189182415765544']
+const Discord = require("discord.js");
 
-    const addReactions = (message) => {
-        message.react('👍')
+module.exports.run = async (bot, message, args) => {
+    let pollChannel = message.mentions.channels.first();
+    let pollDescription = args.slice(1).join(' ');
 
-        setTimeout(() => {
-            message.react('👎')
-        }, 750)
-    }
+    let embedPoll = new Discord.MessageEmbed()
+        .setTitle('New Poll!')
+        .setDescription(pollDescription)
+        .setColor('#FFA500')
+    let msgEmbed = await pollChannel.send(embedPoll);
+    await msgEmbed.react('👍')
+    await msgEmbed.react('👎')
 
-    client.on('message', async (message) => {
-        if (channelIds.includes(message.channel.id)) {
-            addReactions(message)
-        } else if (message.content.toLowerCase() === '-poll') {
-            await message.delete()
-
-            const fetched = await message.channel.message.fetch({ limit: 1 })
-            if (fetched && fetched.first()) {
-                addReactions(fetched.first())
-            }
-        }
-    })
+}
+module.exports.config = {
+    name: "Poll",
+    description: "",
+    usage: "-poll",
+    accessableby: "Members",
+    aliases: []
 }
