@@ -20,8 +20,8 @@ module.exports.run = async (bot, message, args) => {
             { name: 'Verification Level: ', value: `${message.guild.verificationLevel}`, inline: true }
         )
         .addField("Server Region: ", message.guild.region, true)
-        .addField("Custom Emotes: ", message.guild.emojis.size, true)
-        .addField("Roles: ", message.guild.roles.size, true)
+        .addField("Custom Emotes: ", message.guild.emojis.size)
+        .addField("Roles: ", `server has ${message.guild.roles.size} roles`)
         .setImage(message.guild.iconURL())
         .setTimestamp()
         .setFooter('Valhalla', 'https://i.imgur.com/G5bui5n.png')
