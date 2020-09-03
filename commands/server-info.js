@@ -20,6 +20,7 @@ module.exports.run = async (bot, message, args) => {
             { name: 'Verification Level: ', value: `${message.guild.verificationLevel}`, inline: true }
         )
         .addField("Server Region: ", message.guild.region, true)
+        .addField("Channel Count: ", message.guild.channels.count, true)
         .setImage(message.guild.iconURL())
         .setTimestamp()
         .setFooter('Valhalla', 'https://i.imgur.com/G5bui5n.png')
