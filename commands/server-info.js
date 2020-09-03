@@ -1,5 +1,7 @@
 const Discord = require("discord.js")
 const botconfig = require("../config.json");
+const fs = require("fs");
+const db = require('quick.db');
 
 module.exports.run = async (bot, message, args) => {
     let userArray = message.content.split(" ");
