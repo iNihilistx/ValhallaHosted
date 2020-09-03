@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
 module.exports.config = {
     name: "Kill Connection",
     description: "",
-    usage: "-killconnection",
+    usage: "-shutdown",
     accessableby: "Nairobi",
     aliases: []
 }
