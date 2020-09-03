@@ -22,7 +22,7 @@ module.exports.run = async (bot, message, args) => {
         .addField("Server Region: ", message.guild.region, true)
         .setImage(message.guild.iconURL())
         .setTimestamp()
-        .setFooter('Valhalla, created by: Nairobi', 'https://i.imgur.com/G5bui5n.png')
+        .setFooter('Valhalla', 'https://i.imgur.com/G5bui5n.png')
 
     message.channel.send(serverinfoEmbed);
 }
