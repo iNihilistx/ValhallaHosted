@@ -17,7 +17,7 @@ module.exports.run = async (bot, message, args) => {
             { name: "Server Name: ", value: `${message.guild.name}` },
             { name: "Current Members: ", value: `${message.guild.memberCount}` },
             { name: 'Server Owner: ', value: `${message.guild.owner}`, inline: true },
-            { name: 'Verification Level', value: `${message.guild.verificationLevel}`, inline: true }
+            { name: 'Verification Level: ', value: `${message.guild.verificationLevel}`, inline: true }
         )
         .addField("Server Region: ", message.guild.region, true)
         .addField("Channels: ", message.guild.channels.size, true)
