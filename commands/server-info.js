@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) => {
         .setTitle('Server Information: ')
         .setURL('https://i.imgur.com/G5bui5n.png')
         .setAuthor(member.user.tag, member.user.displayAvatarURL())
-        .setDescription(`All the information regarding ${message.guild.name}`)
+        .setDescription(`All the information for this guild`)
         .setThumbnail('https://i.imgur.com/G5bui5n.png')
         .addFields(
             { name: "Server Name: ", value: `${message.guild.name}` },
@@ -20,6 +20,7 @@ module.exports.run = async (bot, message, args) => {
             { name: 'Server Owner: ', value: `${message.guild.owner}`, inline: true }
         )
         .addField("Server Region: ", message.guild.region, true)
+        .addField("Channels: ", message.guild.channels.size, true)
         .setImage(message.guild.iconURL())
         .setTimestamp()
         .setFooter('Valhalla', 'https://i.imgur.com/G5bui5n.png')
