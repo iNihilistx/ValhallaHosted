@@ -2,8 +2,6 @@ module.exports.run = async (bot, message, args) => {
     if (message.author.bot || message.channel.type === "dm") return;
 
     const messageArray = message.content.split(' ');
-    const cmd = messageArray[0];
-    const args = messageArray.slice(1);
 
     let pollChannel = message.mentions.channels.first();
     let pollDescription = args.slice(1).join(' ');
