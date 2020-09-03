@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
         .setColor('#FFA500')
         .setTitle('Server Information: ')
         .setURL('https://i.imgur.com/G5bui5n.png')
-        .setAuthor(member.displayAvatarURL())
+        .setAuthor(member.user.displayAvatar())
         .setDescription(`Server information`)
         .setThumbnail('Valhalla', 'https://i.imgur.com/G5bui5n.png')
         .addFields(
