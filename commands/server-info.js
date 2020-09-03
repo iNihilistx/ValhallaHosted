@@ -2,13 +2,15 @@ const Discord = require("discord.js")
 const botconfig = require("../config.json");
 
 module.exports.run = async (bot, message, args) => {
+    let member = message.mentions.members.first() || message.guild.members.cache.get(userArgs[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === userArgs.slice(0).join("") || x.user.username === userArgs[0]) || message.member;
+
     const serverinfoEmbed = new Discord.MessageEmbed()
         .setColor('#FFA500')
         .setTitle('Server Information: ')
         .setURL('https://i.imgur.com/G5bui5n.png')
         .setAuthor('Valhalla', 'https://i.imgur.com/G5bui5n.png')
         .setDescription(`Server information`)
-        .setThumbnail('https://i.imgur.com/G5bui5n.png')
+        .setThumbnail(member.user.displayAvatarURL())
         .addFields(
             { name: "Server Name: ", value: `${message.guild.name}` },
             { name: "Current Members: ", value: `${message.guild.memberCount}` },
