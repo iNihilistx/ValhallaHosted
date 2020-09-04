@@ -1,9 +1,8 @@
 const warns = require("./warns");
-module.exports = {
+module.exports.config = {
     name: "warn",
     description: "Warn a user",
-    category: "moderation",
-    usage: "<User mention> <Reason>",
+    usage: "-warn",
     run: async (bot, message, args) => {
         let user = message.mentions.users.first();
         if (!user) return message.channel.send(`You did not mention a user!`);
