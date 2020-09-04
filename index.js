@@ -14,7 +14,7 @@ bot.on("guildMemberRemove", member => {
     welcomeChannel.send(` ${member} has left the cult`)
 })
 
-client.on("message", msg => {
+bot.on("message", msg => {
     if (msg.content.startsWith(prefix + "nick")) {
         if (!msg.member.hasPermission("MANAGE_NICKNAMES")) return;
         var nickUser = msg.guild.member(msg.mentions.members.first());
