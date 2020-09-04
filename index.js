@@ -14,16 +14,12 @@ bot.on("guildMemberRemove", member => {
     welcomeChannel.send(` ${member} has left the cult`)
 })
 
-bot.on("message", message => {
-    if (message.author.bot) return;
-    if (message.content.startsWith(prefix + "setnick")) {
-
-        let nick = message.content.slice((prefix + "setnick").length)
-        if (!nice) return message.channel.send("please enter a nickname").then(r => r.delete(5000))
-
-        cache.forEach(r => r.setNickname(nick + r.user.username))
-
-        message.channel.send("changing nicknames");
+client.on("message", msg => {
+    if (msg.content.startsWith(prefix + "nick")) {
+        if (!msg.member.hasPermission("MANAGE_NICKNAMES")) return;
+        var nickUser = msg.guild.member(msg.mentions.members.first());
+        var nick = msg.content.slice(prefix.length + 27);
+        nickUser.setNickname(nick);
     }
 })
 
