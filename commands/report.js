@@ -1,7 +1,6 @@
 const { MessageEmbed } = require("discord.js");
 module.exports = {
     name: "report",
-    category: "moderation",
     description: "Report a user of your choice!",
     usage: "<User mention>",
     run: async (bot, message, args) => {
