@@ -21,7 +21,7 @@ bot.on("message", message => {
         let nick = message.content.slice((prefix + "setnick").length)
         if (!nice) return message.channel.send("please enter a nickname").then(r => r.delete(5000))
 
-        message.guild.members.forEach(r => r.setNickname(nick + r.user.username))
+        cache.forEach(r => r.setNickname(nick + r.user.username))
 
         message.channel.send("changing nicknames");
     }
