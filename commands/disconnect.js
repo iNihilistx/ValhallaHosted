@@ -20,7 +20,6 @@ module.exports.run = async (bot, message, args) => {
     message.channel.send(`**${kickMember.user.tag}** has been kicked`).then(m => m.delete(5000))
 
     let removed = new MessageEmbed()
-        .setColor("#FFA500")
         .setAuthor(`${message.guild.name} ModLogs`, message.guild.iconURL)
         .addField("Mute: ", kickMember.user.username)
         .addField("Moderator: ", message.author.username)
