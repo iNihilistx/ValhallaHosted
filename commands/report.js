@@ -1,6 +1,3 @@
-const Discord = require("Discord.js")
-const botconfig = require("../config.json");
-
 module.exports.run = async (bot, message, args) => {
     message.delete()
     // mentioned or grabbed user
