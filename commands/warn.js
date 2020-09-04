@@ -2,7 +2,8 @@ const Discord = require('discord.js');
 const fs = require("fs");
 
 module.exports.run = async (bot, client, message, args) => {
-    if (!message.member.hasPermission("KICK_MEMBERS")) return message.reply("You lack the permissions needed for this command!");
+    if (!message.member.hasPermission('KICK_MEMBERS'))
+        message.channel.send("You lack the permissions needed for this command!");
     let reason = args.slice(1).join(' ');
     let user = message.mentions.users.first();
     if (message.mentions.users.size < 1) return message.reply('You need to mention a user in order to warn them!');
