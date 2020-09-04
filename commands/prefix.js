@@ -14,5 +14,5 @@ module.exports.config = {
     usage: "-prefix",
     description: "changes the prefix",
     accessableby: "MANAGE_SERVER",
-    alias: []
+    aliases: []
 }
