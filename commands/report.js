@@ -3,14 +3,14 @@ module.exports = {
     name: "report",
     category: "moderation",
     description: "Report a user of your choice!",
-    usage: "-report",
+    usage: "<User mention>",
     run: async (bot, message, args) => {
         if (!message.member.permissions.has("MANAGE_MESSAGES"))
             return message.channel.send(`No.`);
         let User = message.mentions.users.first() || null;
 
         if (User == null) {
-            return message.channel.send(`You failed to mention a user!`);
+            return message.channel.send(`You did not mention a user!`);
         } else {
             let Reason = message.content.slice(bot.prefix.length + 22 + 7) || null;
             if (Reason == null) {
