@@ -1,4 +1,4 @@
-const warns = require("./models/warns");
+const warns = require("./warns");
 module.exports = {
     name: "warn",
     description: "Warn a user",
