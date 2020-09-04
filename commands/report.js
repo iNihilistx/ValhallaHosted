@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
     })
 }
 
-module.export.config = {
+module.exports.config = {
     name: "-report",
     description: "",
     usage: "-report",
