@@ -1,20 +1,17 @@
 const Discord = require("discord.js")
-
+const botconfig = require("./config.json")
 
 module.exports = bot => {
-    console.log(`${bot.user.username} is online`)
-    // bot.user.setActivity("Hello", {type: "STREAMING", url:"https://twitch.tv/Strandable"});
+    console.log(`${bot.user.username}is now online`)
 
     let statuses = [
-        `${bot.guilds.size} servers!`,
-        "!help",
+        `${bot.guilds.size}Servers!`,
+        "-help",
         `over ${bot.users.size} users!`
     ]
 
     setInterval(function () {
         let status = statuses[Math.floor(Math.random() * statuses.length)];
-        bot.user.setActivity(status, { type: "WATCHING" });
-
+        bot.user.setActivity(statu, { type: "WATCHING" });
     }, 5000)
-
 }
