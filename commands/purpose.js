@@ -14,3 +14,12 @@ module.exports.run = async (bot, message, args) => {
         .setDescription(`You pass butter`)
         .setThumbnail('https://i.imgur.com/G5bui5n.png')
 }
+
+module.exports.config = {
+    name: "Purpose",
+    setDescription: "bot gif",
+    usage: "=purpose",
+    accessableby: "Members",
+    aliases: []
+
+}
