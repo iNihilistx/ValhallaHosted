@@ -7,11 +7,11 @@ module.exports = bot => {
     let statuses = [
         `${bot.guilds.size}Servers!`,
         "-help",
-        `over ${bot.users.size} users!`
+        `${bot.users.cache.get} users!`
     ]
 
     setInterval(function () {
         let status = statuses[Math.floor(Math.random() * statuses.length)];
-        bot.user.setActivity(statu, { type: "WATCHING" });
+        bot.user.setActivity(status, { type: "WATCHING" });
     }, 5000)
 }
