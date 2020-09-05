@@ -7,7 +7,7 @@ module.exports = bot => {
     let statuses = [
         `${bot.guilds.size}Servers!`,
         "-help",
-        `over ${bot.users.size} users!`
+        `over ${message.guild.memberCount} users!`
     ]
     setInterval(function () {
         let status = statuses[Math.floor(Math.random() * statuses.length)];
