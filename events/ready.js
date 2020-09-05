@@ -5,9 +5,9 @@ module.exports = bot => {
     console.log(`${bot.user.username} is now online`)
 
     let statuses = [
-        `${guilds.cache.size} Servers!`,
+        `${bot.guilds.cache.size} Servers!`,
         "-help",
-        `over ${bot.guilds.memberCount} users!`
+        `over ${guilds.cache.size} users!`
     ]
 
     setInterval(function () {
