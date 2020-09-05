@@ -6,7 +6,7 @@ module.exports = bot => {
 
     let statuses = [
         `${bot.guilds.cache.size} Servers!`,
-        "-help",
+        "=help",
         "@Nairobi for more information"
     ]
 
