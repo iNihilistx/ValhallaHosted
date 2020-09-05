@@ -7,7 +7,7 @@ module.exports = bot => {
     let statuses = [
         `${bot.guilds.cache.size} Servers!`,
         "=help",
-        "under development"
+        "Being Developed"
     ]
 
     setInterval(function () {
