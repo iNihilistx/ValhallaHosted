@@ -5,7 +5,7 @@ module.exports = bot => {
     console.log(`${bot.user.username} is now online`)
 
     let statuses = [
-        `${bot.guilds.cache.size} Servers!`,
+        `Watching ${bot.guilds.cache.size} Servers!`,
         "=help",
         "Being Developed",
         "What is my purpose?"
@@ -13,6 +13,6 @@ module.exports = bot => {
 
     setInterval(function () {
         let status = statuses[Math.floor(Math.random() * statuses.length)];
-        bot.user.setActivity(status, { type: "WATCHING" });
+        bot.user.setActivity(status, { type: "PLAYING" });
     }, 5000)
 }
