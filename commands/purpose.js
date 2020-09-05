@@ -5,8 +5,9 @@ module.exports.run = async (bot, message, args) => {
     const purposeEmbed = new Discord.MessageEmbed()
         .setColor("#FFA500")
         .setImage('https://i.imgur.com/sdNIc8t.gif')
-        .setDescription("You pass butter")
-        .setTitle('What is my purpose?')
+        .setTitle('You pass butter')
+        .setTimestamp()
+        .setFooter('Valhalla', 'https://i.imgur.com/G5bui5n.png')
 
     message.channel.send(purposeEmbed);
 }
