@@ -7,7 +7,7 @@ module.exports = bot => {
     let statuses = [
         `${bot.guilds.cache.size} Servers!`,
         "-help",
-        `over ${guilds.cache.size} users!`
+        `over ${bot.guild.memberCount} users!`
     ]
 
     setInterval(function () {
