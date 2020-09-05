@@ -1,34 +1,35 @@
 var Discord = require('discord.js');
 
-module.exports.run = async (bot, message, args) => {
-    if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply("You can't do that");
+exports.run = async (client, msg, args) => {
+    if (!msg.member.hasPermission('MANAGE_MESSAGES')) return msg.reply('You can\'t use that!');
 
-    var user = message.mentions.user.first();
-    if (!user) return message.reply("You failed to mention anyone");
+    var user = msg.mentions.users.first();
+    if (!user) return msg.reply('You didn\'t mention anyone!');
 
     var member;
 
     try {
-        member = await message.guild.members.fetch(user);
+        member = await msg.guild.members.fetch(user);
     } catch (err) {
         member = null;
     }
 
-    if (!member) return message.reply("They aren't in the server");
+    if (!member) return msg.reply('They aren\'t in the server!');
 
     var reason = args.splice(1).join(' ');
+    if (!reason) return msg.reply('You need to give a reason!');
 
-    var channel = message.guild.channels.cache.find(c => c.name === 'warning');
+    var channel = msg.guild.channels.cache.find(c => c.name === 'warn');
 
     var log = new Discord.MessageEmbed()
         .setTitle('User Warned')
-        .addField('User: ', user, true)
-        .addField('By: ', message.author, true)
-        .addField('Reason: ', reason)
+        .addField('User:', user, true)
+        .addField('By:', msg.author, true)
+        .addField('Reason:', reason)
     channel.send(log);
 
     var embed = new Discord.MessageEmbed()
-        .setTitle('You have been warned')
+        .setTitle('You were warned!')
         .setDescription(reason);
 
     try {
@@ -37,5 +38,5 @@ module.exports.run = async (bot, message, args) => {
         console.warn(err);
     }
 
-    message.channel.send(`**${user}** has been warned by **${message.author}**`)
+    msg.channel.send(`**${user}** has been warned by **${msg.author}**!`);
 }
