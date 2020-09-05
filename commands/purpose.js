@@ -13,6 +13,8 @@ module.exports.run = async (bot, message, args) => {
         .setAuthor(member.user.tag, member.user.displayAvatarURL())
         .setDescription(`You pass butter`)
         .setThumbnail('https://i.imgur.com/G5bui5n.png')
+        .setTimestamp()
+        .setFooter('vallhalla', 'https://i.imgur.com/G5bui5n.png')
 
     message.channel.send(mypurposeEmbed);
 }
