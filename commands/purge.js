@@ -27,7 +27,7 @@ module.exports.run = async (bot, message) => {
 module.exports.config = {
     name: "purge",
     description: "",
-    usage: "-purge",
+    usage: "=purge",
     accessableby: "moderators",
     aliases: []
 }

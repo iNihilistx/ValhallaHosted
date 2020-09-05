@@ -18,7 +18,7 @@ module.exports.run = async (bot, message, args) => {
 module.exports.config = {
     name: "unmute",
     description: "",
-    usage: "-unmute",
+    usage: "=unmute",
     accessableby: "Moderators",
     aliases: []
 }
