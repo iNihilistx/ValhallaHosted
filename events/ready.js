@@ -5,7 +5,7 @@ module.exports = bot => {
     console.log(`${bot.user.username}is now online`)
 
     let statuses = [
-        `${bot.guilds.size}Servers!`,
+        `${bot.guilds.cache.size}Servers!`,
         "-help",
         `over ${bot.users.size} users!`
     ]
