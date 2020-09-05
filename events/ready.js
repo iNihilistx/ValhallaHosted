@@ -2,5 +2,6 @@ const Discord = require("discord.js")
 
 module.exports = bot => {
     console.log(`${bot.user.username} is online`)
-    bot.user.setActivity("-help | Nairobi", { type: "PLAYING", url: "https://github.com/Naiirobii" })
+    let activities = [`${bot.guilds.size} servers`, `${bot.channels.size} channels`, `${bot.users.size}`], i = 0;
+    setInterval(() => bot.user.setActivity(`${bot.prefix}help | ${activities[i++ % activities.length]}`, { type: "WATCHING " }), 15000)
 }
