@@ -2,12 +2,12 @@ const Discord = require("discord.js")
 const botconfig = require("../config.json")
 
 module.exports = bot => {
-    console.log(`${bot.user.username}is now online`)
+    console.log(`${bot.user.username} is now online`)
 
     let statuses = [
-        `${bot.guilds.cache.size}Servers!`,
+        `${bot.guilds.cache.size} Servers!`,
         "-help",
-        `over ${bot.users.size} users!`
+        `over ${bot.members.fetch} users!`
     ]
 
     setInterval(function () {
