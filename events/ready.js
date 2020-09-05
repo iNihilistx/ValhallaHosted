@@ -5,7 +5,7 @@ module.exports = bot => {
     console.log(`${bot.user.username} is now online`)
 
     let statuses = [
-        `Watching ${bot.guilds.cache.size} Servers!`,
+        `With ${bot.guilds.cache.size} Servers!`,
         "=help",
         "Being Developed",
         "What is my purpose?"
