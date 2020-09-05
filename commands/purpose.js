@@ -29,7 +29,7 @@ module.exports.run = async (bot, message, args) => {
 }
 
 module.exports.config = {
-    name: "server",
+    name: "purpose",
     description: "shows server information",
     usage: "=purpose",
     accessableby: "Members",
