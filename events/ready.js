@@ -1,5 +1,5 @@
 const Discord = require("discord.js")
-const botconfig = require("./config.json")
+const botconfig = require("../config.json")
 
 module.exports = bot => {
     console.log(`${bot.user.username}is now online`)
