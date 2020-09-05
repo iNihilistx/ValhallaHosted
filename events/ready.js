@@ -7,7 +7,8 @@ module.exports = bot => {
     let statuses = [
         `${bot.guilds.cache.size} Servers!`,
         "-help",
-        `Verification Level ${bot.guild.verificationLevel}`
+        "The Cult",
+        "https://twitch.tv/iflasheh"
     ]
 
     setInterval(function () {
