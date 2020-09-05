@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
         .setURL('https://i.imgur.com/sdNIc8t.gif')
         .setAuthor(member.user.tag, member.user.displayAvatarURL())
         .setDescription(`All the information for this guild`)
-        .setThumbnail('https://i.imgur.com/G5bui5n.png')
+        .setThumbnail('https://i.imgur.com/sdNIc8t.gif')
         .addFields(
             { name: "Server Name: ", value: `${message.guild.name}` },
             { name: "Current Members: ", value: `${message.guild.memberCount}` },
