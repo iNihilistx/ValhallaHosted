@@ -28,7 +28,7 @@ module.exports.run = async (bot, message, args) => {
             { name: 'Verification Level: ', value: `${message.guild.verificationLevel}`, inline: true }
         )
         .addField("Server Region: ", message.guild.region, true)
-        .addField("Uptime: ", message.channel.send(`The current uptime for Valhalla is: ${duration(bot.uptime)}`))
+        .addField("Uptime: ", `${message.guild.duration(bot.uptime)}`)
         .setImage(message.guild.iconURL())
         .setTimestamp()
         .setFooter('Valhalla', 'https://i.imgur.com/G5bui5n.png')
