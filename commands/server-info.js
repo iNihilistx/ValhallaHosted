@@ -9,7 +9,6 @@ module.exports.run = async (bot, message, args) => {
         const days = Math.floor((ms / (1000 * 60 * 60 * 24)) % 60).toString()
         return `${days.padStart(1, '0')} days, ${hrs.padStart(2, '0')} hours, ${min.padStart(2, '0')} minutes, ${sec.padStart(2, '0')} seconds. `
     }
-
     let userArray = message.content.split(" ");
     let userArgs = userArray.slice(1);
     let member = message.mentions.members.first() || message.guild.members.cache.get(userArgs[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === userArgs.slice(0).join("") || x.user.username === userArgs[0]) || message.member;
