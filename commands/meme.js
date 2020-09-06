@@ -10,6 +10,7 @@ module.exports.run = async (bot, message, args) => {
         .setImage(img)
         .setTitle(`From /r/${random}`)
         .setURL(`http://reddit.com/${random}`)
+        .setFooter('Valhalla', 'https://i.imgur.com/G5bui5n.png')
 
     message.channel.send(embed);
 
