@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
                 .setAuthor(`${bot.user.username}: Cattos!`, message.guild.iconURL)
                 .setImage(body.file)
                 .setTimestamp()
-                .setFooter(bot.user.username.toUpperCase(), bot.user.displayAvatarURL)
+                .setFooter('Valhalla', 'https://i.imgur.com/G5bui5n.png')
 
             msg.edit(cEmbed)
         })
