@@ -8,7 +8,8 @@ module.exports = bot => {
         `With ${bot.guilds.cache.size} Servers!`,
         "=help",
         "Being Developed",
-        "What is my purpose?"
+        "What is my purpose?",
+        "https://discord.gg/c2THnA9"
     ]
 
     setInterval(function () {
