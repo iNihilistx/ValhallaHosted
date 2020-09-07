@@ -20,5 +20,5 @@ module.exports.config = {
 	description: "",
 	usage: "=kick",
 	accessableby: "Moderators",
-	aliases: []
+	aliases: ["kickmember"]
 }
