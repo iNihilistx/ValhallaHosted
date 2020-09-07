@@ -9,8 +9,8 @@ module.exports.run = async (bot, message, args) => {
     if (!helpArgs[0]) {
         var embed = new Discord.MessageEmbed()
             .setAuthor(`The current available commands:`)
-            .setDescription('```| server |  member | mute | unmute | kick | ban | meme | cat | wholesome | aesthetic | cursed | ```')
-            .addFields({ name: 'Chosen Prefix: ', value: '```-```', inline: true })
+            .setDescription('```| server |  member | mute | unmute | kick | ban | meme | wholesome | aesthetic | cursed | ```')
+            .addFields({ name: 'Chosen Prefix: ', value: '```=```', inline: true })
             .setColor('#FFA500')
             .setFooter('Valhalla', 'https://i.imgur.com/G5bui5n.png')
 
