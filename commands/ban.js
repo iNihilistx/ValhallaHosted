@@ -3,7 +3,7 @@ module.exports.run = async (bot, message, args) => {
 		message.channel.send("You lack the permissions needed for this command!");
 	else {
 		try {
-			let bannedMember = message.mentions.members.first();
+			let bannedMember = await message.guild.members.ban(args);
 			if (bannedMember)
 				console.log(bannedMember.tag + " was banned from the server!");
 			message.channel.send(`${bannedMember} has been banned from the server!`)
