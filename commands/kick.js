@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
 		if (member) {
 			try {
 				await member.kick();
-				console.log(member.tag + " was kicked from the server!");
+				console.log(member.id + " was kicked from the server!");
 				message.channel.send(`${member}, was kicked from the server!`)
 			}
 			catch (err) {
