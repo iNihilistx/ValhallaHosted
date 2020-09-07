@@ -2,12 +2,12 @@ module.exports.run = async (bot, message, args) => {
 	if (!message.member.hasPermission('BAN_MEMBERS'))
 		message.channel.send("You lack the permissions needed for this command!");
 	else {
-		let banmember = message.mentions.members.first();
-		if (banmember) {
+		let member = message.mentions.members.first();
+		if (member) {
 			try {
-				await banmember.ban();
+				await member.ban();
 				console.log(member.tag + " has been kicked from the server!");
-				message.channel.send(`${banmember}, has been kicked from the server!`)
+				message.channel.send(`${member}, has been kicked from the server!`)
 			}
 			catch (err) {
 				console.log(err);
@@ -16,9 +16,9 @@ module.exports.run = async (bot, message, args) => {
 	}
 }
 module.exports.config = {
-	name: "kick",
+	name: "ban",
 	description: "",
-	usage: "=kick",
+	usage: "=ban",
 	accessableby: "Moderators",
-	aliases: ["kickmember"]
+	aliases: []
 }
