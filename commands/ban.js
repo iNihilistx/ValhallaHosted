@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
 		if (member) {
 			try {
 				await member.ban();
-				console.log(member.tag + ` has been banned from ${message.guild.name}!`);
+				console.log(member.tag + ` has been banned from: ${message.guild.name}!`);
 				message.channel.send(`${member}, has been banned from:  ${message.guild.name}!`)
 			}
 			catch (err) {
