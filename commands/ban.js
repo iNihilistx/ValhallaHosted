@@ -5,7 +5,7 @@ module.exports.run = async (bot, message, args) => {
 		let banmember = message.mentions.members.first();
 		if (banmember) {
 			try {
-				await member.ban();
+				await banmember.ban();
 				console.log(member.tag + " has been kicked from the server!");
 				message.channel.send(`${banmember}, has been kicked from the server!`)
 			}
