@@ -33,6 +33,7 @@ module.exports.run = async (bot, message, args) => {
             - **Command's Aliases:** __${command.config.aliases || "No Aliases"}__
             `)
                 .setColor('#2EFF00')
+                .setTimestamp()
 
             message.channel.send(embed);
         }
