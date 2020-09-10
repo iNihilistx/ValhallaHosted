@@ -9,7 +9,6 @@ module.exports.run = async (bot, message, args) => {
         .setColor("#FFA500")
         .setTitle('UWU')
         .setURL('https://i.imgur.com/G5bui5n.png')
-        .setAuthor(member.user.tag, member.user.displayAvatarURL())
         .setImage(image)
         .setTimestamp()
         .setFooter("Valhalla", 'https://i.imgur.com/G5bui5n.png')
