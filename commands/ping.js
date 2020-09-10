@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
         var ping = m.createdTimeStamp - message.createdTimeStamp;
 
         var ping = new Discord.MessageEmbed()
-            .setAuthor(`Your ping is: ${ping} \n and the bots ping is: ${botping}`)
+            .setAuthor(`Your ping is: ${ping} \n The bots ping is: ${botping}`)
             .setColor(`#FFA500`)
 
         m.edit(ping)
