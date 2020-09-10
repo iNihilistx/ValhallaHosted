@@ -2,8 +2,20 @@ const Discord = require('discord.js')
 const botconfig = require('../config.json');
 
 module.exports.run = async (bot, message, args) => {
-    const m = await message.channel.send("pinging...");
-    m.edit(`Recieved! Latency is ${m.createdTimeStamp - message.createdTimeStamp}ms. API Latency is${Math.round(bot.ping)}ms `);
+    var yourping = new Date().getTime() - message.createdTimeStamp
+    var botping = Math.round(bot.ws.ping)
+
+    message.channel.send(`Your ping is currently: ${yourping} \nBots ping is:: ${botping}`)
+
+    message.channel.send("Pinging...").then(m => {
+        var ping = m.createdTimeStamp - message.createdTimeStamp;
+
+        var ping = new Discord.MessageEmbed()
+            .setAuthor(`Your ping is: ${ping}`)
+            .setColor(`#FFA500`)
+
+        m.edit(ping)
+    });
 
 }
 
