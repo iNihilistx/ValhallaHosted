@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
             .setColor('#FFA500')
             .setTimestamp()
 
-        m.edit(embed)
+        m.edit(ping)
     });
 }
 
