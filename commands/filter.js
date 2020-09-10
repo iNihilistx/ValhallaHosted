@@ -2,10 +2,11 @@ const Discord = require('discord.js')
 const botconfig = require('../config.json');
 
 module.exports.run = async (bot, message, args) => {
-    const swears = ["nigger", "Nigger", "fag", "Fag", "Faggot", "faggot"];
-    if (swears.some(word => message.content.includes(word))) {
-        message.reply("Prohibited words have been included");
-        message.delete().catch(e => { });
+    if (message.includes("faggot", "Faggot", "nigger", "Nigger")) {
+        message.delete().catch(err => console.log)
+        message.reply("please refrain from using these words").then(msg => {
+            msg.delete("5000")
+        })
     }
 }
 
