@@ -5,8 +5,14 @@ const bot = new Discord.Client({ disableEveryone: true });
 
 bot.on("guildMemberAdd", member => {
     const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === 'welcome')
+    const welcomeEmbed = new Discord.MessageEmbed()
+        .setColor('#FFa500')
+        .setTitle("Welcome User")
+        .setURL('https://i.imgur.com/G5bui5n.png')
+        .setAuthor(member.user.tag, member.user.displayAvatarURL())
+        .addField(welcomeChannel.send { $member }, "welcome to the cult")
 
-    welcomeChannel.send(`${member} has joined the cult`)
+    message.channel.send(welcomeEmbed);
 })
 
 bot.on("guildMemberRemove", member => {
