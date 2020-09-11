@@ -10,7 +10,7 @@ bot.on("guildMemberAdd", member => {
         .setTitle("Welcome User")
         .setURL('https://i.imgur.com/G5bui5n.png')
         .setAuthor(member.user.tag, member.user.displayAvatarURL())
-        .addField(welcomeChannel.send(`${member} has joined the cult`))
+    welcomeChannel.send(`${member} has joined the cult`)
 
     message.channel.send(welcomeEmbed);
 })
