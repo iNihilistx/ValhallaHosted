@@ -5,11 +5,11 @@ module.exports.run = async (bot, message, args) => {
     var yourping = new Date().getTime() - message.createdTimeStamp
     var botping = Math.round(bot.ws.ping)
 
-    message.channel.send("The Current Ping...").then(m => {
+    message.channel.send("Checking...").then(m => {
         var ping = m.createdTimeStamp - message.createdTimeStamp;
 
         var ping = new Discord.MessageEmbed()
-            .setAuthor(` Valhallas ping is: ${botping}ms`)
+            .setAuthor(` The Ping For Valhalla is: ${botping}ms`)
             .setColor(`#FFA500`)
             .setTimestamp()
 
