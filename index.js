@@ -9,7 +9,7 @@ bot.on("guildMemberAdd", member => {
     welcomeChannel.send(`${member} has joined the cult`)
 })
 
-bot.on('guildMemberAdd', (Discord.GuildMember) => {
+bot.on('guildMemberAdd', (guildMember) => {
     GuildMember.addRole(guildMember.guild.roles.find(role => role.name === "dudes"));
 })
 
