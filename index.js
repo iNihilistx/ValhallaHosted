@@ -9,11 +9,11 @@ bot.on("guildMemberAdd", member => {
     welcomeChannel.send(`${member} has joined the cult`)
 })
 
-bot.on('guildMemberAdd', (guildMember) => {
+client.on('guildMemberAdd', (guildMember) => {
     GuildMember.addRole(guildMember.guild.roles.find(role => role.name === "dudes"));
 })
 
-client.on("guildMemberRemove", member => {
+bot.on("guildMemberRemove", member => {
     const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === "goodbye")
     welcomeChannel.send(` ${member} has left the cult`)
 })
