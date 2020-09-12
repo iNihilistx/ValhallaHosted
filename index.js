@@ -8,7 +8,7 @@ bot.on("guildMemberAdd", member => {
 
     welcomeChannel.send(`${member} has joined the cult`)
 
-    member.setRoles([754444672155385917]);
+    member.setRoles(['754444672155385917']);
 })
 
 bot.on("guildMemberRemove", member => {
