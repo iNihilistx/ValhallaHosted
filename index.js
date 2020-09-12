@@ -7,10 +7,7 @@ bot.on("guildMemberAdd", member => {
     const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === 'welcome')
 
     welcomeChannel.send(`${member} has joined the cult`)
-
-    const role = guild.roles.find(role => role.name === 'dudes');
-    member.addRole(role);
-});
+})
 
 bot.on("guildMemberRemove", member => {
     const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === "goodbye")
