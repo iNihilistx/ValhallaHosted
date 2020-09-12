@@ -8,8 +8,9 @@ bot.on("guildMemberAdd", member => {
 
     welcomeChannel.send(`${member} has joined the cult`)
 
-    member.setRoles(['754444672155385917']);
-})
+    const role = guild.roles.find(role => role.name === 'dudes');
+    member.addRole(role);
+});
 
 bot.on("guildMemberRemove", member => {
     const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === "goodbye")
