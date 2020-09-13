@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js")
-const Botconfig = require('../ config.json')
+const botconfig = require('../config.json');
 module.exports.run = async (message, bot, args) => {
     if (!message.member.hasPermission("MANAGE_ROLES")) {
         return message.channel.send(
