@@ -1,10 +1,6 @@
-const { MessageEmbed } = require("discord.js");
+const { MessageEmbed } = require('discord.js')
 
-module.exports = {
-    name: "mute",
-    description: "Mute anyone who break rules",
-    category: "moderation",
-    usage: "=mute",
+module.exports.run = async (bot, message, args) => {
     run: async (client, message, args) => {
         if (!message.member.hasPermission("MANAGE_ROLES")) {
             return message.channel.send(
@@ -62,3 +58,8 @@ module.exports = {
 
     }
 };
+
+module.exports.config = {
+    name: "mute",
+    usage: "=mute"
+}
