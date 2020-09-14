@@ -1,21 +1,23 @@
-const Usedcommand = new Set();
+
+const usedCommand = new Set();
 
 module.exports.run = async (bot, message, args) => {
-    if (Usedcommand.has(message.author.id)) {
-        message.reply("You're currently in cooldown...")
+    if (usedCommand.has(message.author.id)) {
+        message.reply('You cannot use the command beacuse of the cooldown.')
     } else {
-        message.reply("You're no longer in cooldown!")
+        message.reply('You are no longer in a cooldown anymore.')
 
-        Usedcommand.add(message.author.id);
+
+        usedCommand.add(message.author.id);
         setTimeout(() => {
-            Usedcommand.delete(message.author.id);
-        }, 4000); //this is within Mseconds and can be changed to anything
+            usedCommand.delete(message.author.id);
+        }, 5000); //You can set the ammount of the cooldown here! Its Formated to Miliseconds.
     }
 }
 
 module.exports.config = {
     name: "cooldown",
-    description: "cooldown",
+    description: "a Simple test of the Cooldown Command.",
     usage: "??cooldown",
     accessableby: "Members",
     aliases: []
