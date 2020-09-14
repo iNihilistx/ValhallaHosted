@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
         var embed = new Discord.MessageEmbed()
             .setAuthor(`The current available commands:`)
             .setDescription('```| server |  member <@> | mute <@> | unmute <@> | kick <@> | ban <@> | poll <#> <text>  | meme | uwu | wholesome | aesthetic | cursed | ```')
-            .addFields({ name: 'Chosen Prefix: ', value: '```=```', inline: true })
+            .addFields({ name: 'Chosen Prefix: ', value: '```??```', inline: true })
             .setColor('#FFA500')
             .setFooter('Valhalla', 'https://i.imgur.com/G5bui5n.png')
 
