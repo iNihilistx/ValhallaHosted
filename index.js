@@ -30,8 +30,8 @@ bot.on("message", async message => {
             .setDescription(pollDescription)
             .setColor('ORANGE')
         let msgEmbed = await pollChannel.send(embedPoll);
-        await msgEmbed.react('✅')
         await msgEmbed.react('❌')
+        await msgEmbed.react('✅')
     }
 
 })
