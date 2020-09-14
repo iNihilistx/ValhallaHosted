@@ -4,7 +4,7 @@ module.exports.run = async (bot, message, args) => {
     if (member.hasPermission(['KICK_MEMBERS', 'BAN_MEMBERS']) && !message.member.hasPermission('MODERATOR')) return;
 
     let mutedRole = message.guild.roles.cache.get('mute');
-    let verifiedRole = message.guild.roles.cache.get('737386427637170239)');
+    let verifiedRole = message.guild.roles.cache.get('737386427637170239');
     if (mutedRole) {
         member.roles.add(mutedRole);
         member.roles.remove(verifiedRole);
