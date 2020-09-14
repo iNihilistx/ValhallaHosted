@@ -1,26 +1,36 @@
-const Discord = require('discord.js');
-const randomPuppy = require('random-puppy');
+
+const usedCommand = new Set();
 
 module.exports.run = async (bot, message, args) => {
     const subReddits = ["meme", "me_irl", "dankmeme", "gamingmemes", "memes"]
     const random = subReddits[Math.floor(Math.random() * subReddits.length)];
     const img = await randomPuppy(random);
 
-    const embed = new Discord.MessageEmbed()
-        .setImage(img)
-        .setTitle(`From /r/${random}`)
-        .setURL(`http://reddit.com/${random}`)
-        .setTimestamp()
-        .setFooter('Valhalla', 'https://i.imgur.com/G5bui5n.png')
+    if (usedCommand.has(message.author.id)) {
+        message.reply('You cannot use the command beacuse of the cooldown.')
+    } else {
 
-    message.channel.send(embed);
+        const embed = new Discord.MessageEmbed()
+            .setImage(img)
+            .setTitle(`From /r/${random}`)
+            .setURL(`http://reddit.com/${random}`)
+            .setTimestamp()
+            .setFooter('Valhalla', 'https://i.imgur.com/G5bui5n.png')
 
+        message.channel.send(embed);
+
+    }
+
+    usedCommand.add(message.author.id);
+    setTimeout(() => {
+        usedCommand.delete(message.author.id);
+    }, 5000); //You can set the ammount of the cooldown here! Its Formated to Miliseconds.
 }
 
 module.exports.config = {
-    name: "meme",
-    description: "",
-    usage: "=meme",
+    name: "cooldown",
+    description: "meme with cooldown.",
+    usage: "??cooldown",
     accessableby: "Members",
     aliases: []
 }
