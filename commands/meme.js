@@ -3,11 +3,21 @@ const Discord = require('discord.js');
 const randomPuppy = require('random-puppy');
 
 module.exports.run = async (bot, message, args) => {
+    const subReddits = ["meme", "me_irl", "dankmeme", "memes"]
+    const random = subReddits[Math.floor(Math.random() * subReddits.length)];
+    const img = await randomPuppy(random);
+
     if (usedCommand.has(message.author.id)) {
         message.reply('You cannot use the command beacuse of the cooldown.')
     } else {
-        message.reply('Your not in a cooldown anymore.')
+        const embed = new Discord.MessageEmbed()
+            .setImage(img)
+            .setTitle(`From /r${random}`)
+            .setURL(`http://reddit.com/$random`)
+            .setTimestamp()
+            .setFooter("Valhalla", 'https://i.imgur.com/G5bui5n.png')
 
+        message.channel.send(embed);
 
         usedCommand.add(message.author.id);
         setTimeout(() => {
@@ -17,9 +27,9 @@ module.exports.run = async (bot, message, args) => {
 }
 
 module.exports.config = {
-    name: "cooldown",
-    description: "a Simple test of the Cooldown Command.",
-    usage: "?cooldown",
+    name: "meme",
+    description: "sends memes.",
+    usage: "??meme",
     accessableby: "Members",
     aliases: []
 }
