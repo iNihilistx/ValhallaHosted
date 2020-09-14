@@ -37,7 +37,6 @@ bot.on("message", async message => {
 
 })
 
-
 require("./util/eventHandler")(bot)
 
 const fs = require("fs");
