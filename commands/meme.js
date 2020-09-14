@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
 module.exports.config = {
     name: "meme",
     description: "",
-    usage: "=meme",
+    usage: "??meme",
     accessableby: "Members",
     aliases: []
 }

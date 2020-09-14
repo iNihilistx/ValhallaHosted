@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
 module.exports.config = {
     name: "aesthetic",
     description: "",
-    usage: "=aesthetic",
+    usage: "??aesthetic",
     accessableby: "Members",
     aliases: []
 }

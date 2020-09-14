@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
 module.exports.config = {
     name: "shutdown",
     description: "shuts down the bot",
-    usage: "=shutdown",
+    usage: "??shutdown",
     accessableby: "BOT OWNER",
     aliases: ["botstop"]
 }
