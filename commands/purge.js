@@ -19,7 +19,7 @@ module.exports.run = async (bot, message) => {
     }
 
     message.channel.bulkDelete(deleteAmount + 1, true);
-    await message.channel.send(`**Successfully** Deleted ***${deleteAmount}*** Messages!`).then(m => m.delete({ timeout: 5000 }))
+    await message.channel.send(`**Successfully** Deleted ***${deleteAmount}*** Messages!`).then(m => m.delete + 1({ timeout: 5000 }))
 
 }
 
