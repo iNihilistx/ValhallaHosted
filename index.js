@@ -22,19 +22,21 @@ bot.on("message", async message => {
     const args = messageArray.slice(1);
 
     if (cmd === '??poll') {
-        let pollChannel = message.mentions.channels.first(' ');
+        let pollChannel = message.mentions.channels.first();
         let pollDescription = args.slice(1).join(' ');
 
-        let pollEmbed = new Discord.MessageEmbed()
+        let embedPoll = new Discord.MessageEmbed()
             .setTitle('New Poll')
             .setDescription(pollDescription)
             .setColor('ORANGE')
             .setTimestamp()
-        let msgEmbed = await pollChannel.send(pollEmbed);
+        let msgEmbed = await pollChannel.send(embedPoll);
         await msgEmbed.react('👍')
         await msgEmbed.react('👎')
     }
+
 })
+
 
 require("./util/eventHandler")(bot)
 
