@@ -12,6 +12,7 @@ module.exports.run = async (bot, message, args) => {
             .setDescription('```| server |  member <@> | mute <@> | unmute <@> | kick <@> | ban <@> | poll <#> <text>  | meme | uwu | wholesome | aesthetic | cursed | ```')
             .addFields({ name: 'Chosen Prefix: ', value: '```??```', inline: true })
             .setColor('#FFA500')
+            .setTimestamp()
             .setFooter('Valhalla', 'https://i.imgur.com/G5bui5n.png')
 
         message.channel.send(embed);
