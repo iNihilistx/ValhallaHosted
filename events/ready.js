@@ -5,7 +5,7 @@ module.exports = bot => {
     console.log(`${bot.user.username} is now online`)
 
     let statuses = [
-        "=help",
+        "??help",
         "twitch.tv/iflasheh",
         "What is my purpose?",
     ]
