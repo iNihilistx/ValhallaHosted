@@ -2,11 +2,16 @@ const Discord = require('discord.js')
 const botconfig = require('../config.json');
 
 module.exports.run = async (bot, message, args) => {
-    let randomnumber = Math.floor(Math.random() * 9000 + 1000)
+    // Make sure the bot user has permissions to move members in the guild:
+    if (!message.guild.me.hasPermission('MOVE_MEMBERS')) return message.reply('Missing the required `Move Members` permission.');
 
-    await receivedMessage.guild.createChannel(`voice-kick-${randomnumber}`, "voice")
-    await vcUser.setVoiceChannel(receivedMessage.guild.channels.find(r => r.name === `voice-kick-${randomnumber}`))
-    receivedMessage.guild.channels.find(r => r.name === `voice-${randomnumber}`).delete()
+    const member = message.mentions.members.first();
+    if (!member) return message.reply('You need to @mention a user/bot to kick from the voice channel.');
+    if (!member.voiceChannel) return message.reply('That user/bot isn\'t in a voice channel.');
+
+    member.member.voice.kick();
+
+    message.react('👌');
 }
 
 module.exports.config = {
