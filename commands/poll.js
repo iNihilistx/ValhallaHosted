@@ -10,4 +10,13 @@ module.exports.run = async (bot, message, args) => {
         .setDescription(pollDescription)
         .setColor('ORANGE')
     let msgEmbed = await pollChannel.send(pollEmbed);
+    await msgEmbed.react('👍')
+    await msgEmbed.react('👎')
+}
+
+module.exports.config = {
+    name: "poll",
+    usage: "??poll <channel name> <msg>",
+    description: "",
+    aliases: []
 }
