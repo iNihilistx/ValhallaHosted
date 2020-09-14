@@ -5,11 +5,9 @@ module.exports = bot => {
     console.log(`${bot.user.username} is now online`)
 
     let statuses = [
-        `With ${bot.guilds.cache.size} Servers!`,
         "=help",
-        "Being Developed",
+        "twitch.tv/iflasheh",
         "What is my purpose?",
-        "https://discord.gg/c2THnA9"
     ]
 
     setInterval(function () {
