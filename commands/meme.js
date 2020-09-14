@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
     const img = await randomPuppy(random);
 
     if (usedCommand.has(message.author.id)) {
-        message.reply('You cannot use the command beacuse of the cooldown.')
+        message.reply('You are currently in a cooldown. Wait 5 seconds and try again...')
     } else {
         const embed = new Discord.MessageEmbed()
             .setImage(img)
