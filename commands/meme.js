@@ -1,17 +1,25 @@
+const usedCommand = new Set();
 const Discord = require('discord.js');
 const randomPuppy = require('random-puppy');
-const usedCommand = new Set()
 
 module.exports.run = async (bot, message, args) => {
     if (usedCommand.has(message.author.id)) {
-        message.reply('This command is currently in cooldown')
+        message.reply('You cannot use the command beacuse of the cooldown.')
     } else {
-        message.reply('cooldown is off')
+        message.reply('Your not in a cooldown anymore.')
+
 
         usedCommand.add(message.author.id);
         setTimeout(() => {
             usedCommand.delete(message.author.id);
-
-        }, 5000);
+        }, 5000); //You can set the ammount of the cooldown here! Its Formated to Miliseconds.
     }
+}
+
+module.exports.config = {
+    name: "cooldown",
+    description: "a Simple test of the Cooldown Command.",
+    usage: "?cooldown",
+    accessableby: "Members",
+    aliases: []
 }
