@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
     const image = images[Math.floor(Math.random() * images.length)];
 
     if (usedCommand.has(message.author.id)) {
-        message.reply('You are currently in a cool. Wait 15 seconds then try again...').then(m => m.delete({ timeout: 6000 }))
+        message.reply('You are currently in a cooldown. Wait 15 seconds then try again...').then(m => m.delete({ timeout: 5000 }))
     } else {
         const uwuEmbed = new Discord.MessageEmbed()
             .setColor("#FFA500")
