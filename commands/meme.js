@@ -1,4 +1,3 @@
-const talkedRecently = new Set()
 const Discord = require('discord.js');
 const randomPuppy = require('random-puppy');
 
@@ -15,14 +14,6 @@ module.exports.run = async (bot, message, args) => {
         .setFooter('Valhalla', 'https://i.imgur.com/G5bui5n.png')
 
     message.channel.send(embed);
-
-    if (talkedRecently.has(message.author.id))
-        return;
-
-    talkedRecently.add(message.author.id);
-    setTimeout(() => {
-        talkedRecently.delete(message.author.id);
-    }, 5000);
 
 }
 
