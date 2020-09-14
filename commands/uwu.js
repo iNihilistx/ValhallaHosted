@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
     const image = images[Math.floor(Math.random() * images.length)];
 
     if (usedCommand.has(message.author.id)) {
-        message.reply('You are currently in a cooldown. Wait 5 seconds and try again...')
+        message.reply('You are currently in a cooldown. Wait 15 seconds and try again...')
     } else {
         const uwuEmbed = new Discord.MessageEmbed()
             .setColor("#FFA500")
@@ -25,7 +25,7 @@ module.exports.run = async (bot, message, args) => {
         usedCommand.add(message.author.id);
         setTimeout(() => {
             usedCommand.delete(message.author.id);
-        }, 10000);
+        }, 15000);
     }
 }
 

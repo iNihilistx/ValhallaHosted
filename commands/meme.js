@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
     const img = await randomPuppy(random);
 
     if (usedCommand.has(message.author.id)) {
-        message.reply('You are currently in a cooldown. Wait 5 seconds and try again...')
+        message.reply('You are currently in a cooldown. Wait 15 seconds and try again...')
     } else {
         const embed = new Discord.MessageEmbed()
             .setImage(img)
@@ -22,7 +22,7 @@ module.exports.run = async (bot, message, args) => {
         usedCommand.add(message.author.id);
         setTimeout(() => {
             usedCommand.delete(message.author.id);
-        }, 10000); //You can set the ammount of the cooldown here! Its Formated to Miliseconds.
+        }, 15000); //You can set the ammount of the cooldown here! Its Formated to Miliseconds.
     }
 }
 
