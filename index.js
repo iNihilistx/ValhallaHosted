@@ -34,7 +34,6 @@ bot.on("message", async message => {
         await msgEmbed.react('👍')
         await msgEmbed.react('👎')
     }
-
 })
 
 require("./util/eventHandler")(bot)
