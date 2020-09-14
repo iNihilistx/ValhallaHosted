@@ -5,6 +5,7 @@ const botconfig = require('../config.json');
 module.exports.run = async (bot, message, args) => {
     if (usedCommand.has(message.author.id)) {
         message.reply('You are currently in a cooldown. Wait 30 seconds and try again...')
+        message.delete()
     } else {
 
         var yourping = new Date().getTime() - message.createdTimeStamp
