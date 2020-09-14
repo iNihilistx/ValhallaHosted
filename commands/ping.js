@@ -4,6 +4,7 @@ const botconfig = require('../config.json');
 
 module.exports.run = async (bot, message, args) => {
     if (usedCommand.has(message.author.id)) {
+        message.channel.bulkDelete(deleteAmount + 1, true);
         message.reply('You are currently in a cooldown. Wait 30 seconds, and try again...').then(m => m.delete({ timeout: 5000 }))
     } else {
 
