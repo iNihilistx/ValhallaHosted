@@ -7,7 +7,7 @@ module.exports.run = async (bot, message, args) => {
 
     const member = message.mentions.members.first();
     if (!member) return message.reply('You need to @mention a user/bot to kick from the voice channel.');
-    if (!member.voiceChannel) return message.reply('That user/bot isn\'t in a voice channel.');
+    if (!member.voiceChannel) return message.reply('That user isn\'t in a voice channel.');
 
     member.member.voice.kick();
 
