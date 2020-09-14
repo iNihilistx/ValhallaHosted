@@ -1,4 +1,4 @@
-module.exports = (client) => {
+module.exports = (bot) => {
     const channelId = '732883157103149067'
 
     const updateMembers = (guild) => {
@@ -6,8 +6,8 @@ module.exports = (client) => {
         channel.setName(`Members: ${guild.memberCount.toLocaleString()}`)
     }
 
-    client.on('guildMemberAdd', (member) => updateMembers(member.guild))
-    client.on('guildMemberRemove', (member) => updateMembers(member.guild))
+    bot.on('guildMemberAdd', (member) => updateMembers(member.guild))
+    bot.on('guildMemberRemove', (member) => updateMembers(member.guild))
 
     const guild = client.guilds.cache.get('464316540490088448')
     updateMembers(guild)
