@@ -1,5 +1,6 @@
 const usedCommand = new Set();
 const Discord = require('discord.js');
+const { duration } = require('moment');
 const botconfig = require('../config.json');
 
 module.exports.run = async (bot, message, args) => {
@@ -8,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
     const image = images[Math.floor(Math.random() * images.length)];
 
     if (usedCommand.has(message.author.id)) {
-        message.reply('You are currently in a cooldown. Wait 15 seconds and try again...')
+        message.reply('You are currently in a cool. Wait 15 seconds then try again...').then(m => m.delete({ timeout: 6000 }))
     } else {
         const uwuEmbed = new Discord.MessageEmbed()
             .setColor("#FFA500")
