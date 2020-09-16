@@ -24,7 +24,7 @@ bot.on("message", async message => {
 
     if (cmd === '??poll') {
         if (usedCommand.has(message.author.id)) {
-            (await message.reply("You are currently in a cooldown. Wait 10 seconds and try again...")).attachments(m => m.delete({ timeout: 10000 }))
+            (await message.reply("You are currently in a cooldown. Wait 10 seconds and try again...")).attachments(m => m.delete({ timeout: 5000 }))
         } else {
 
 
@@ -43,7 +43,7 @@ bot.on("message", async message => {
         usedCommand.add(message.author.id);
         setTimeout(() => {
             usedCommand.delete(message.author.id);
-        }, 5000);
+        }, 10000);
     }
 })
 
