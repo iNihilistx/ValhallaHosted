@@ -24,7 +24,7 @@ bot.on("message", async message => {
 
     if (cmd === '??poll') {
         if (usedCommand.has(message.author.id)) {
-            message.delete(1000);
+            message.channel.bulkDelete(deleteAmount + 1, true);
             (await message.reply("You are currently in a cooldown. Wait 10 seconds and try again...")).attachments(m => m.delete({ timeout: 5000 }))
         } else {
 
