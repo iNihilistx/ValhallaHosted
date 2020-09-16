@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const botsettings = require('./config.json');
+const usedCommand = new Set();
 
 const bot = new Discord.Client({ disableEveryone: true });
 
@@ -22,18 +23,28 @@ bot.on("message", async message => {
     const args = messageArray.slice(1);
 
     if (cmd === '??poll') {
-        let pollChannel = message.mentions.channels.first();
-        let pollDescription = args.slice(1).join(' ');
+        if (usedCommand.has(message.author.id)) {
+            (await message.reply("You are currently in a cooldown. Wait 10 seconds and try again...")).attachments(m => m.delete({ timeout: 10000 }))
+        } else {
 
-        let embedPoll = new Discord.MessageEmbed()
-            .setTitle(`🗳️ New Poll For: ${message.mentions.guild} 🗳️`)
-            .setDescription(pollDescription)
-            .setColor('ORANGE')
-        let msgEmbed = await (await pollChannel.send(embedPoll)).then(m => m.delete({ timeout: 4000 }));
-        await msgEmbed.react('✅')
-        await msgEmbed.react('❌')
+
+            let pollChannel = message.mentions.channels.first();
+            let pollDescription = args.slice(1).join(' ');
+
+            let embedPoll = new Discord.MessageEmbed()
+                .setTitle(`🗳️ New Poll For: ${message.mentions.guild} 🗳️`)
+                .setDescription(pollDescription)
+                .setColor('ORANGE')
+            let msgEmbed = await pollChannel.send(embedPoll);
+            await msgEmbed.react('✅')
+            await msgEmbed.react('❌')
+        }
+
+        usedCommand.add(message.author.id);
+        setTimeout(() => {
+            usedCommand.delete(message.author.id);
+        }, 5000);
     }
-
 })
 
 require("./util/eventHandler")(bot)
