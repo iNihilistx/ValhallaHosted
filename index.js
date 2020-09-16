@@ -29,7 +29,7 @@ bot.on("message", async message => {
             .setTitle(`🗳️ New Poll For: ${message.mentions.guild} 🗳️`)
             .setDescription(pollDescription)
             .setColor('ORANGE')
-        let msgEmbed = await pollChannel.send(embedPoll);
+        let msgEmbed = await (await pollChannel.send(embedPoll)).then(m => m.delete({ timeout: 4000 }));
         await msgEmbed.react('✅')
         await msgEmbed.react('❌')
     }
