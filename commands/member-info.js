@@ -1,36 +1,49 @@
+const usedCommand = new Set();
 const Discord = require('discord.js');
 const moment = require('moment');
+const { set } = require('mongoose');
 
 module.exports.run = async (bot, message, args) => {
-    let userArray = message.content.split(" ");
-    let userArgs = userArray.slice(1);
-    let member = message.mentions.members.first() || message.guild.members.cache.get(userArgs[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === userArgs.slice(0).join(" ") || x.user.username === userArgs[0]) || message.member;
+    if (usedCommand.has(message.author.id)) {
+        message.reply("You are currently in a cooldown. Wait 30 seconds before trying this command again...").then(m => m.delete({ timeout: 5000 }))
+        message.delete()
+        return;
+    } else {
+        let userArray = message.content.split(" ");
+        let userArgs = userArray.slice(1);
+        let member = message.mentions.members.first() || message.guild.members.cache.get(userArgs[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === userArgs.slice(0).join(" ") || x.user.username === userArgs[0]) || message.member;
 
-    if (member.presence.status === 'dnd') member.presence.status = 'Do Not Disturb';
-    if (member.presence.status === 'online') member.presence.status = 'Online';
-    if (member.presence.status === 'idle') member.presence.status = 'Idle';
-    if (member.presence.status === 'offline') member.presence.status = 'offline';
+        if (member.presence.status === 'dnd') member.presence.status = 'Do Not Disturb';
+        if (member.presence.status === 'online') member.presence.status = 'Online';
+        if (member.presence.status === 'idle') member.presence.status = 'Idle';
+        if (member.presence.status === 'offline') member.presence.status = 'offline';
 
-    let x = Date.now() - member.createdAt;
-    let y = Date.now() - message.guild.members.cache.get(member.id).joinedAt;
-    const joined = Math.floor(y / 86400000);
+        let x = Date.now() - member.createdAt;
+        let y = Date.now() - message.guild.members.cache.get(member.id).joinedAt;
+        const joined = Math.floor(y / 86400000);
 
-    const joineddate = moment.utc(member.joinedAt).format("dddd, MMMM Do YYYY");
-    let status = member.presence.status;
+        const joineddate = moment.utc(member.joinedAt).format("dddd, MMMM Do YYYY");
+        let status = member.presence.status;
 
-    const userEmbed = new Discord.MessageEmbed()
-        .setAuthor(member.user.tag, member.user.displayAvatarURL())
-        .setTimestamp()
-        .setColor('#FFA500')
-        .setImage(member.user.displayAvatarURL())
-        .addField("Member ID", member.id)
-        .addField('Roles', `<@&${member._roles.join('> <@&')}>`)
-        .addField("Account Created On:", ` ${moment.utc(member.user.createdAt).format("dddd, MMMM Do YYYY")}`, true)
-        .addField('Joined the server At', `${joineddate} \n> ${joined} day(S) Ago`)
-        .addField("Status", status)
-        .setFooter('Valhalla', 'https://i.imgur.com/G5bui5n.png')
+        const userEmbed = new Discord.MessageEmbed()
+            .setAuthor(member.user.tag, member.user.displayAvatarURL())
+            .setTimestamp()
+            .setColor('#FFA500')
+            .setImage(member.user.displayAvatarURL())
+            .addField("Member ID", member.id)
+            .addField('Roles', `<@&${member._roles.join('> <@&')}>`)
+            .addField("Account Created On:", ` ${moment.utc(member.user.createdAt).format("dddd, MMMM Do YYYY")}`, true)
+            .addField('Joined the server At', `${joineddate} \n> ${joined} day(S) Ago`)
+            .addField("Status", status)
+            .setFooter('Valhalla', 'https://i.imgur.com/G5bui5n.png')
 
-    message.channel.send(userEmbed);
+        message.channel.send(userEmbed);
+    }
+
+    usedCommand.add(message.author.id);
+    setTimeout(() => {
+        usedCommand.delete(message.author.id);
+    }, 30000);
 }
 
 module.exports.config = {
