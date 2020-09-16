@@ -43,7 +43,7 @@ bot.on("message", async message => {
         usedCommand.add(message.author.id);
         setTimeout(() => {
             usedCommand.delete(message.author.id);
-        }, 10000);
+        }, 5000);
     }
 })
 
