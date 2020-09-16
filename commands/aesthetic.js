@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
     const img = await randomPuppy(random);
 
     if (usedCommand.has(message.author.id)) {
-        message.reply('You are currently in a cooldown. Wait 15 seconds and try again...').then(m => m.delete({ timeout: 5000 }))
+        message.reply('You are currently in a cooldown. Wait 15 seconds before trying this command again...').then(m => m.delete({ timeout: 5000 }))
         message.delete()
         return;
     } else {

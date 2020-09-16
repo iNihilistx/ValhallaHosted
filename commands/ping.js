@@ -4,7 +4,7 @@ const botconfig = require('../config.json');
 
 module.exports.run = async (bot, message, args) => {
     if (usedCommand.has(message.author.id)) {
-        message.reply('You are currently in a cooldown. Wait 30 seconds, and try again...').then(m => m.delete({ timeout: 8000 }))
+        message.reply('You are currently in a cooldown. Wait 30 seconds before trying this command again...').then(m => m.delete({ timeout: 8000 }))
         message.delete()
         return;
     } else {
