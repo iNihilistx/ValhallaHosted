@@ -17,6 +17,7 @@ module.exports.run = async (bot, message, args) => {
             try {
                 const hugEmbed = new Discord.MessageEmbed()
                     .setColor('#FFA500')
+                    .setTitle(`${message.author.id} has hugged`)
                     .setURL('https://i.imgur.com/G5bui5n.png')
                     .setImage(image)
                     .setTimestamp()
