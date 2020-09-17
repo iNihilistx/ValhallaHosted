@@ -17,7 +17,7 @@ module.exports.run = async (bot, message, args) => {
             try {
                 const hugEmbed = new Discord.MessageEmbed()
                     .setColor('#FFA500')
-                    .setTitle(` ${member} Shared A Hug`)
+                    .setTitle(`A Hug Has Been Tightly Sent`)
                     .setURL('https://i.imgur.com/G5bui5n.png')
                     .setImage(image)
                     .setTimestamp()
