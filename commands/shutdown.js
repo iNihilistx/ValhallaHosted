@@ -17,5 +17,5 @@ module.exports.config = {
     description: "shuts down the bot",
     usage: "??shutdown",
     accessableby: "BOT OWNER",
-    aliases: ["botstop"]
+    aliases: ["TerminateConnection"]
 }
