@@ -1,7 +1,6 @@
 const usedCommand = new Set();
 const Discord = require('discord.js');
 const moment = require('moment');
-const { set } = require('mongoose');
 
 module.exports.run = async (bot, message, args) => {
     if (usedCommand.has(message.author.id)) {
