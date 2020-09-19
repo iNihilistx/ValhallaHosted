@@ -29,5 +29,5 @@ module.exports.config = {
     description: "",
     usage: "??purge",
     accessableby: "moderators",
-    aliases: []
+    aliases: ["clear"]
 }
