@@ -2,15 +2,10 @@ const Discord = require('discord.js');
 const botconfig = require('../config.json');
 
 module.exports.run = async (bot, message, args) => {
-    const name = message.content.replace('??maketextchannel ', '')
-    message.guild.channels
-        .create(name, {
-            type: 'text',
-        })
-        .then((channel) => {
-            const categoryId = '737386428144812163'
-            channel.setParent(categoryId)
-        })
+    let name = message.author.username;
+    message.guild.createChannel(name, 'text')
+        .then(console.log)
+        .catch(console.error);
 }
 
 module.exports.config = {
