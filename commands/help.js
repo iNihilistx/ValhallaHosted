@@ -7,7 +7,7 @@ module.exports.run = async (bot, message, args) => {
     if (!helpArgs[0]) {
         var embed = new Discord.MessageEmbed()
             .setAuthor(`The current available commands:`)
-            .setDescription('```| server |  member <@> | mute <@> | unmute <@> | kick <@> | ban <@> | poll <#> <text>  | meme | uwu | wholesome | hug <@> | aesthetic | cursed | ```')
+            .setDescription('```| server |  member <@> | mute <@> | unmute <@> | kick <@> | ban <@> | poll <#> <text>  | meme | uwu | wholesome | aesthetic | cursed | ```')
             .addFields({ name: 'Chosen Prefix: ', value: '```??```', inline: true })
             .setColor('#FFA500')
             .setTimestamp()
