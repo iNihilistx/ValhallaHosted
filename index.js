@@ -1,4 +1,9 @@
 const Discord = require('discord.js');
+const botsettings = require('./botsettings.json');
+
+const bot = new Discord.Client({ disableEveryone: true });
+
+const Discord = require('discord.js');
 const botsettings = require('./config.json');
 const usedCommand = new Set();
 
@@ -50,7 +55,6 @@ bot.on("message", async message => {
 require("./util/eventHandler")(bot)
 
 const fs = require("fs");
-const { isContext } = require('vm');
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
 
