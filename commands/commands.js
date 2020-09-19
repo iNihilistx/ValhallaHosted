@@ -14,6 +14,8 @@ module.exports.run = async (bot, message, args) => {
             .addFields({ name: 'Valhalla Prefix:', value: '```??```', inline: true })
             .setColor('#FFA500')
             .setTimestamp()
+            .setFooter('Valhalla', 'https://i.imgur.com/G5bui5n.png')
+
         message.channel.send(helpEmbed)
 
         usedCommand.add(message.author.id);
