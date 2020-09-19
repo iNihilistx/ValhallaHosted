@@ -1,9 +1,5 @@
 const Discord = require('discord.js');
 const botsettings = require('./config.json');
-const mongoose = require('mongoose');
-
-mongoose.connect('mongodb+srv://Nairobi:@valhalla.maxad.mongodb.net/Data', { useNewUrlParser: true, useUnifiedTopology: true })
-
 const usedCommand = new Set();
 
 const bot = new Discord.Client({ disableEveryone: true });
