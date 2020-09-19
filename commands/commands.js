@@ -10,9 +10,9 @@ module.exports.run = async (bot, message, args) => {
     } else {
         const helpEmbed = new Discord.MessageEmbed()
             .setColor('#FFA500')
-            .setTitle('Commands for Valhalla using ??')
-            .addField("server")
-            .addField('member <@>')
+            .setTitle('Commands for Valhalla using:')
+            .addField("??", "server")
+            .addField('??', 'member <@>')
             .addField('mute <@>')
             .addField('unmute <@>')
             .addField('kick <@>')
