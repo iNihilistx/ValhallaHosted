@@ -4,7 +4,7 @@ const botconfig = require('../config.json');
 
 module.exports.run = async (bot, message, args) => {
     if (usedCommand.has(message.author.id)) {
-        message.reply("You are currently in a cooldown. Wait 15 seconds then try again...").then(m => m.delete({ timeout: 5000 }))
+        message.reply("You are currently in a cooldown. Wait 3 minutes then try again...").then(m => m.delete({ timeout: 5000 }))
         message.delete()
         return;
     } else {
@@ -13,6 +13,7 @@ module.exports.run = async (bot, message, args) => {
             .setTitle('Commands for Valhalla with usage: ', true)
             .addField("server", "??server")
             .addField('member <@>', "??member @exampleuser", true)
+            .addField('purge <1-99>', "??purge 1-99")
             .addField('mute <@>', "?? mute @exampleuser")
             .addField('unmute <@>', "?? unmute @exampleuser", true)
             .addField('kick <@>', "??kick @exampleuser")
@@ -31,7 +32,7 @@ module.exports.run = async (bot, message, args) => {
         usedCommand.add(message.author.id);
         setTimeout(() => {
             usedCommand.delete(message.author.id);
-        }, 15000)
+        }, 180000)
     }
 }
 
