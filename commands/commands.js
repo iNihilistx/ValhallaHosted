@@ -37,7 +37,7 @@ module.exports.run = async (bot, message, args) => {
 
 module.exports.config = {
     name: "commands",
-    description: "sends the commands to the server",
+    description: "sends the commands to the guild",
     usage: "??commands",
     accessableby: "Members",
     aliases: []
