@@ -9,23 +9,11 @@ module.exports.run = async (bot, message, args) => {
         return;
     } else {
         const helpEmbed = new Discord.MessageEmbed()
+            .setAuthor(`The current available commands`)
+            .setAuthor('``` server - ??server | member - ??member @user | mute - ??mute @user | unmute - ??unmute @user | kick - ??kick @user | ban - ??ban @user | poll - ??poll #poll-channel this is a poll | meme - ??meme | uwu - ??uwu | wholesome - ??wholesome | hug - ??hug @user | aesthetic - ??aesthetic | cursed - ??cursed ```')
+            .addFields({ name: 'Valhalla Prefix:', value: '```??```', inline: true })
             .setColor('#FFA500')
-            .setTitle('Commands for Valhalla using ??', true)
-            .addField("server", "??server")
-            .addField('member <@>', "??member @exampleuser", true)
-            .addField('mute <@>', "?? mute @exampleuser")
-            .addField('unmute <@>', "?? unmute @exampleuser", true)
-            .addField('kick <@>', "??kick @exampleuser")
-            .addField('ban <@>', "??ban @exampleuser", true)
-            .addField('poll <#> <text>', "??poll #pollchannel this is a poll")
-            .addField('meme', "??meme", true)
-            .addField('uwu', "??uwu")
-            .addField('wholesome', "??wholesome", true)
-            .addField('hug <@>', "??hug @exampleuser")
-            .addField('cursed', "??cursed", true)
             .setTimestamp()
-            .setFooter("Valhalla", 'https://i.imgur.com/G5bui5n.png')
-
         message.channel.send(helpEmbed)
 
         usedCommand.add(message.author.id);
