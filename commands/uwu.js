@@ -35,7 +35,5 @@ module.exports.run = async (bot, message, args) => {
 module.exports.config = {
     name: "uwu",
     description: "",
-    usage: "=uwu",
-    accessableby: "Members",
-    aliases: []
+    usage: "=uwu"
 }
