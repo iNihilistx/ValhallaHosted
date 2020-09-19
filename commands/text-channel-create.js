@@ -12,5 +12,4 @@ module.exports.config = {
     name: "maketextchannel",
     usage: "??maketextchannel",
     description: "makes a new text channel",
-    aliases=[]
 }
