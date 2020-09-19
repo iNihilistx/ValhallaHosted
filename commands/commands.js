@@ -10,21 +10,19 @@ module.exports.run = async (bot, message, args) => {
     } else {
         const helpEmbed = new Discord.MessageEmbed()
             .setTitle('My Commands are: ')
-            .addFields(
-                { name: "Server" },
-                { name: "member <@>" },
-                { name: "mute <@>" },
-                { name: "unmutemute <@>" },
-                { name: "kick <@>" },
-                { name: "ban <@>" },
-                { name: "poll <#> <text>" },
-                { name: "meme" },
-                { name: "uwu" },
-                { name: "wholesome" },
-                { name: "hug <@>" }
-                { name: "aesthetic" },
-                { name: "cursed" }
-            )
+            .addField("server")
+            .addField("member")
+            .addField("mute <@>")
+            .addField("unmute <@>")
+            .addField("kick <@>")
+            .addField("ban <@>")
+            .addField("poll <#> <text>")
+            .addField("meme")
+            .addField("uwu")
+            .addField("wholesome")
+            .addField("hug <@>")
+            .addField("aesthetic")
+            .addField("cursed")
             .setTimestamp()
             .setFooter('Valhalla', 'https://i.imgur.com/G5bui5n.png')
         message.channel.send(helpEmbed);
