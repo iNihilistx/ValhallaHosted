@@ -9,12 +9,13 @@ module.exports.run = async (bot, message, args) => {
         return;
     } else {
         const helpEmbed = new Discord.MessageEmbed()
-            .setAuthor(`The current available commands`)
-            .setAuthor('``` server - ??server | member - ??member @user | mute - ??mute @user | unmute - ??unmute @user | kick - ??kick @user | ban - ??ban @user | poll - ??poll #poll-channel this is a poll | meme - ??meme | uwu - ??uwu | wholesome - ??wholesome | hug - ??hug @user | aesthetic - ??aesthetic | cursed - ??cursed ```')
-            .addFields({ name: 'Valhalla Prefix:', value: '```??```', inline: true })
+            .setAuthor(`The current available commands:`)
+            .setDescription('```| server |  member <@> | mute <@> | unmute <@> | kick <@> | ban <@> | poll <#> <text>  | meme | uwu | wholesome | aesthetic | cursed | ```')
+            .addFields({ name: 'Chosen Prefix: ', value: '```??```', inline: true })
             .setColor('#FFA500')
             .setTimestamp()
             .setFooter('Valhalla', 'https://i.imgur.com/G5bui5n.png')
+
 
         message.channel.send(helpEmbed)
 
