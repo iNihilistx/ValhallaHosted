@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
     } else {
         const helpEmbed = new Discord.MessageEmbed()
             .setColor('#FFA500')
-            .setTitle('Commands for Valhalla using ??', true)
+            .setTitle('Commands for Valhalla with usage: ', true)
             .addField("server", "??server")
             .addField('member <@>', "??member @exampleuser", true)
             .addField('mute <@>', "?? mute @exampleuser")
