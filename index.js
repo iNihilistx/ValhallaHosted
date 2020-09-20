@@ -1,18 +1,50 @@
 const Discord = require('discord.js');
 const botsettings = require('./config.json');
+const moment = require('moment');
 const usedCommand = new Set();
 
 const bot = new Discord.Client({ disableEveryone: true });
 
 bot.on("guildMemberAdd", member => {
     const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === 'welcome')
+    let userArray = message.content.split("");
+    let userArgs = userArray.slice(1);
+    let member = message.mentions.members.first() || message.guild.members.cache.get(userArgs[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === userArgs.slice(0).join(" ") || x.user.username === userArgs[0]) || message.member;
 
-    welcomeChannel.send(`${member} has joined the cult`)
+    const joinddate = moment.utc(member.joinedAt).format("dddd, MMMM Do YYYY");
+    let status = member.presence.status;
+
+    const welcomeEmbed = new Discord.MessageEmbed()
+        .setAuthor(member.user.tag, member.user.displayAvatarURL())
+        .setTimestamp()
+        .setColor('#FFA500')
+        .setImage(member.user.displayAvatarURL())
+        .addField('Joined The Server At: ', `${joineddate} \n ${joined} day(S) Ago`)
+        .addField("Current Members: " `${message.guild.memberCount}`)
+        .setFooter('Valhalla', 'https://i.imgur.com/G5bui5n.png')
+
+    message.channel.send(welcomeEmbed);
 })
 
 bot.on("guildMemberRemove", member => {
-    const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === "goodbye")
-    welcomeChannel.send(` ${member} has left the cult`)
+    const goodbyeChannel = member.guild.channels.cache.find(channel => channel.name === "goodbye")
+    let userArray = message.content.split("");
+    let userArgs = userArray.slice(1);
+    let member = message.mentions.members.first() || message.guild.members.cache.get(userArgs[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === userArgs.slice(0).join(" ") || x.user.username === userArgs[0]) || message.member;
+
+    const joinddate = moment.utc(member.joinedAt).format("dddd, MMMM Do YYYY");
+    let status = member.presence.status;
+
+    const welcomeEmbed = new Discord.MessageEmbed()
+        .setAuthor(member.user.tag, member.user.displayAvatarURL())
+        .setTimestamp()
+        .setColor('#FFA500')
+        .setImage(member.user.displayAvatarURL())
+        .addField('Joined The Server At: ', `${joineddate} \n ${joined} day(S) Ago`)
+        .addField("Current Members: " `${message.guild.memberCount}`)
+        .setFooter('Valhalla', 'https://i.imgur.com/G5bui5n.png')
+
+    message.channel.send(goodbyeEmbed);
 })
 
 bot.on("message", async message => {
