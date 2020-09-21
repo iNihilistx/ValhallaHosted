@@ -7,7 +7,7 @@ const bot = new Discord.Client({ disableEveryone: true });
 bot.on("guildMemberAdd", member => {
     const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === 'welcome')
 
-    welcomeChannel.send(`${member} has joined the server. Make sure to read the rules!`)
+    welcomeChannel.send(`${member} has joined the server!`)
 })
 
 bot.on("guildMemberRemove", member => {
