@@ -12,7 +12,7 @@ bot.on("guildMemberAdd", member => {
 
 bot.on("guildMemberRemove", member => {
     const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === "goodbye")
-    welcomeChannel.send(` ${member} has made their exit from the server.`)
+    welcomeChannel.send(` ${member} has left the server!`)
 })
 
 bot.on("message", async message => {
