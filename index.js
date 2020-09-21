@@ -32,7 +32,7 @@ bot.on("message", async message => {
             let pollDescription = args.slice(1).join(' ');
 
             let embedPoll = new Discord.MessageEmbed()
-                .setTitle(`🗳️ A New Poll For: ${message.mentions.guild} 🗳️`)
+                .setTitle(`🗳️ New Poll For: ${message.mentions.guild} 🗳️`)
                 .setDescription(pollDescription)
                 .setColor('ORANGE')
             let msgEmbed = await pollChannel.send(embedPoll);
