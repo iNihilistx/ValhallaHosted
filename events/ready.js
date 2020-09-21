@@ -6,7 +6,7 @@ module.exports = bot => {
 
     let statuses = [
         "??help",
-        `watching ${bot.guilds.cache.size}`,
+        `With ${bot.guilds.cache.size} servers`,
         "What is my purpose?",
     ]
 
