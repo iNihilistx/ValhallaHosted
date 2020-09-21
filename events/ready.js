@@ -6,7 +6,7 @@ module.exports = bot => {
 
     let statuses = [
         "??help",
-        "twitch.tv/iflasheh",
+        `watching ${bot.guilds.cache.size}`,
         "What is my purpose?",
     ]
 
