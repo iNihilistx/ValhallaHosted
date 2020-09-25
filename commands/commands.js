@@ -25,7 +25,7 @@ module.exports.run = async (bot, message, args) => {
             .addField('hug <@>', "??hug @exampleuser")
             .addField('cursed', "??cursed", true)
             .setTimestamp()
-            .setFooter("Valhalla", 'https://i.imgur.com/G5bui5n.png')
+            .setFooter("Valhalla", 'https://i.imgur.com/6jJ425v.png')
 
         message.channel.send(helpEmbed)
 

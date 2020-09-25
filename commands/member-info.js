@@ -35,7 +35,7 @@ module.exports.run = async (bot, message, args) => {
             .addField("Account Created On:", ` ${moment.utc(member.user.createdAt).format("dddd, MMMM Do YYYY")}`, true)
             .addField('Joined the server At', `${joineddate} \n> ${joined} day(S) Ago`)
             .addField("Status", status)
-            .setFooter('Valhalla', 'https://i.imgur.com/G5bui5n.png')
+            .setFooter('Valhalla', 'https://i.imgur.com/6jJ425v.png')
 
         message.channel.send(userEmbed);
     }

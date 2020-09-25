@@ -36,7 +36,7 @@ module.exports.run = async (bot, message, args) => {
             .addField("Valhalla Uptime: ", `${duration(bot.uptime)}`, true)
             .setImage(message.guild.iconURL())
             .setTimestamp()
-            .setFooter('Valhalla', 'https://i.imgur.com/G5bui5n.png')
+            .setFooter('Valhalla', 'https://i.imgur.com/6jJ425v.png')
 
         message.channel.send(serverinfoEmbed);
     }

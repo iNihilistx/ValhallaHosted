@@ -19,7 +19,7 @@ module.exports.run = async (bot, message, args) => {
                 .setAuthor(` The Ping For Valhalla is: ${botping}ms`)
                 .setColor(`#FFA500`)
                 .setTimestamp()
-                .setFooter('Valhalla', 'https://i.imgur.com/G5bui5n.png')
+                .setFooter('Valhalla', 'https://i.imgur.com/6jJ425v.png')
 
             m.edit(ping)
         });
