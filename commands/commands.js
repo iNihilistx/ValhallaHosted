@@ -54,19 +54,19 @@ module.exports.run = async (bot, message, args) => {
                 },
                 {
                     name: "??uwu",
-                    value: "??uwu (Sends a gif of an uwu to the channel where the command was sent"
+                    value: "??uwu (Sends a gif of an uwu to the channel where the command was sent)"
                 },
                 {
                     name: "??wholesome",
-                    value: "??wholesome (Sends a wholesome image to the channel where the command was sent"
+                    value: "??wholesome (Sends a wholesome image to the channel where the command was sent)"
                 },
                 {
                     name: "??hug",
-                    value: "??hug <@user> (Allows a user to send a hug to the mentioned member"
+                    value: "??hug <@user> (Allows a user to send a hug to the mentioned member)"
                 },
                 {
                     name: "??cursed",
-                    value: "??cursed (sends a cursed image to the channel where the command was sent"
+                    value: "??cursed (sends a cursed image to the channel where the command was sent)"
                 }
                 ],
                 timestamp: new Date(),
