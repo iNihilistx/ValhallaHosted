@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args) => {
             embed: {
                 author: {
                     name: bot.user.username,
-                    icon_url: client.user.avatarURL
+                    icon_url: bot.user.avatarURL
                 },
                 title: "The commands for valhalla: ",
                 description: "All of the available commands for [??]Valhalla",
