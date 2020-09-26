@@ -18,7 +18,7 @@ module.exports.run = async (bot, message, args) => {
 			.setTitle(`From /r/${random}`)
 			.setURL(`https://reddit.com//${random}`)
 			.setTimestamp()
-			.setFooter('Valhalla', 'https://i.imgur.com/6jJ425v.png')
+			.setFooter('Valhalla', 'https://i.imgur.com/G5bui5n.png')
 
 		message.channel.send(embed);
 
