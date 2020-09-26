@@ -29,14 +29,6 @@ module.exports.run = async (bot, message, args) => {
                     value: "??purge <1-99> (Allows messages from 1-99 to be deleted in bulk)"
                 },
                 {
-                    name: "??mute",
-                    value: "??mute <@user> (Adds the mute role and removes the ability for voice communication)"
-                },
-                {
-                    name: "??unmute",
-                    value: "??unmute <@> (Takes away the mute role and reinstates the ability for voice communication)"
-                },
-                {
                     name: "??kick",
                     value: "??kick <@user> (Allows a user to be kicked from the guild)"
                 },
