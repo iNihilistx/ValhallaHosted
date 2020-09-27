@@ -4,11 +4,9 @@ const usedCommand = new Set();
 
 const bot = new Discord.Client({ disableEveryone: true });
 
-function makeChannel(poll-channel) {
-    guild.channels.create("poll-channel", { reason: "Needed channel" })
-        .then(console.log)
-        .catch(console.error);
-}
+guild.channels.create("poll-channel", { reason: "Needed channel" })
+    .then(console.log)
+    .catch(console.error);
 
 bot.on("guildMemberAdd", member => {
     const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === 'welcome')
