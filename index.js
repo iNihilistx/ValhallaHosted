@@ -2,11 +2,14 @@ const Discord = require('discord.js');
 const botsettings = require('./config.json');
 const usedCommand = new Set();
 
-const bot = new Discord.Client({ disableEveryone: true });
+const bot = new Discord.Client();
 
-guild.channels.create("poll-channel", { reason: "Needed channel" })
-    .then(console.log)
-    .catch(console.error);
+function makeChannel(message) {
+    var server = message.guild;
+    var name = message.author.username;
+
+    server.createChannel(name, "text");
+}
 
 bot.on("guildMemberAdd", member => {
     const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === 'welcome')
