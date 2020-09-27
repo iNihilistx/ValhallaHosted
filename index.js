@@ -4,11 +4,11 @@ const usedCommand = new Set();
 
 const bot = new Discord.Client({ disableEveryone: true });
 
-function makeChannel(message) {
+function makeChannel(poll-channel) {
     var server = message.guild;
     var name = message.author.username;
 
-    server.createChannel(name, "poll-channel");
+    server.createChannel(name, "text");
 }
 
 bot.on("guildMemberAdd", member => {
