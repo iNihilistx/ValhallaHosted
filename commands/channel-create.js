@@ -11,6 +11,6 @@ module.exports.run = (bot, message) => {
 
 module.exports.config = {
     name: "createchannel",
-    usage: "cchannel",
-    aliases: ['createchannel']
+    usage: "createchannel",
+    aliases: ['cchannel']
 }
