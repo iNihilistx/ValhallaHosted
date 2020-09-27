@@ -5,10 +5,9 @@ const usedCommand = new Set();
 const bot = new Discord.Client({ disableEveryone: true });
 
 function makeChannel(poll-channel) {
-    var server = message.guild;
-    var name = message.author.username;
-
-    server.createChannel(name, "text");
+    guild.channels.create("poll-channel", { reason: "Needed channel" })
+        .then(console.log)
+        .catch(console.error);
 }
 
 bot.on("guildMemberAdd", member => {
