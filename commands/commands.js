@@ -29,6 +29,10 @@ module.exports.run = async (bot, message, args) => {
                     value: "??purge <1-99> (Allows messages from 1-99 to be deleted in bulk)"
                 },
                 {
+                    name: "??createchannel",
+                    value: "??create channel <channel name> (Allows for new channels to be made)"
+                },
+                {
                     name: "??kick",
                     value: "??kick <@user> (Allows a user to be kicked from the guild)"
                 },
