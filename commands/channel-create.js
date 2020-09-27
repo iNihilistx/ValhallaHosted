@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-module.exports.run = (bot, message) => {
+module.exports.run = async (bot, message) => {
     const args = message.content.slice(15);
     if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send("You lack the permissions needed for this command!");
     else {
@@ -11,6 +11,9 @@ module.exports.run = (bot, message) => {
 
 module.exports.config = {
     name: "createchannel",
-    usage: "createchannel",
-    aliases: ['cchannel']
+    description: "",
+    usage: "??createchannel",
+    accessableby: "Moderators",
+    aliases: ["cchannel"]
+
 }

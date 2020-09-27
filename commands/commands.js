@@ -30,7 +30,7 @@ module.exports.run = async (bot, message, args) => {
                 },
                 {
                     name: "??createchannel",
-                    value: "??create channel <channel name> (Allows for new channels to be made)"
+                    value: "??createchannel <channel name> (Allows for new channels to be made)"
                 },
                 {
                     name: "??kick",
