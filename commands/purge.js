@@ -9,7 +9,7 @@ module.exports.run = async (bot, message) => {
     const args = messageArray.slice(1);
 
     if (!message.member.permissions.has("MANAGE_MESSAGES")) {
-        message.reply('You lack the permissions needed for this command!').then(m => m.delete({ timeout: 6000 }))
+        message.reply('You do not have the required permissions needed for this command!').then(m => m.delete({ timeout: 6000 }))
         message.delete()
     } else {
 

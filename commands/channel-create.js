@@ -4,7 +4,7 @@ const Discord = require('discord.js');
 module.exports.run = async (bot, message) => {
     const args = message.content.slice(15);
     if (!message.member.hasPermission('MANAGE_MESSAGES')) {
-        message.reply("You lack the permissions needed for this command!").then(m => m.delete({ timeout: 6000 }))
+        message.reply("You do not have the required permissions needed for this command!").then(m => m.delete({ timeout: 6000 }))
         message.delete()
         return;
     } else {

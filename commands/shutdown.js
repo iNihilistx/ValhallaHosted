@@ -4,7 +4,7 @@ const botconfig = require("../config.json");
 
 module.exports.run = async (bot, message, args) => {
     if (message.author.id != "736834245498241093") {
-        message.reply("You lack the permissions needed for this command!").then(m => m.delete({ timeout: 6000 }))
+        message.reply("You do not have the required permissions needed for this command!").then(m => m.delete({ timeout: 6000 }))
         message.delete()
         return;
     } else {

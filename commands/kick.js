@@ -2,7 +2,7 @@ const usedCommand = new Set();
 
 module.exports.run = async (bot, message, args) => {
 	if (!message.member.hasPermission('KICK_MEMBERS')) {
-		message.reply("You lack the permissions needed for this command!").then(m => m.delete({ timeout: 5000 }))
+		message.reply("You do not have the required permissions needed for this command!").then(m => m.delete({ timeout: 5000 }))
 		message.delete()
 		return;
 	} else {
