@@ -1,12 +1,22 @@
+const usedCommand = new Set();
+
 const Discord = require('discord.js');
 module.exports.run = async (bot, message) => {
     const args = message.content.slice(15);
-    if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send("You lack the permissions needed for this command!");
-    else {
+    if (!message.member.hasPermission('MANAGE_MESSAGES')) {
+        message.reply("You lack the permissions needed for this command!").then(m => m.delete({ timeout: 6000 }))
+        message.delete()
+        return;
+    } else {
         message.guild.channels.create(`${args}`).then(channel => {
             channel.setTopic(`New Channel!`)
         })
     }
+
+    usedCommand.add(message.author.id);
+    setTimeout(() => {
+        usedCommand.delete(message.author.id);
+    }, 6000);
 }
 
 module.exports.config = {

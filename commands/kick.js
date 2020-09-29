@@ -1,7 +1,11 @@
+const usedCommand = new Set();
+
 module.exports.run = async (bot, message, args) => {
-	if (!message.member.hasPermission('KICK_MEMBERS'))
-		message.channel.send("You lack the permissions needed for this command!");
-	else {
+	if (!message.member.hasPermission('KICK_MEMBERS')) {
+		message.reply("You lack the permissions needed for this command!").then(m => m.delete({ timeout: 5000 }))
+		message.delete()
+		return;
+	} else {
 		let member = message.mentions.members.first();
 		if (member) {
 			try {
@@ -14,6 +18,11 @@ module.exports.run = async (bot, message, args) => {
 			}
 		}
 	}
+
+	usedCommand.add(message.author.id);
+	setTimeout(() => {
+		usedCommand.delete(message.author.id);
+	}, 5000)
 }
 module.exports.config = {
 	name: "kick",

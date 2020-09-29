@@ -1,3 +1,5 @@
+const usedCommand = new Set();
+
 const Discord = require("discord.js")
 const botconfig = require("../config.json");
 
@@ -6,21 +8,30 @@ module.exports.run = async (bot, message) => {
     const messageArray = message.content.split(' ');
     const args = messageArray.slice(1);
 
-    if (!message.member.permissions.has("MANAGE_MESSAGES")) return message.channel.send('You lack the permissions needed for this command!');
-
-    let deleteAmount;
-
-    if (isNaN(args[0]) || parseInt(args[0]) <= 0) { return message.reply('Requires numbers only') }
-
-    if (parseInt(args[0]) > 99) {
-        return message.reply('You can only delete 99 messages at a time!')
+    if (!message.member.permissions.has("MANAGE_MESSAGES")) {
+        message.reply('You lack the permissions needed for this command!').then(m => m.delete({ timeout: 6000 }))
+        message.delete()
     } else {
-        deleteAmount = parseInt(args[0]);
+
+        let deleteAmount;
+
+        if (isNaN(args[0]) || parseInt(args[0]) <= 0) { return message.reply('Requires numbers only') }
+
+        if (parseInt(args[0]) > 99) {
+            return message.reply('You can only delete 99 messages at a time!')
+        } else {
+            deleteAmount = parseInt(args[0]);
+        }
+
+        message.channel.bulkDelete(deleteAmount + 1, true);
+        await message.channel.send(`**Successfully** Deleted ***${deleteAmount}*** Message(s)!`).then(m => m.delete({ timeout: 5000 }))
+
     }
 
-    message.channel.bulkDelete(deleteAmount + 1, true);
-    await message.channel.send(`**Successfully** Deleted ***${deleteAmount}*** Message(s)!`).then(m => m.delete({ timeout: 5000 }))
-
+    usedCommand.add(message.author.id);
+    setTimeout(() => {
+        usedCommand.delete(message.author.id);
+    }, 6000)
 }
 
 
