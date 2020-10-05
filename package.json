@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "8ball.js": "^1.1.2",
     "common-tags": "^1.8.0",
     "dateformat": "^3.0.3",
     "discord": "^0.8.2",
