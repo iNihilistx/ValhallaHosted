@@ -15,7 +15,6 @@ module.exports.run = async (bot, message, args) => {
 
 		const embed = new Discord.MessageEmbed()
 			.setImage(img)
-			.setTitle(`From /r/${random}`)
 			.setURL(`https://reddit.com//${random}`)
 			.setTimestamp()
 			.setFooter('Valhalla', 'https://i.imgur.com/G5bui5n.png')
