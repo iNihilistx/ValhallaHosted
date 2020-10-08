@@ -10,69 +10,32 @@ module.exports.run = async (bot, message, args) => {
     } else {
         message.channel.send({
             embed: {
+                color: 0x00AE86,
                 author: {
-                    name: bot.user.username,
-                    icon_url: bot.user.avatarURL
+
                 },
-                title: "The commands for valhalla: ",
-                description: "All of the available commands for [??]Valhalla",
+                title: "The Current Commands For Valhalla: ",
+                description: "All commands within Valhalla are subject to change and may or may not be included within the final editon.",
                 fields: [{
-                    name: "??server",
-                    value: "??server (displays all information for the guild)"
+                    name: " My prefix is: ",
+                    value: "``??``"
                 },
                 {
-                    name: "??member",
-                    value: "??member <@user> (Displays information regarding the mentioned user)"
+                    name: "🛡️ Moderation: ",
+                    value: "kick, ban, server, member, purge, createchannel"
                 },
                 {
-                    name: "??purge",
-                    value: "??purge <1-99> (Allows messages from 1-99 to be deleted in bulk)"
+                    name: "🤖 Random bot commands: ",
+                    value: "poll, meme, uwu, wholesome, hug, cursed"
                 },
-                {
-                    name: "??createchannel",
-                    value: "??createchannel <channel name> (Allows for new channels to be made)"
-                },
-                {
-                    name: "??kick",
-                    value: "??kick <@user> (Allows a user to be kicked from the guild)"
-                },
-                {
-                    name: "??ban",
-                    value: "??ban <@user> (Allows a user to be banned from the guild)"
-                },
-                {
-                    name: "??poll",
-                    value: "??poll <#poll-channel> <text> (Allows a user to remotely start a poll within the poll channel)"
-                },
-                {
-                    name: "??meme",
-                    value: "??meme (Sends a meme to the channel where the command was sent)"
-                },
-                {
-                    name: "??uwu",
-                    value: "??uwu (Sends a gif of an uwu to the channel where the command was sent)"
-                },
-                {
-                    name: "??wholesome",
-                    value: "??wholesome (Sends a wholesome image to the channel where the command was sent)"
-                },
-                {
-                    name: "??hug",
-                    value: "??hug <@user> (Allows a user to send a hug to the mentioned member)"
-                },
-                {
-                    name: "??cursed",
-                    value: "??cursed (sends a cursed image to the channel where the command was sent)"
-                }
                 ],
                 timestamp: new Date(),
                 footer: {
-                    icon_url: bot.user.avatarURL,
+                    icon_url: bot.user.avatarURL(),
                     text: "© Valhalla"
                 }
             }
-        });
-
+        })
         usedCommand.add(message.author.id);
         setTimeout(() => {
             usedCommand.delete(message.author.id);
