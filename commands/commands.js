@@ -10,7 +10,6 @@ module.exports.run = async (bot, message, args) => {
     } else {
         message.channel.send({
             embed: {
-                color: 0x00AE86,
                 author: {
 
                 },
