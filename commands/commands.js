@@ -11,7 +11,6 @@ module.exports.run = async (bot, message, args) => {
         message.channel.send({
             embed: {
                 author: {
-
                 },
                 title: "The Current Commands For Valhalla: ",
                 description: "All commands within Valhalla are subject to change and may or may not be included within the final editon.",
@@ -25,7 +24,7 @@ module.exports.run = async (bot, message, args) => {
                 },
                 {
                     name: "🤖 Random bot commands: ",
-                    value: "poll, meme, uwu, wholesome, hug, cursed"
+                    value: "poll, meme, uwu, wholesome, hug, cursed, hangman"
                 },
                 ],
                 timestamp: new Date(),
