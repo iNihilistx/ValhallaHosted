@@ -11,6 +11,17 @@ bot.on("guildMemberAdd", member => {
 })
 
 bot.on("message", async message => {
+    const wordlist = require('./filter.json');
+
+    if (
+        wordlist.some((word) => message.content.toLowerCase().includes(word))
+    ) {
+        message.delete();
+        message.reply('That word is not allowed!')
+    }
+})
+
+bot.on("message", async message => {
 
     const messageArray = message.content.split(' ');
     const cmd = messageArray[0];
@@ -32,8 +43,6 @@ bot.on("message", async message => {
             if (!bUser) return
             message.guild.members.unban(bUser.user)
         })
-
-            ;
     }
 })
 
