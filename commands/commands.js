@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
                 },
                 {
                     name: "🛡️ Moderation: ",
-                    value: "kick, ban, unban, server, member, purge, createchannel"
+                    value: "kick, ban, server, member, purge, createchannel"
                 },
                 {
                     name: "🤖 Random bot commands: ",
