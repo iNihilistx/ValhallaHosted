@@ -11,17 +11,6 @@ bot.on("guildMemberAdd", member => {
 })
 
 bot.on("message", async message => {
-    const wordlist = require('./filter.json');
-
-    if (
-        wordlist.some((word) => message.content.toLowerCase().includes(word))
-    ) {
-        message.delete();
-        message.reply('That word is not allowed!')
-    }
-})
-
-bot.on("message", async message => {
     if (message.author.bot || message.channel.type === "dm") return;
 
     const messageArray = message.content.split(' ');
