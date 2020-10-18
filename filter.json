@@ -1,7 +1,6 @@
 [
     ".ttv", 
-    ".tv", 
-    ".gg", 
-    ".twitch", 
+    "twitch.tv", 
+    "discord.gg",  
     "discord.com/"
 ]
