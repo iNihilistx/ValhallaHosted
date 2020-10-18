@@ -11,6 +11,17 @@ bot.on("guildMemberAdd", member => {
 })
 
 bot.on("message", async message => {
+    const filterList = require('./filter.json');
+
+    if(
+        filterList.some((word) => message.content.toLowerCase().includes(word))
+    ) {
+        message.delete();
+        message.channel.send('No external links allowed!')
+    }
+})
+
+bot.on("message", async message => {
     if (message.author.bot || message.channel.type === "dm") return;
 
     const messageArray = message.content.split(' ');
