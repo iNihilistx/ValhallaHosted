@@ -11,13 +11,13 @@ bot.on("guildMemberAdd", member => {
 })
 
 bot.on("message", async message => {
-    const filterList = require('./filter.json');
+    const illegalWords = [".ttv", ".tv", ".gg", ".twtich", "discord.com/"]
 
-    if(
-        filterList.some((word) => message.content.toLowerCase().includes(word))
+    if (
+        illegalWords.some((word) => message.content.toLocaleLowerCase(word))
     ) {
         message.delete();
-        message.channel.send('No external links allowed!')
+        message.channel.send("These extensions are not allowed!")
     }
 })
 
