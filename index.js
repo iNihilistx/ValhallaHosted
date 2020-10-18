@@ -11,7 +11,7 @@ bot.on("guildMemberAdd", member => {
 })
 
 bot.on("message", async message => {
-    const illegalWords = require[".ttv", ".tv", ".gg", ".twitch", "discord.com/"]
+    const illegalWords = require(".ttv", ".tv", ".gg", ".twitch", "discord.com/")
 
     if (
         illegalWords.some((word) => message.content.toLocaleLowerCase(word))
