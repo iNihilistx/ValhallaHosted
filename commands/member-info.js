@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
         if (member.presence.status === 'dnd') member.presence.status = 'Do Not Disturb';
         if (member.presence.status === 'online') member.presence.status = 'Online';
         if (member.presence.status === 'idle') member.presence.status = 'Idle';
-        if (member.presence.status === 'offline') member.presence.status = 'offline';
+        if (member.presence.status === 'offline') member.presence.status = 'Offline';
 
         let x = Date.now() - member.createdAt;
         let y = Date.now() - message.guild.members.cache.get(member.id).joinedAt;
