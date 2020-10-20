@@ -24,7 +24,7 @@ module.exports.run = async (bot, message, args) => {
                 },
                 {
                     name: "🤖 Random bot commands: ",
-                    value: "poll, meme, uwu, wholesome, hug, cursed, hangman"
+                    value: "poll, meme, uwu, wholesome, hug, cursed, slap, hangman"
                 },
                 ],
                 timestamp: new Date(),
