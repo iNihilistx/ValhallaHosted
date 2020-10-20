@@ -33,7 +33,7 @@ module.exports.run = async (bot, message, args) => {
                 .setColor('#FFA500')
                 .setImage(member.user.displayAvatarURL())
                 .addField("**Warned Member:**", member.user.tag)
-                .addField("**Warned Member ID:**", member.id)
+                .addField("**Warned Member's ID:**", member.id)
                 .addField("**Joined the server on:** ", `${joineddate} \n ${joined} day(s) Ago`)
                 .addField("**Action:**", "Warned")
                 .setFooter('Valhalla', 'https://i.imgur.com/G5bui5n.png')
