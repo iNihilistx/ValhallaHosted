@@ -30,7 +30,7 @@ module.exports.run = async(bot, message, args) => {
         .setImage(member.user.displayAvatarURL())
         .addField("**Warned Members ID:**", member.id)
         .addField("**Joined the server on:** ", `${joineddate} \n ${joined} day(s) Ago`)
-        .addField("**Warned**")
+        .addField("**Action:**", "Warned")
         .setFooter('Valhalla', 'https://i.imgur.com/G6bui5n.png')
         
         message.channel.send(warningEmbed);
