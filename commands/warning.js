@@ -35,7 +35,7 @@ module.exports.run = async (bot, message, args) => {
                 .addField("**Warned Members ID:**", member.id)
                 .addField("**Joined the server on:** ", `${joineddate} \n ${joined} day(s) Ago`)
                 .addField("**Action:**", "Warned")
-                .setFooter('Valhalla', 'https://i.imgur.com/G6bui5n.png')
+                .setFooter('Valhalla', 'https://i.imgur.com/G5bui5n.png')
                 
                 message.channel.send(warningEmbed);
         
