@@ -42,7 +42,7 @@ module.exports.run = async (bot, message, args) => {
     usedCommand.add(message.author.id);
     setTimeout(() => {
         usedCommand.delete(message.author.id);
-    }, 30000);
+    }, 10000);
 }
 
 module.exports.config = {
