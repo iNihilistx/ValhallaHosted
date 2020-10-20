@@ -17,12 +17,12 @@ module.exports.run = async(bot, message, args) => {
         if(member.presence.status === 'offline') member.presence.status = 'Offline';
 
         let x = Date.now() - member.createdAt;
-        let y = Date.now() - message.guild.members.cache.get(member.id).joinAt;
+        let y = Date.now() - message.guild.members.cache.get(member.id).joinedAt;
         const joined = Math.floor(y / 86400000);
 
-        const joineddate = moment.utc(member.joinedAt).format("dddd, MMMMM Do YYYY");
+        const joineddate = moment.utc(member.joinedAt).format("dddd, MMMM Do YYYY");
         let status = member.presence.status;
-
+        
         const warningEmbed = new Discord.MessageEmbed()
         .setAuthor(member.user.tag, member.user.displayAvatarURL())
         .setTimestamp()
