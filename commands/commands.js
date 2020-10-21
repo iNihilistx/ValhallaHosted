@@ -10,26 +10,25 @@ module.exports.run = async (bot, message, args) => {
     } else {
         message.channel.send({
             embed: {
-                author: {
-                },
-                title: "The Current Commands For Valhalla: ",
-                description: "All commands within Valhalla are subject to change and may or may not be included within the final editon.",
-                fields: [{
-                    name: " My prefix is: ",
-                    value: "``??``"
-                },
-                {
-                    name: "🛡️ Moderation: ",
-                    value: "kick, ban, warn, server, member, purge, createchannel"
-                },
-                {
-                    name: "🤖 Random bot commands: ",
-                    value: "poll, meme, uwu, wholesome, hug, cursed, slap, hangman"
-                },
+                title: `Thank you for adding me!`,
+                color: 0x00AE86,
+                description: "All commands within Valhalla are subject to change and may or may not be included within the final editon. \n to see how a command functions type the prefix and the command followed by help to see how the command is used!",
+                fields: [
+                    {
+                        name: 'My Prefix is:',
+                        value: "``??``"
+                    },
+                    {
+                        name:  "🛡️ Moderation Commands: ",
+                        value: 'kick, ban, warn, server, member, purge, createchannel'
+                    },
+                    {
+                        name: "🤖 Random Bot Commands:",
+                        value: "poll, meme, uwu, wholesome, hug, cursed, slap, hangman"
+                    },
                 ],
-                timestamp: new Date(),
                 footer: {
-                    icon_url: bot.user.avatarURL(),
+                    icon_url: client.user.avatarURL(),
                     text: "© Valhalla"
                 }
             }
