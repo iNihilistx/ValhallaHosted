@@ -27,7 +27,7 @@ bot.on('guildCreate', guild => {
         embed: {
             title: `Thank you for adding me!`,
             color: 0x00AE86,
-            description: "Do not disconnect Valhalla Music by clicking disconnect, use the stop command. Valhalla Music allows for both name song search and link. \n Thank you for choosing Valhalla Music!",
+            description: "All commands within Valhalla are subject to change and may or may not be included within the final editon.",
             fields: [
                 {
                     name: 'My Prefix is:',
