@@ -23,28 +23,28 @@ bot.on("message", async message => {
 
 bot.on('guildCreate', guild => {
     const channel = guild.channels.cache.find(channel => channel.type === 'text' && channel.permissionsFor(guild.me).has('SEND_MESSAGES'))
-    message.channel.send({
+    channel.send({
         embed: {
             title: `Thank you for adding me!`,
             color: 0x00AE86,
-            description: "All commands within Valhalla are subject to change and may or may not be included within the final editon. \n to see how a command functions type the prefix and the command followed by help to see how the command is used!",
+            description: "Do not disconnect Valhalla Music by clicking disconnect, use the stop command. Valhalla Music allows for both name song search and link. \n Thank you for choosing Valhalla Music!",
             fields: [
                 {
                     name: 'My Prefix is:',
-                    value: "``??``"
+                    value: '``=``'
                 },
                 {
-                    name:  "🛡️ Moderation Commands: ",
-                    value: 'kick, ban, warn, server, member, purge, createchannel'
+                    name: "🛡️ Moderation Commands: ",
+                    value: "kick, ban, warn, server, member, purge, createchannel"
                 },
                 {
-                    name: "🤖 Random Bot Commands:",
+                    name: "🤖 Random Bot Commands: ",
                     value: "poll, meme, uwu, wholesome, hug, cursed, slap, hangman"
                 },
             ],
             footer: {
                 icon_url: client.user.avatarURL(),
-                text: "© Valhalla"
+                text: "© Valhalla_Music"
             }
         }
     })
