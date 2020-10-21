@@ -27,19 +27,19 @@ bot.on('guildCreate', guild => {
         embed: {
             title: `Thank you for adding me!`,
             color: 0x00AE86,
-            description: "All commands within Valhalla are subject to change and may or may not be included within the final editon.",
+            description: "Do not disconnect Valhalla Music by clicking disconnect, use the stop command. Valhalla Music allows for both name song search and link. \n Thank you for choosing Valhalla Music!",
             fields: [
                 {
                     name: 'My Prefix is:',
                     value: '``=``'
                 },
                 {
-                    name: "🛡️ Moderation Commands: ",
-                    value: "kick, ban, warn, server, member, purge, createchannel"
+                    name: ":notes: Music Commands: ",
+                    value: 'play, pause, resume, skip, volume, queue, repeat, stop'
                 },
                 {
-                    name: "🤖 Random Bot Commands: ",
-                    value: "poll, meme, uwu, wholesome, hug, cursed, slap, hangman"
+                    name: ':tools: Utility Commands: ',
+                    value: 'help, ping, invite'
                 },
             ],
             footer: {
@@ -49,6 +49,7 @@ bot.on('guildCreate', guild => {
         }
     })
 })
+
 
 bot.on("message", async message => {
     if (message.author.bot || message.channel.type === "dm") return;
