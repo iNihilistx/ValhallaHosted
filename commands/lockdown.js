@@ -14,8 +14,8 @@ module.exports.run = (bot, message, args) => {
             SEND_MESSAGES: null
         }).then(() => {
             message.channel.sendMessage('**Lockdown lifted.**');
-            clearTimeout(client.lockit[message.channel.id]);
-            delete client.lockit[message.channel.id];
+            clearTimeout(bot.lockit[message.channel.id]);
+            delete bot.lockit[message.channel.id];
         }).catch(error => {
             console.log(error);
         });
@@ -29,7 +29,7 @@ module.exports.run = (bot, message, args) => {
                     message.channel.overwritePermissions(message.guild.id, {
                         SEND_MESSAGES: null
                     }).then(message.channel.send('**Lockdown lifted.**')).catch(console.error);
-                    delete client.lockit[message.channel.id];
+                    delete bot.lockit[message.channel.id];
                 }, ms(time));
 
             }).catch(error => {
