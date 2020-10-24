@@ -1,11 +1,13 @@
 const ms = require('ms');
 module.exports.run = (bot, message, args) => {
-    if (!client.lockit) bot.lockit = [];
+    if (!bot.lockit) bot.lockit = [];
     let time = args.join(' ');
     let validUnlocks = ['release', 'unlock'];
     let modRole = message.guild.roles.find('name', 'delet Mod');
-    if (!message.member.roles.has(modRole.id)) {
-        return message.reply('you have insufficient permissions to use this command.').catch(console.error);
+
+    if(!message.member.permissions.has("MANAGE_MESSAGES")){
+        message.reply("You do not have the required permissions needed for this command!").then(m => m.delete({timeout:6000}))
+        message.delete()
     }
     if (!time) return message.reply('you must set a duration for the lockdown in either hours, minutes or seconds.');
 
