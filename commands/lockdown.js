@@ -1,66 +1,46 @@
-const Dicord = require('discord.js')
-const safeChannels = new Set([ // these channels will not be affected by the lockdown
-    'channel ids here',
-
-
-])
-
-module.exports.run = async(bot, message, args) => {
-        if(!message.member.hasPermission('MANAGE_CHANNELS')) return message.channel.send('ERROR: You don\'t have the required permissions to use this command.');
-
-        let reason = "No reason specified"
-        if(args[1]) reason = args.splice(1).join(" ");
-        if(!args[0]) return message.channel.send('ERROR: Couldn\'t determine whether you wanted to turn the server lock **on** or **off**.\n Use "on" or "off" as your first argument. ')
-
-        if(args[0] === 'on') { //  if the first args is equal to on
-            const channels = message.guild.channels.cache.filter(channel => channel.type !== 'category'); // filters out channels from categories 
-        channels.forEach(channel => { // do the following for each channel 
-            if(!safeChannels.has(channel.id)) { // if a channel id isn't in the "safeChannels" set, do the following. we add this if statement because we don't want the safeChannels set to be affected by the lockdown so they can stay the same
-                channel.updateOverwrite('role id thats going to be affected', { // updates the role's overwrite 
-                    SEND_MESSAGES: false
-
-                })
-
-            } 
-
-        })
-
-        const serverLockEmbed = new Dicord.MessageEmbed()
-        .setTitle('SERVER LOCK HAS BEEN ENABLED')
-        .setDescription('This server has been locked! No, you have not been muted.')
-        .addField('Reason:', `${reason}`)
-        .addField('Responsible Moderator:', `${message.author}`)
-        .setFooter('This server has been locked for a reason. Please do not DM staff regarding the lockdown.')
-        message.channel.send(serverLockEmbed)
-
-
-
-        } else if(args[0] === 'off') { // same thing with this
-            const channels = message.guild.channels.cache.filter(channel => channel.type !== 'category');
-        channels.forEach(channel => {
-            if(!safeChannels.has(channel.id)) {
-                channel.updateOverwrite('723581427836256376', {
-                    SEND_MESSAGES: null
-
-                })
-
-            } 
-            
-        })
-
-        const serverLockEmbed2 = new Dicord.MessageEmbed()
-        .setTitle('SERVER LOCK HAS BEEN DISABLED')
-        .setDescription('This server is no longer locked')
-        .addField('Responsible Moderator:', `${message.author}`)
-        .setFooter('Thank you for patiently waiting for the lockdown to end. You may proceed to chat.')
-        message.channel.send(serverLockEmbed2)
-
-
-        }
+const ms = require('ms');
+module.exports.run = (bot, message, args) => {
+    if (!client.lockit) bot.lockit = [];
+    let time = args.join(' ');
+    let validUnlocks = ['release', 'unlock'];
+    let modRole = message.guild.roles.find('name', 'delet Mod');
+    if (!message.member.roles.has(modRole.id)) {
+        return message.reply('you have insufficient permissions to use this command.').catch(console.error);
     }
+    if (!time) return message.reply('you must set a duration for the lockdown in either hours, minutes or seconds.');
 
-    module.exports.config = {
-        name: "lockdown",
-        usage: "??lockdown",
-        aliases: []
+    if (validUnlocks.includes(time)) {
+        message.channel.overwritePermissions(message.guild.id, {
+            SEND_MESSAGES: null
+        }).then(() => {
+            message.channel.sendMessage('**Lockdown lifted.**');
+            clearTimeout(client.lockit[message.channel.id]);
+            delete client.lockit[message.channel.id];
+        }).catch(error => {
+            console.log(error);
+        });
+    } else {
+        message.channel.overwritePermissions(message.guild.id, {
+            SEND_MESSAGES: false
+        }).then(() => {
+            message.channel.send(`**Channel locked** for ${ms(ms(time), { long:true })}.`).then(() => {
+
+                client.lockit[message.channel.id] = setTimeout(() => {
+                    message.channel.overwritePermissions(message.guild.id, {
+                        SEND_MESSAGES: null
+                    }).then(message.channel.send('**Lockdown lifted.**')).catch(console.error);
+                    delete client.lockit[message.channel.id];
+                }, ms(time));
+
+            }).catch(error => {
+                console.log(error);
+            });
+        });
     }
+};
+
+module.exports.config = {
+    name: "lockdown",
+    usage: "??lockdown",
+    aliases: []
+}
