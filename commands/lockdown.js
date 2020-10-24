@@ -25,7 +25,7 @@ module.exports.run = (bot, message, args) => {
         }).then(() => {
             message.channel.send(`**Channel locked** for ${ms(ms(time), { long:true })}.`).then(() => {
 
-                client.lockit[message.channel.id] = setTimeout(() => {
+                bot.lockit[message.channel.id] = setTimeout(() => {
                     message.channel.overwritePermissions(message.guild.id, {
                         SEND_MESSAGES: null
                     }).then(message.channel.send('**Lockdown lifted.**')).catch(console.error);
