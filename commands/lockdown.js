@@ -3,8 +3,7 @@ module.exports.run = (bot, message, args) => {
     if (!bot.lockit) bot.lockit = [];
     let time = args.join(' ');
     let validUnlocks = ['release', 'unlock'];
-    let modRole = message.guild.roles.find('name', 'delet Mod');
-
+    
     if(!message.member.permissions.has("MANAGE_MESSAGES")){
         message.reply("You do not have the required permissions needed for this command!").then(m => m.delete({timeout:6000}))
         message.delete()
