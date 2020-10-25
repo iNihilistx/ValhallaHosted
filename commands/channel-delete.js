@@ -1,31 +1,27 @@
-const Discord = require('discord.js');
+const usedCommand = new Set();
 
-module.exports.run = async(bot, message, args) => {
-    if(!message.member.hasPermission('MANAGE_MESSAGE')) {
-        message.reply('You do not have the required permissions needed for this command!').then(m => m.delete({timeout: 6000}))
+const Discord = require('discord.js');
+module.exports.run = async (bot, message) => {
+    const args = message.content.slice(15);
+    if (!message.member.hasPermission('MANAGE_MESSAGES')) {
+        message.reply("You do not have the required permissions needed for this command!").then(m => m.delete({ timeout: 6000 }))
         message.delete()
         return;
     } else {
-        const { guild } = message
-        const channel = guild.channels.cache
-        .filter((channel) => {
-            return channel.name === text
+        message.guild.channels.delete(`${args}`).then(channel => {
+            message.reply('channel has been deleted!')
         })
-        .first()
-
-        if(!channel) {
-            message.reply("That channel does not exist!")
-            return
-        }
-
-        channel.delete()
-        message.reply("Successfully deleted channel")
-        return
     }
+
+    usedCommand.add(message.author.id);
+    setTimeout(() => {
+        usedCommand.delete(message.author.id);
+    }, 6000);
 }
 
 module.exports.config = {
-    name: "delete",
-    usage: "??delete",
+    name: "deletechannel",
+    usage: "??deletechannel",
     aliases: []
+
 }
