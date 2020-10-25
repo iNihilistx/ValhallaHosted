@@ -9,7 +9,7 @@ module.exports.run = async (bot, message) => {
         return;
     } else {
         message.guild.channels.create(`${args}`).then(channel => {
-            channel.setTopic(`New Channel!`)
+            channel.setTopic(``)
         })
     }
 
