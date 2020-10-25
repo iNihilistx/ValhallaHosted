@@ -6,8 +6,21 @@ module.exports.run = async(bot, message, args) => {
         message.delete()
         return;
     } else {
-        const fetchedChannel = message.guild.channels.cache.get(channel_id);
-        fetchedChannel.delete()
+        const { guild } = message
+        const channel = guild.channels.cache
+        .filter((channel) => {
+            return channel.name === text
+        })
+        .first()
+
+        if(!channel) {
+            message.reply("That channel does not exist!")
+            return
+        }
+
+        channel.delete()
+        message.reply("Successfully deleted channel")
+        return
     }
 }
 
