@@ -17,7 +17,7 @@ bot.on("message", async message => {
         filterList.some((word) => message.content.toLowerCase().includes(word))
     ) {
         message.delete();
-        message.channel.send('This type of link extension is not allowed!')
+        message.channel.send("**This type of link extension is not prohibited!**")
     }
 })
 
