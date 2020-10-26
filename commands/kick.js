@@ -6,17 +6,18 @@ module.exports.run = async (bot, message, args) => {
 		message.delete()
 		return;
 	} else {
-		let member = message.mentions.members.first() || message.guild.members.cache.get(args);
-		if (member) {
-			try {
-				await member.kick();
-				console.log(member.tag + ` was kicked from the: ${message.guild.name}!`);
-				message.channel.send(`${member}, has been kicked from: ${message.guild.name}!`)
-			}
-			catch (err) {
-				console.log(err);
-			}
-		}
+		let toKick = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === args.slice(0).join(" ") || x.user.username === args[0]);
+	
+		if(!message.member.hasPermission("KICK_MEMBERS")) return message.reply("You do not have the required permissions needed for this command!")
+		if(!message.guild.me.hasPermission("KICK_MEMBERS")) return message.reply("The bot does not have the required permissions needed for this command!")
+
+		const reason = args[1] || "No reason provided!";
+		toKick({
+			reason: reason
+		})
+
+		message.channel.send(`${toKick} has been kicked from the server! \nThe Reason: ${reason}`)
+	
 	}
 
 	usedCommand.add(message.author.id);
