@@ -18,8 +18,6 @@ bot.on("message", async message => {
     ) {
         message.delete();
         message.channel.send('This type of link extension is not allowed!')
-        message.delete()
-        return;
     }
 })
 
