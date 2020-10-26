@@ -9,7 +9,6 @@ module.exports.run = async (bot, message, args) => {
 		let toBan = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === args.slice(0).join(" ") || x.user.username === args[0]);
 
 		if(!message.member.hasPermission("BAN_MEMBERS")) return message.reply("You are lacking the needed perms")
-		if(!message.guild.me.hasPermission("BAN_MEMBERS")) return message.reply("The bot lacks perms")
 
 		const reason = args[1] || "No reason provided";
 
