@@ -54,9 +54,10 @@ bot.on('guildCreate', guild => {
 bot.on("message", async message => {
     if (message.author.bot || message.channel.type === "dm") return;
 
-    const messageArray = message.content.split(' ');
-    const cmd = messageArray[0];
-    const args = messageArray.slice(1);
+    let messageArray = message.content.split(" ")
+    let args = messageArray.slice(1);
+
+    let cmd = messageArray[0];
 
     if(cmd === "?ban") {
         let toBan = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === args.slice(0).join(" ") || x.user.username === args[0]);
@@ -69,8 +70,7 @@ bot.on("message", async message => {
         toBan.ban({
             reason: reason
         })
-        message.channel.send(`${toBan} has been banned from the server!\nReason: ${reason}`)
-    }
+        
 
     if (cmd === '??poll') {
         if (usedCommand.has(message.author.id)) {
