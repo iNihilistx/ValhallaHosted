@@ -28,7 +28,7 @@ bot.on('guildCreate', guild => {
             author: {
             },
             title: "The Current Commands For Valhalla: ",
-            description: "All commands within Valhalla are subject to change and may or may not be included within the final editon. \n For further help with a command insert the prefix along with the command followed by help in order to get an example on how the command is used.",
+            description: "A simple moderation bot, with a built in filter to protect against NSFW content and self promotion. Comes packed with moderation tools and fun commands!",
             fields: [{
                 name: " My prefix is: ",
                 value: "``??``"
