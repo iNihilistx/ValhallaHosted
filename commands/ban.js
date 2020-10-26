@@ -6,18 +6,18 @@ module.exports.run = async (bot, message, args) => {
 		message.delete()
 		return;
 	} else {
-		let member = message.mentions.members.first();
-		if (member) {
-			try {
-				await member.ban();
-				console.log(member.tag + ` has been banned from: ${message.guild.name}!`);
-				message.channel.send(`${member}, has been banned from:  ${message.guild.name}!`)
-			}
-			catch (err) {
-				console.log(err);
-			}
-		}
+		let toBan = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === args.slice(0).join(" ") || x.user.username === args[0]);
 
+		if(!message.member.hasPermission("BAN_MEMBERS")) return message.reply("You are lacking the needed perms")
+		if(!message.guild.me.hasPermission("BAN_MEMBERS")) return message.reply("The bot lacks perms")
+
+		const reason = args[1] || "No reason provided";
+
+		toBan.ban({
+			reason: reason
+		})
+
+		message.channel.send(`${toBan} has been banned from the server! \n Reason Provided: ${reason}`)
 	}
 
 	usedCommand.add(message.author.id);
