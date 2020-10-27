@@ -52,6 +52,7 @@ bot.on('guildCreate', guild => {
 })
 
 bot.on("message", async message => {
+    const args = messageArray.slice(1);
     let perms = message.member.hasPermission("MANAGE_MEMBERS")
     if(!perms) return message.reply("You lack the permissions needed!")
 
