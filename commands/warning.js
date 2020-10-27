@@ -1,56 +1,33 @@
 const Discord = require('discord.js');
-const moment = require('moment');
 
-module.exports.run = async (bot, message, args) => {
+module.exports.run = async(bot, message, args) => {
+    let perms = message.member.hasPermission("MANAGE_MEMBERS")
+    if(!perms) return message.reply("You lack the permissions needed!")
 
-    if(!message.member.hasPermission('KICK_MEMBERS')) {
-        message.reply("You do not have the required permissions needed for this command!").then(m => m.delete({timeout:6000}))
-        message.delete()
-        return;
-    } else {
-        const member = message.mentions.members.first();
-        if(!member) return message.reply("You need to mention someone to warn them!")
-        if (member) {
-            try {
-                let userArray = message.content.split(" ");
-                let userArgs = userArray.slice(1);
-                let member = message.mentions.members.first() || message.guild.members.cache.get(userArgs[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === userArgs.slice(0).join(" ")) || message.member;
-        
-                if(member.presence.status === 'dnd') member.presence.status = 'Do Not Disturb';
-                if(member.presence.status === 'online') member.presence.status = 'Online';
-                if(member.presence.status === 'idle') member.presence.status = 'Idle';
-                if(member.presence.status === 'offline') member.presence.status = 'Offline';
-        
-                let x = Date.now() - member.createdAt;
-                let y = Date.now() - message.guild.members.cache.get(member.id).joinedAt;
-                const joined = Math.floor(y / 86400000);
-        
-                const joineddate = moment.utc(member.joinedAt).format("dddd, MMMM Do YYYY");
-                let status = member.presence.status;
-                
-                const warningEmbed = new Discord.MessageEmbed()
-                .setAuthor(member.user.tag, member.user.displayAvatarURL())
-                .setTimestamp()
-                .setColor('#FFA500')
-                .setImage(member.user.displayAvatarURL())
-                .addField("**Warned Member:**", member.user.tag)
-                .addField("**Warned Member's ID:**", member.id)
-                .addField("**Joined the server on:** ", `${joineddate} \n ${joined} day(s) Ago`)
-                .addField("**Action:**", "Warned")
-                .setFooter('Valhalla', 'https://i.imgur.com/G5bui5n.png')
-                
-                message.channel.send(warningEmbed);
-        
-            }
-            catch (err) {
-                console.log(err);
-            }
-        }
+    let user = message.mentions.members.first()
+    if(!user) return message.reply("You need to mention a user!")
+
+    let reason = args.slice(1).join(" ")
+    if(!reason) reason = "No reason has been provided"
+
+    const warningEmbed = new Discord.MessageEmbed()
+    .setTitle("Warned User | " + user.user.tag)
+    .addField("User Warned", `${user}`)
+    .addField("Warned By: ", `${message.author}`)
+    .addField("Reason: ", reason)
+
+    try {
+        user.send(`${user} You have been warned by: ${message.author} in the server ${message.guild.name} with the reason of ${reason}`)
+    } catch (err) {
+        console.log(err)
     }
+    message.channel.send(`${user} has been warned for ${reason}`)
+
+    message.channel.send(warningEmbed)
 }
+
 module.exports.config = {
     name: "warn",
     usage: "??warn",
-    accessableby: "Moderators",
     aliases: []
 }
