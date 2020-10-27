@@ -8,7 +8,8 @@ module.exports.run = async (bot, message, args) => {
         message.delete()
         return;
     } else {
-        let member = message.mentions.members.first();
+        const member = message.mentions.members.first();
+        if(!member) return message.reply("You need to mention someone to warn them!")
         if (member) {
             try {
                 let userArray = message.content.split(" ");
