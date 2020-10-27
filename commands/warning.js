@@ -7,7 +7,7 @@ module.exports.run = async(bot, message, args) => {
     let user = message.mentions.members.first()
     if(!user) return message.reply("You need to mention a user!")
 
-    let reason = args.slice(1).join(" ")
+    let reason = args.slice(0).join(' ')
     if(!reason) reason = "No reason has been provided"
 
     const warningEmbed = new Discord.MessageEmbed()
