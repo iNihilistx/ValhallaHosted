@@ -3,18 +3,49 @@ const moment = require('moment');
 
 module.exports.run = async (bot, message, args) => {
 
-    if (!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send("Invalid Permissions")
-    let User = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0])
-    if (!User) return message.channel.send("Invalid User")
-    let banReason = args.join(" ").slice(22);
-    if (!banReason) {
-    banReason = "None"
+    if(!message.member.hasPermission('KICK_MEMBERS')) {
+        message.reply("You do not have the required permissions needed for this command!").then(m => m.delete({timeout:6000}))
+        message.delete()
+        return;
+    } else {
+        let member = message.mentions.members.first();
+        if (member) {
+            try {
+                let userArray = message.content.split(" ");
+                let userArgs = userArray.slice(1);
+                let member = message.mentions.members.first() || message.guild.members.cache.get(userArgs[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === userArgs.slice(0).join(" ")) || message.member;
+        
+                if(member.presence.status === 'dnd') member.presence.status = 'Do Not Disturb';
+                if(member.presence.status === 'online') member.presence.status = 'Online';
+                if(member.presence.status === 'idle') member.presence.status = 'Idle';
+                if(member.presence.status === 'offline') member.presence.status = 'Offline';
+        
+                let x = Date.now() - member.createdAt;
+                let y = Date.now() - message.guild.members.cache.get(member.id).joinedAt;
+                const joined = Math.floor(y / 86400000);
+        
+                const joineddate = moment.utc(member.joinedAt).format("dddd, MMMM Do YYYY");
+                let status = member.presence.status;
+                
+                const warningEmbed = new Discord.MessageEmbed()
+                .setAuthor(member.user.tag, member.user.displayAvatarURL())
+                .setTimestamp()
+                .setColor('#FFA500')
+                .setImage(member.user.displayAvatarURL())
+                .addField("**Warned Member:**", member.user.tag)
+                .addField("**Warned Member's ID:**", member.id)
+                .addField("**Joined the server on:** ", `${joineddate} \n ${joined} day(s) Ago`)
+                .addField("**Action:**", "Warned")
+                .setFooter('Valhalla', 'https://i.imgur.com/G5bui5n.png')
+                
+                message.channel.send(warningEmbed);
+        
+            }
+            catch (err) {
+                console.log(err);
+            }
+        }
     }
-    const person = message.mentions.users.first()
-    const embed = new discord.MessageEmbed()
-        .setTitle(person.username + " got kicked by " + message.author.username)
-        .setThumbnail("https://www.progressivecombatsystems.com/wp-content/uploads/2019/03/groin-kick.jpg")
-    message.channel.send(embed)
 }
 module.exports.config = {
     name: "warn",
