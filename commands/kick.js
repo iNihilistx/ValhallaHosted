@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
 		message.delete()
 		return;
 	} else {
-		let member = message.mentions.members.first();
+		let member = message.mentions.members.first() || await message.guild.members.get(args);
 		if (member) {
 			try {
 				await member.kick();
