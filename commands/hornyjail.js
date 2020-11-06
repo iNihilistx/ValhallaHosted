@@ -4,7 +4,7 @@ const { duration } = require('moment');
 const botconfig = require('../config.json');
 
 module.exports.run = async (bot, message, args) => {
-    const images = ["https://i.imgur.com/LjpHigu.png"];
+    const images = ["https://i.imgur.com/iUEz5fS.gif"];
     const image = images[Math.floor(Math.random() * images.length)];
 
     if (usedCommand.has(message.author.id)) {
