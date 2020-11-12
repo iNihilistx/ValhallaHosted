@@ -2,12 +2,13 @@ const Discord = require('discord.js');
 const Hangman = require('hangcord');
 
 module.exports.run = async (bot, message, args) => {
-    const hangman = new Hangman({
+    const hangman = new HangmanGame({
         title: 'Hangman',
-        color: 'ORANGE',
-        timestamp: true,
-        gameOverTile: 'Game Over'
-    });
+        color: 'RANDOM', 
+        timestamp: true, 
+        gameOverTitle: 'Game Over', 
+        words: ['word1', 'word2'] 
+      });
 
     hangman.newGame(message);
 }
