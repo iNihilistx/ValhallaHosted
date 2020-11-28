@@ -1,21 +1,58 @@
-const Discord = require('discord.js');
-const botsettings = require('./config.json');
-const usedCommand = new Set();
+const { bot_token, mongo_url, prefix } = require('./config.json')
+const Discord = require('discord.js')
+const client = new Discord.Client()
+const mongoose = require('mongoose')
+const fs = require('fs')
+const { ifError } = require('assert')
 
-const bot = new Discord.Client({ disableEveryone: true });
+client.commands = new Discord.Collection()
 
-bot.on("message", async message => {
-    const filterList = require('./filter.json');
+client.login(bot_token)
 
-    if(
-        filterList.some((word) => message.content.toLowerCase().includes(word))
-    ) {
-        message.delete();
-        message.channel.send("**This type of link extension is prohibited!**")
-    }
+const commandFiles = fs.readdirSync('./commands')
+for (const file of commandFiles) {
+    const command = require(`./commands/${file}`)
+    client.commands.set(command.name, command)
+}
+
+const muteModel = require('./models/mute')
+
+client.once('ready', () => {
+    console.log('Valhalla Online')
+
+    mongoose.connect(mongo_url, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    }).then(console.log('Mongo DB Connected'))
+
+    setInterval(async () => {
+        for (const guild of client.guilds.cache) {
+            const muteArray = await muteModel.find({
+                guildID: guild[0],
+            })
+
+            for (const muteDoc of muteArray) {
+                if (Date.now() >= Number(muteDoc.length)) {
+                    const guild = client.guilds.cache.get(muteDoc.guildID)
+                    const member = guild ? guild.members.cache.get(muteDoc.memberID) : null
+                    const muteRole = guild ? guild.roles.cache.find(r => r.name == 'Muted') : null
+
+                    if (member) {
+                        await member.roles.remove(muteRole ? muteRole.id : '').catch(err => console.log(err))
+
+                        for(const role of muteDoc.memberRoles) {
+                            await member.roles.add(role).catch(err => console.log(err))
+                        }
+                    }
+                    
+                    await muteDoc.deleteOne().catch(err => console.log(err))
+                }
+            }
+        }
+    }, 60000)
 })
 
-bot.on('guildCreate', guild => {
+client.on('guildCreate', guild => {
     const channel = guild.channels.cache.find(channel => channel.type === 'text' && channel.permissionsFor(guild.me).has('SEND_MESSAGES'))
     channel.send({
         embed: {
@@ -29,98 +66,53 @@ bot.on('guildCreate', guild => {
             },
             {
                 name: "🛡️ Moderation Commands: ",
-                value: "kick, ban, warn, server, member, purge, createchannel"
+                value: "kick, ban, warn, warnings, unwarn, mute, unmute server, member, purge, ping"
             },
             {
                 name: "🤖 Random Bot Commands: ",
-                value: "poll, meme, uwu, wholesome, hug, cursed, slap, hangman"
+                value: "meme, uwu, wholesome, hug, cursed, slap"
             },
             ],
             timestamp: new Date(),
             footer: {
-                icon_url: bot.user.avatarURL(),
                 text: "© Valhalla"
             }
         }
     })
 })
 
-bot.on("guildMemberAdd", member => {
-    const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === 'welcome')
+client.on('guildMemberAdd', async member => {
+    const muteDoc = await muteModel.findOne({
+        guildID: member.guild.id,
+        memberID: member.id,
+    })
 
-    welcomeChannel.send(`${member} has joined the server!`)
-})
+    if (muteDoc) {
+        const muteRole = member.guild.roles.cache.find(r => r.name == 'Muted')
 
-bot.on("message", async message => {
-    if (message.author.bot || message.channel.type === "dm") return;
+        if (muteRole) member.roles.add(muteRole.id).catch(err => console.log(err))
 
-    const messageArray = message.content.split(' ');
-    const cmd = messageArray[0];
-    const args = messageArray.slice(1);
+        muteDoc.memberRoles = []
 
-    if (cmd === '??poll') {
-        if (usedCommand.has(message.author.id)) {
-            (await message.reply("You are currently in a cooldown. Wait 10 seconds and try again...")).attachments(m => m.delete({ timeout: 5000 }))
-        } else {
-
-
-            let pollChannel = message.mentions.channels.first();
-            let pollDescription = args.slice(1).join(' ');
-
-            let embedPoll = new Discord.MessageEmbed()
-                .setTitle(`🗳️ New Poll For: ${message.mentions.guild} 🗳️`)
-                .setDescription(pollDescription)
-                .setColor('ORANGE')
-            let msgEmbed = await pollChannel.send(embedPoll);
-            await msgEmbed.react('✅')
-            await msgEmbed.react('❌')
-        }
-
-        usedCommand.add(message.author.id);
-        setTimeout(() => {
-            usedCommand.delete(message.author.id);
-        }, 5000);
+        await muteDoc.save().catch(err => console.log(err))
     }
 })
 
-require("./util/eventHandler")(bot)
+client.on('message', message => {
+    if(!message.guild || message.author.bot || !message.content.startsWith(prefix)) return;
 
-const fs = require("fs");
-const { isContext } = require('vm');
-bot.commands = new Discord.Collection();
-bot.aliases = new Discord.Collection();
+    const args = message.content.substring(prefix.length).split(' ')
+    const command = args.shift()
 
-fs.readdir("./commands/", (err, files) => {
 
-    if (err) console.log(err)
+    const cmd = client.commands.get(command)
 
-    let jsfile = files.filter(f => f.split(".").pop() === "js")
-    if (jsfile.length <= 0) {
-        return console.log("[LOGS] Couldn't Find Commands!");
+    if (!cmd) return;
+
+    try {
+        cmd.execute(message, args)
+    } catch(error) {
+        console.log(error)
+        message.reply('Error whilst running this command!')
     }
-
-    jsfile.forEach((f, i) => {
-        let pull = require(`./commands/${f}`);
-        bot.commands.set(pull.config.name, pull);
-        pull.config.aliases.forEach(alias => {
-            bot.aliases.set(alias, pull.config.name)
-        });
-    });
-});
-
-
-bot.on("message", async message => {
-    if (message.author.bot || message.channel.type === "dm") return;
-
-    let prefix = botsettings.prefix;
-    let messageArray = message.content.split(" ");
-    let cmd = messageArray[0];
-    let args = message.content.substring(message.content.indexOf(' ') + 1);
-
-    if (!message.content.startsWith(prefix)) return;
-    let commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)))
-    if (commandfile) commandfile.run(bot, message, args)
-
 })
-
-bot.login(process.env.token);

@@ -1,3 +1,5 @@
 {
+    "bot_token": "NzQ0MDE3MzMxMzgxODYyNDkw.XzdGIg.0gt8Qw_vtzb5XOx5TcojDOoBhOw",
+    "mongo_url" : "mongodb+srv://Nairobi:bIBNMv6wB3UK0mQ2@cluster0.w1ffp.mongodb.net/Nairobi?retryWrites=true&w=majority",
     "prefix": "??"
 }

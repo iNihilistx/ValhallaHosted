@@ -1,34 +1,46 @@
-const usedCommand = new Set();
+const userReg = RegExp(/<@!?(\d+)>/)
 
-module.exports.run = async (bot, message, args) => {
-    if (!message.member.hasPermission('BAN_MEMBERS')) {
-        message.reply("You do not have the required permissions needed for this command!").then(m => m.delete({ timeout: 6000 }))
-        message.delete()
-        return;
-    } else {
-        let member = message.mentions.members.first();
-        if (member) {
-            try {
-                await member.ban();
-                console.log(member.tag +  `has been banned from: ${message.guild.name}!`);
-                message.channel.send(`${member}, has been banned from:  ${message.guild.name}!`)
-            }
-            catch (err) {
-                console.log(err);
-            }
+module.exports = {
+    name: "ban",
+    description: "Bans a member from the server!",
+    usage: "<member> [reason]",
+    async execute (message, args) {
+        const userID = userReg.test(args[0]) ? userReg.exec(args[0])[1] : args[0]
+        const mentionedUser = await message.client.users.fetch(userID).catch(() => null)
+
+        if (!message.member.hasPermission('BAN_MEMBERS')) {
+            return message.reply("You lack the needed permissions!")
+        }
+        else if(!message.guild.me.hasPermission('BAN_MEMBERS')) {
+            return message.reply("I lack the needed permissions!")
+        }
+        else if(!mentionedUser) {
+            return message.reply("You need to mention a valid user!")
         }
 
-    }
+        const allBans = await message.guild.fetchBans()
 
-    usedCommand.add(message.author.id);
-    setTimeout(() => {
-        usedCommand.delete(message.author.id);
-    }, 6000);
-}
-module.exports.config = {
-    name: "ban",
-    description: "",
-    usage: "??ban",
-    accessableby: "Moderators",
-    aliases: []
+        if (allBans.get(mentionedUser.id)) {
+            return message.reply("This member is already banned in this server!")
+        }
+
+        const mentionedMember = message.guild.members.cache.get(mentionedUser.id)
+
+        const mentionedPosition = mentionedMember.roles.highest.Position
+        const memberPosition = message.member.roles.highest.Position
+        const botPoisition = message.guild.me.roles.highest.Position
+
+        if(memberPosition <= mentionedPosition) {
+            return message.reply("Unable to kick this member because of their roles!")
+        }
+        else if(botPoisition <= mentionedPosition) {
+            return message.reply("Unable to kick this member, because they have higher perms than me")
+        }
+
+        const reason = args.slice(1).join(' ')
+
+        message.guild.members.ban(mentionedUser.id, { reason: reason })
+
+        message.channel.send(`Banned ${mentionedUser} ${reason ? `for **${reason}**`: ''}`)
+    }
 }

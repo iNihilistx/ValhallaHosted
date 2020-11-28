@@ -1,33 +1,41 @@
-const usedCommand = new Set();
+module.exports = {
+    name: "kick",
+    description: "removes a member from the server",
+    usage: "<member> {reason}",
+    async execute (message, args) {
+        const mentionedMember = message.mentions.members.first()
+        || message.guild.members.cache.get(args[0])
 
-module.exports.run = async (bot, message, args) => {
-	if (!message.member.hasPermission('KICK_MEMBERS')) {
-		message.reply("You do not have the required permissions needed for this command!").then(m => m.delete({ timeout: 5000 }))
-		message.delete()
-		return;
-	} else {
-		let member = message.mentions.members.first() || await message.guild.members.cache.get(args);
-		if (member) {
-			try {
-				await member.kick();
-				console.log(member.tag + ` was kicked from the: ${message.guild.name}!`);
-				message.channel.send(`${member}, has been kicked from: ${message.guild.name}!`)
-			}
-			catch (err) {
-				console.log(err);
-			}
-		}
-	}
+        if(!message.member.hasPermission('KICK_MEMBERS')){
+            return message.reply("You lack the permissions needed!")
+        }
+        else if(!message.guild.me.hasPermission('KICK_MEMBERS')) {
+            return message.reply("I lack the permissions needed!")
+        }
+        else if(!mentionedMember) {
+            return message.reply("You need to mention a user in order to kick!")
+        }
 
-	usedCommand.add(message.author.id);
-	setTimeout(() => {
-		usedCommand.delete(message.author.id);
-	}, 5000)
-}
-module.exports.config = {
-	name: "kick",
-	description: "",
-	usage: "??kick",
-	accessableby: "Moderators",
-	aliases: ["kickmember"]
+        const mentionedPosition = mentionedMember.roles.highest.Position
+        const memberPosition = message.member.roles.highest.Position
+        const botPoisition = message.guild.me.roles.highest.Position
+
+        if(memberPosition <= mentionedPosition) {
+            return message.reply("Unable to kick this member because of their roles!")
+        }
+        else if(botPoisition <= mentionedPosition) {
+            return message.reply("Unable to kick this member, because they have higher perms than me")
+        }
+
+        const reason = args.slice(1).join(' ')
+
+        try {
+            await mentionedMember.kick([reason])
+
+            message.channel.send(`Kicked ${mentionedMember} ${reason ? `for **${reason}**` : ''}`)
+        }
+        catch(error) {
+            message.channel.send('There was an error kicking this member from the server!')
+        }
+    }
 }
