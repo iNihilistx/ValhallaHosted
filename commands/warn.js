@@ -36,7 +36,7 @@ module.exports = {
                 memberID: mentionedMember.id,
                 warnings: [reason],
                 moderator: [message.member.id],
-                date: [date.now()],
+                date: [Date.now()],
     })
 
         await warnDoc.save().catch(err => console.log(err))

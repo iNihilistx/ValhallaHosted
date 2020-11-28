@@ -1,0 +1,37 @@
+const usedCommand = new Set();
+const randomPuppy = require('random-puppy');
+const Discord = require('discord.js')
+
+module.exports = {
+    name: "meme",
+    description: "Bans a member from the server!",
+    usage: "<member> [reason]",
+    async execute (message, args) {
+
+        const subReddits = ["meme", "me_irl", "dankmeme", "memes", "raimimemes", "sbubby"]
+        const random = subReddits[Math.floor(Math.random() * subReddits.length)];
+        const img = await randomPuppy(random);
+    
+        if (usedCommand.has(message.author.id)) {
+            message.reply('You are currently in a cooldown...').then(m => m.delete({ timeout: 5000 }))
+            message.delete()
+            return;
+            return;
+        } else {
+    
+            // the else is where the code is then written to then run the command
+    
+            const embed = new Discord.MessageEmbed()
+                .setImage(img)
+                .setTimestamp()
+                .setFooter('Valhalla', 'https://i.imgur.com/G5bui5n.png')
+    
+            message.channel.send(embed);
+    
+            usedCommand.add(message.author.id); // this will then delete the message after 15 seconds
+            setTimeout(() => {
+                usedCommand.delete(message.author.id);
+            }, 15000); // this is set within Miliseconds
+        }
+    }
+}

@@ -58,15 +58,15 @@ client.on('guildCreate', guild => {
         embed: {
             author: {
             },
-            title: "The Current Commands For Valhalla: ",
-            description: "A simple moderation bot, with a built in filter to protect against NSFW content and self promotion. Comes packed with moderation tools and fun commands!",
+            title: "Thank for inviting me! Here's some information about me: ",
+            description: "A moderation bot built to keep things simple. I handle everthing moderator related whilst giving access to some fun commands!",
             fields: [{
                 name: " My prefix is: ",
                 value: "``??``"
             },
             {
                 name: "🛡️ Moderation Commands: ",
-                value: "kick, ban, warn, warnings, unwarn, mute, unmute server, member, purge, ping"
+                value: "kick, ban, warn, warnings, unwarn, mute, unmute serverinfo, member, purge, ping"
             },
             {
                 name: "🤖 Random Bot Commands: ",
