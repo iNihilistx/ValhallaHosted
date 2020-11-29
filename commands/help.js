@@ -28,6 +28,10 @@ module.exports = {
                         name: ":robot: Random Bot Commands: ",
                         value: "meme, uwu, wholesome, hug, cursed, slap, bonk"
                     },
+                    {
+                        name: "ℹ️ Help Commands: ",
+                        value: "kickhelp, banhelp, purgehelp, unbanhelp, mutehelp, unmutehelp, warnhelp, warningshelp, unwarnhelp "
+                    },
                     ],
                     timestamp: new Date(),
                     footer: {

@@ -7,10 +7,10 @@ module.exports = {
         || message.guild.members.cache.get(args[0])
 
         if(!message.member.hasPermission('KICK_MEMBERS')){
-            return message.reply("You lack the permissions needed!")
+            return message.reply("You do not have permission to use the kick command!")
         }
         else if(!message.guild.me.hasPermission('KICK_MEMBERS')) {
-            return message.reply("I lack the permissions needed!")
+            return message.reply("I do not have permission to use the kick command!")
         }
         else if(!mentionedMember) {
             return message.reply("You need to mention a user in order to kick!")

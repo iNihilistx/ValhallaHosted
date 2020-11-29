@@ -10,7 +10,7 @@ module.exports = {
         || message.guild.members.cache.get(args[0])
 
         if (!message.member.hasPermission('MANAGE_ROLES')) {
-            return message.reply("You do not have permissions to use this command!")
+            return message.reply("You do not have permissions to use the unwarn command")
         }
         else if (!mentionedMember) {
             return message.reply("You need to mention a user you want to unwarn!")
@@ -20,7 +20,7 @@ module.exports = {
         const memberPosition = message.member.roles.highest.position
 
         if (memberPosition <= mentionedPosition) {
-            return message.channel.send("You're unable to warn this user because they have higher permissions!")
+            return message.channel.send("You are unable to warn members who have the same/higher permissions!")
         }
 
         const reason = args.slice(2).join(' ')

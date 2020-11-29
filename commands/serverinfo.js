@@ -3,8 +3,8 @@ const Discord = require('discord.js')
 
 module.exports = {
     name: "serverinfo",
-    description: "removes a member from the server",
-    usage: "<member> {reason}",
+    description: "Shows information regarding the server",
+    usage: "??server",
     async execute (message, args) {
         if (usedCommand.has(message.author.id)) {
             message.reply('You are currently in a cooldown. Wait 30 seconds before trying this command again...').then(m => m.delete({ timeout: 5000 }))

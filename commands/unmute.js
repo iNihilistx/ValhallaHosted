@@ -11,7 +11,7 @@ module.exports = {
         const muteRole = message.guild.roles.cache.find(r => r.name == 'Muted')
 
         if (!message.member.hasPermission('MANAGE_ROLES')) {
-            return message.reply("You don't have permission to unmute members!")
+            return message.reply("You don't have permission to use the unmute command!")
         }
 
         else if(!mentionedMember) {
@@ -28,11 +28,11 @@ module.exports = {
         })
 
         if (!muteDoc) {
-            return message.reply("This isn't muted currently!")
+            return message.reply("This member currently is not muted!")
         }
 
         else if(mentionedMember.roles.highest.position >= message.guild.me.roles.highest.position) {
-            return message.channel.send("I can't unmute this member, because my permissions are equal/lower than this member!")
+            return message.channel.send("I am unable to warn members who have the same/higher permissions!")
         }
 
         mentionedMember.roles.remove(muteRole.id).catch(err => console.log(err))

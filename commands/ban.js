@@ -9,10 +9,10 @@ module.exports = {
         const mentionedUser = await message.client.users.fetch(userID).catch(() => null)
 
         if (!message.member.hasPermission('BAN_MEMBERS')) {
-            return message.reply("You lack the needed permissions!")
+            return message.reply("You do not have permission to use the ban commmand!")
         }
         else if(!message.guild.me.hasPermission('BAN_MEMBERS')) {
-            return message.reply("I lack the needed permissions!")
+            return message.reply("I do not have permission to use the ban command!")
         }
         else if(!mentionedUser) {
             return message.reply("You need to mention a valid user!")

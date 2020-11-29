@@ -10,7 +10,7 @@ module.exports = {
         || message.guild.members.cache.get(args[0])
 
         if (!message.member.hasPermission('MANAGE_ROLES')) {
-            return message.reply("You do not have permission to warn other members")
+            return message.reply("You do not have permission to use the warn command!")
         }
         else if (!mentionedMember) {
             return message.reply("You need to mention a member in order to warn them!")
@@ -20,7 +20,7 @@ module.exports = {
         const memberPosition = message.member.roles.highest.position
 
         if (memberPosition <= mentionedPosition) {
-            return message.reply("You're unable to warn members with higher roles than you")
+            return message.reply("You are unable to warn members who have the same/higher permissions!")
     }
 
     const reason = args.slice(1).join(' ') || 'Not Specified'

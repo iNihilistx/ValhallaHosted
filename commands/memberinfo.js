@@ -4,7 +4,7 @@ const moment = require('moment');
 
 module.exports = {
     name: "memberinfo",
-    description: "removes a member from the server",
+    description: "shows information regarding a user!",
     usage: "<member> {reason}",
     async execute (message, args) {
         if (usedCommand.has(message.author.id)) {
