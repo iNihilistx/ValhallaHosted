@@ -25,7 +25,7 @@ module.exports = {
             data.push(`**Warning ID:** ${i + 1}`)
             data.push(`**Reason For Warn:** ${warnDoc.warnings[i]}`)
             data.push(`**Warned By:** ${await message.client.users.fetch(warnDoc.moderator[i]).catch(() => 'Deleted User')}`)
-            data.push(`**Date:** ${new Date(warnDoc.date[i]).toLocaleDateString()}\n`)
+            data.push(`**Date Of Warn:** ${new Date(warnDoc.date[i]).toLocaleDateString()}\n`)
         }
 
         const embed = {
