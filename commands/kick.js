@@ -10,7 +10,7 @@ module.exports = {
             return message.reply("You do not have permission to use the kick command!")
         }
         else if(!message.guild.me.hasPermission('KICK_MEMBERS')) {
-            return message.reply("I do not have permission to use the kick command!")
+            return message.reply("Valhalla does not have permission to use the kick command!")
         }
         else if(!mentionedMember) {
             return message.reply("You need to mention a user in order to kick!")

@@ -14,7 +14,7 @@ module.exports = {
             return message.reply("You do not have permission to use the unban command!")
         }
         else if (!message.guild.me.hasPermission("BAN_MEMBERS")) {
-            return message.reply("I do not have permission to use the unban command!")
+            return message.reply("Valhalla does not have permission to use the unban command!")
         }
         else if(!mentionedUser) {
             return message.reply("You need to mention a user to unban!")

@@ -13,10 +13,10 @@ module.exports = {
         let muteRole = message.guild.roles.cache.find(r => r.name == 'Muted')
 
         if(!message.member.hasPermission('MANAGE_ROLES')) {
-            return message.reply("You lack the needed permissions!")
+            return message.reply("You do not have permission to use the mute command!")
         }
         else if(!message.guild.me.hasPermission(['MANAGE_ROLES', 'MANAGE_CHANNELS'])) {
-            return message.reply("I lack the needed permissions!")
+            return message.reply("Valhalla does not have permission to use the mute command")
         }
         else if(!mentionedMember) {
             return message.reply("You need to mention a user in order to mute!")

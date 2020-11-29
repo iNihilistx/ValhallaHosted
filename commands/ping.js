@@ -1,7 +1,7 @@
 module.exports = {
     name: 'ping',
-    description: 'pong',
+    description: 'shows the ping',
     execute(message, args) {
-        message.channel.send(`Pong! ${message.client.ws.ping}ms`)
+        message.channel.send(`The current ping is: ${message.client.ws.ping}ms!`)
     }
 }

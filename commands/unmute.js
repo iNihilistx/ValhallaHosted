@@ -32,7 +32,7 @@ module.exports = {
         }
 
         else if(mentionedMember.roles.highest.position >= message.guild.me.roles.highest.position) {
-            return message.channel.send("I am unable to warn members who have the same/higher permissions!")
+            return message.channel.send("Valhalla does not have permission to use the unmute command for this member, their permissions the same or higher!")
         }
 
         mentionedMember.roles.remove(muteRole.id).catch(err => console.log(err))

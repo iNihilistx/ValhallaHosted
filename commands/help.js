@@ -15,7 +15,7 @@ module.exports = {
                     author: {
                     },
                     title: "The Current Commands For Valhalla: ",
-                    description: "A moderation bot built to keep things simple. I handle everthing moderator related whilst giving access to some fun commands!",
+                    description: "A moderation bot built to keep things simple. Valhalla handles everthing moderator related whilst giving access to some fun commands!",
                     fields: [{
                         name: " My prefix is: ",
                         value: "``??``"
