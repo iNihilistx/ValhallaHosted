@@ -66,11 +66,15 @@ client.on('guildCreate', guild => {
             },
             {
                 name: "🛡️ Moderation Commands: ",
-                value: "kick, ban, warn, warnings, unwarn, mute, unmute serverinfo, member, purge, ping"
+                value: "kick, ban, warn, warnings, unwarn, mute, unmute serverinfo, memberinfo, purge, ping"
             },
             {
                 name: "🤖 Random Bot Commands: ",
                 value: "meme, uwu, wholesome, hug, cursed, slap"
+            },
+            {
+                name: "ℹ️ Help Commands: ",
+                value: "kickhelp, banhelp, purgehelp, unbanhelp, mutehelp, unmutehelp, warnhelp, warningshelp, unwarnhelp, memberinfohelp "
             },
             ],
             timestamp: new Date(),
