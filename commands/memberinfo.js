@@ -1,4 +1,4 @@
-const usedCommand = new Set();
+
 const Discord = require('discord.js');
 const moment = require('moment');
 
@@ -8,7 +8,7 @@ module.exports = {
     usage: "<member> {reason}",
     async execute (message, args) {
         if (usedCommand.has(message.author.id)) {
-            message.reply("You are currently in a cooldown...").then(m => m.delete({ timeout: 6000 }))
+            message.reply("You are currently in a cooldown...").then(m => m.delete({ timeout: 4000 }))
             message.delete()
             return;
         } else {
@@ -45,6 +45,6 @@ module.exports = {
         usedCommand.add(message.author.id);
         setTimeout(() => {
             usedCommand.delete(message.author.id);
-        }, 10000);
+        }, 2000);
     }
 }

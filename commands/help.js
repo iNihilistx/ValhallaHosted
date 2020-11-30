@@ -22,7 +22,7 @@ module.exports = {
                     },
                     {
                         name: ":shield: Moderation Commands: ",
-                        value: "kick, ban, warn, warnings, unwarn, mute, unmute, serverinfo, member, purge, ping"
+                        value: "kick, ban, warn, warnings, unwarn, mute, unmute, serverinfo, memberinfo, purge, ping"
                     },
                     {
                         name: ":robot: Random Bot Commands: ",
@@ -30,7 +30,7 @@ module.exports = {
                     },
                     {
                         name: "ℹ️ Help Commands: ",
-                        value: "kickhelp, banhelp, purgehelp, unbanhelp, mutehelp, unmutehelp, warnhelp, warningshelp, unwarnhelp "
+                        value: "kickhelp, banhelp, purgehelp, unbanhelp, mutehelp, unmutehelp, warnhelp, warningshelp, unwarnhelp, memberinfohelp "
                     },
                     ],
                     timestamp: new Date(),
