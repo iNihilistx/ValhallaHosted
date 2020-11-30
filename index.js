@@ -85,6 +85,18 @@ client.on('guildCreate', guild => {
     })
 })
 
+client.on("ready", () => {
+    let statuses  = [
+        "??help",
+        `over ${client.guilds.cache.size} servers!`
+    ]
+
+    setInterval(function () {
+        let status = statuses[Math.floor(Math.random() * statuses.length)];
+        client.user.setActivity(status, { type: "WATCHING" });
+    }, 5000)
+})
+
 client.on('guildMemberAdd', async member => {
     const muteDoc = await muteModel.findOne({
         guildID: member.guild.id,
