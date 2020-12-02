@@ -13,7 +13,7 @@ module.exports = {
         const img = await randomPuppy(random);
     
         if (usedCommand.has(message.author.id)) {
-            message.reply('You are currently in a cooldown...').then(m => m.delete({ timeout: 5000 }))
+            message.reply('You are currently in a cooldown...').then(m => m.delete({ timeout: 2000 }))
             message.delete()
             return;
             return;
@@ -28,10 +28,10 @@ module.exports = {
     
             message.channel.send(embed);
     
-            usedCommand.add(message.author.id); // this will then delete the message after 15 seconds
+            usedCommand.add(message.author.id); // this will then delete the message after 5 seconds
             setTimeout(() => {
                 usedCommand.delete(message.author.id);
-            }, 15000); // this is set within Miliseconds
+            }, 5000); // this is set within Miliseconds
         }
     }
 }

@@ -8,7 +8,7 @@ module.exports = {
     usage: "<member> {reason}",
     async execute (message, args) {
         if (usedCommand.has(message.author.id)) {
-            message.reply("You are currently in a cooldown...").then(m => m.delete({ timeout: 4000 }))
+            message.reply("You are currently in a cooldown...").then(m => m.delete({ timeout: 2000 }))
             message.delete()
             return;
         } else {

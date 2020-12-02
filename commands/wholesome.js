@@ -12,7 +12,7 @@ module.exports = {
         const img = await randomPuppy(random);
     
         if (usedCommand.has(message.author.id)) {
-            message.reply('You are currently in a cooldown...').then(m => m.delete({ timeout: 5000 }))
+            message.reply('You are currently in a cooldown...').then(m => m.delete({ timeout: 2000 }))
             message.delete()
             return;
         } else {
@@ -27,7 +27,7 @@ module.exports = {
             usedCommand.add(message.author.id);
             setTimeout(() => {
                 usedCommand.delete(message.author.id);
-            }, 15000);
+            }, 5000);
     
         }
     }

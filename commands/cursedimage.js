@@ -13,7 +13,7 @@ module.exports = {
         const img = await randomPuppy(random);
     
         if (usedCommand.has(message.author.id)) { // << this means that if the command has been used it'll display a message saying that you're unable to use the command
-            message.reply('You are currently in a cooldown...').then(m => m.delete({ timeout: 5000 }))
+            message.reply('You are currently in a cooldown...').then(m => m.delete({ timeout: 2000 }))
             message.delete()
             return;
         } else {
@@ -30,7 +30,7 @@ module.exports = {
             usedCommand.add(message.author.id); // this will then delete the message after 15 seconds
             setTimeout(() => {
                 usedCommand.delete(message.author.id);
-            }, 15000); // this is set within Miliseconds
+            }, 5000); // this is set within Miliseconds
         }
     }
 }
