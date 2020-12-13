@@ -7,7 +7,7 @@ module.exports = {
     usage: "??server",
     async execute (message, args) {
         if (usedCommand.has(message.author.id)) {
-            message.reply('You are currently in a cooldown. Wait 30 seconds before trying this command again...').then(m => m.delete({ timeout: 2000 }))
+            message.reply('You are currently in a cooldown. Wait 10 seconds before trying this command again...').then(m => m.delete({ timeout: 2000 }))
             message.delete()
             return;
         } else {
@@ -46,6 +46,6 @@ module.exports = {
         usedCommand.add(message.author.id);
         setTimeout(() => {
             usedCommand.delete(message.author.id);
-        }, 3000);
+        }, 10000);
     }
 }

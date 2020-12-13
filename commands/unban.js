@@ -11,10 +11,10 @@ module.exports = {
         const mentionedUser = await message.client.users.fetch(userID).catch(() => null)
         
         if (!message.member.hasPermission("BAN_MEMBERS")) {
-            return message.reply("You do not have permission to use the unban command!")
+            return message.reply("You do not have permission to use the **Unban** command!")
         }
         else if (!message.guild.me.hasPermission("BAN_MEMBERS")) {
-            return message.reply("Valhalla does not have permission to use the unban command!")
+            return message.reply("Valhalla does not have permission to use the **Unban** command!")
         }
         else if(!mentionedUser) {
             return message.reply("You need to mention a user to unban!")

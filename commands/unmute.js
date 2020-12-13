@@ -11,7 +11,7 @@ module.exports = {
         const muteRole = message.guild.roles.cache.find(r => r.name == 'Muted')
 
         if (!message.member.hasPermission('MANAGE_ROLES')) {
-            return message.reply("You don't have permission to use the unmute command!")
+            return message.reply("You do not have permission to use the **Unmute** command!")
         }
 
         else if(!mentionedMember) {

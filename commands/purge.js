@@ -8,7 +8,7 @@ module.exports = {
 
     
         if (!message.member.permissions.has("MANAGE_MESSAGES")) {
-            message.reply('You do not have permission to use the purge command!').then(m => m.delete({ timeout: 2000 }))
+            message.reply('You do not have permission to use the **Purge** command!').then(m => m.delete({ timeout: 2000 }))
             message.delete()
         } else {
     

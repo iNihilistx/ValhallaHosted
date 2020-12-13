@@ -10,10 +10,10 @@ module.exports = {
         || message.guild.members.cache.get(args[0])
 
         if (!message.member.hasPermission('MANAGE_ROLES')) {
-            return message.reply("You do not have permissions to use the unwarn command")
+            return message.reply("You do not have permissions to use the **Unwarn** command")
         }
         else if (!mentionedMember) {
-            return message.reply("You need to mention a user you want to unwarn!")
+            return message.reply("A user needs to be mentioned in order to Unwarn them!")
         }
 
         const mentionedPosition = mentionedMember.roles.highest.position

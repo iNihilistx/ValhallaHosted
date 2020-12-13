@@ -13,13 +13,13 @@ module.exports = {
         let muteRole = message.guild.roles.cache.find(r => r.name == 'Muted')
 
         if (!message.member.hasPermission('MANAGE_ROLES')) {
-            return message.channel.send("You don't have permission")
+            return message.channel.send("You do not have permission to use the mute command!")
         }
         else if (!message.guild.me.hasPermission(['MANAGE_ROLES', 'MANAGE_CHANNELS'])) {
-            return message.channel.send("I don't have permissions")
+            return message.channel.send("Vallhalla does not have permission to use the mute command!")
         }
         else if(!mentionedMember) {
-            return message.channel.send("You need to mention a user in order to mute")
+            return message.channel.send("A user needs to be mentioned in order to mute them!")
         }
         else if(!msRegex.test(args[1])) {
             return message.channel.send('That is not a valid amount of time to mute a user!')
