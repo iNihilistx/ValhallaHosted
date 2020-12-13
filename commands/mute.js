@@ -40,7 +40,7 @@ module.exports = {
         else if(muteRole.position >= message.guild.me.roles.highest.position) {
             return message.reply("I cannot mute this user because the 'Muted' role is higher than my role!")
         }
-        else if (ms(msRegex.exec(args[1])[1]) >= 100000) {
+        else if (ms(msRegex.exec(args[1])[1]) >= 2592000) {
             return message.reply("You cannot mute a member for more than a month!")
         }
         const isMuted = await muteModel.findOne({
