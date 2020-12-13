@@ -1,10 +1,10 @@
-const muteModel = require('../models/mute')
+const muteModel = require('../models/mute.js')
 const ms = require('ms')
 
 module.exports = {
     name: 'mute',
-    description: 'Mute a user',
-    usage: "<member> <time> [reason]",
+    description: 'Mute a member from the server',
+    usage: '<member> <time> [reason]',
     async execute(message, args) {
         const mentionedMember = message.mentions.members.first()
         || message.guild.members.cache.get(args[0])
@@ -12,22 +12,21 @@ module.exports = {
         const msRegex = RegExp(/(\d+(s|m|h|w))/)
         let muteRole = message.guild.roles.cache.find(r => r.name == 'Muted')
 
-        if(!message.member.hasPermission('MANAGE_ROLES')) {
-            return message.reply("You do not have permission to use the mute command!")
+        if (!message.member.hasPermission('MANAGE_ROLES')) {
+            return message.channel.send("You don't have permission")
         }
-        else if(!message.guild.me.hasPermission(['MANAGE_ROLES', 'MANAGE_CHANNELS'])) {
-            return message.reply("Valhalla does not have permission to use the mute command")
+        else if (!message.guild.me.hasPermission(['MANAGE_ROLES', 'MANAGE_CHANNELS'])) {
+            return message.channel.send("I don't have permissions")
         }
         else if(!mentionedMember) {
-            return message.reply("You need to mention a user in order to mute!")
+            return message.channel.send("You need to mention a user in order to mute")
         }
         else if(!msRegex.test(args[1])) {
-            return message.reply("Invalid amount of time to mute a user!")
+            return message.channel.send('That is not a valid amount of time to mute a user!')
         }
-
         if(!muteRole) {
             muteRole = await message.guild.roles.create({
-                data: {
+                data : {
                     name: 'Muted',
                     color: 'BLUE',
                 }
@@ -35,14 +34,16 @@ module.exports = {
         }
 
         if(mentionedMember.roles.highest.position >= message.guild.me.roles.highest.position) {
-            return message.reply("This user has higher permissions than I do")
+            return message.channel.send("I can't mute that user")
         }
-        else if(muteRole.position >= message.guild.me.roles.highest.position) {
-            return message.reply("I cannot mute this user because the 'Muted' role is higher than my role!")
+        else if (muteRole.position >= message.guild.me.roles.highest.position) {
+            return message.channel.send("I can't mute this user")
         }
-        else if (ms(msRegex.exec(args[1])[1]) >= 2592000) {
-            return message.reply("You cannot mute a member for more than a month!")
-        }
+        
+        else if(ms(msRegex.exec(args[1])[1]) > 2592000000) {
+            return message.channel.send('Unable to mute a member for more than a month!')
+        } 
+
         const isMuted = await muteModel.findOne({
             guildID: message.guild.id,
             memberID: mentionedMember.id,
@@ -70,14 +71,14 @@ module.exports = {
         const muteDoc = new muteModel({
             guildID: message.guild.id,
             memberID: mentionedMember.id,
-            length: Date.now() +  ms(msRegex.exec(args[1])[1]),
+            length: Date.now() + ms(msRegex.exec(args[1])[1]),
             memberRoles: noEveryone.map(r => r),
         })
 
         await muteDoc.save().catch(err => console.log(err))
 
         const reason = args.slice(2).join(' ')
-        
+
         message.channel.send(`Muted ${mentionedMember} for **${msRegex.exec(args[1])[1]}** ${reason ? `for **${reason}**` : ''}`)
     }
 }
