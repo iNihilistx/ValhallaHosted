@@ -23,9 +23,9 @@ module.exports = {
 
         for (let i = 0; warnDoc.warnings.length > i; i++) {
             data.push(`**Warning ID:** ${i + 1}`)
-            data.push(`**Reason For Warn:** ${warnDoc.warnings[i]}`)
-            data.push(`**Warned By:** ${await message.client.users.fetch(warnDoc.moderator[i]).catch(() => 'Deleted User')}`)
-            data.push(`**Date Of Warn:** ${new Date(warnDoc.date[i]).toLocaleDateString()}\n`)
+            data.push(`**Reason For Warning:** ${warnDoc.warnings[i]}`)
+            data.push(`**Warning Issued By:** ${await message.client.users.fetch(warnDoc.moderator[i]).catch(() => 'Deleted User')}`)
+            data.push(`**Date Warning Was Issued:** ${new Date(warnDoc.date[i]).toLocaleDateString()}\n`)
         }
 
         const embed = {
