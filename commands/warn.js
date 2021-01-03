@@ -42,8 +42,15 @@ module.exports = {
         await warnDoc.save().catch(err => console.log(err))
         }
         else {
-            if (warnDoc.warnings.length >= 3) {
-                return message.reply("This member has already reached 3 warnings")
+            if (warnDoc.warnings.length >= 4) {
+                const reason = args.slice(1).join('')
+                try {
+                    await mentionedMember.kick([reason])
+                    message.channel.send(`${mentionedMember}has reached their 3rd warning, and has been kicked!`)
+                }
+                catch(error){
+                    message.channel.send("There has been an error when removing the member for breaching the rules!")
+                }
             }
 
             warnDoc.warnings.push(reason)
