@@ -7,10 +7,12 @@ module.exports = {
         || message.guild.members.cache.get(args[0])
 
         if(!message.member.hasPermission('KICK_MEMBERS')){
-            return message.reply("You do not have permission to use the **Kick** command!")
+            return message.reply("You do not have permission to use the **Kick** command!").then(m => m.delete({timeout: 2000}))
+            message.delete()
         }
         else if(!message.guild.me.hasPermission('KICK_MEMBERS')) {
-            return message.reply("Valhalla does not have permission to use the **Kick** command!")
+            return message.reply("Valhalla does not have permission to use the **Kick** command!").then(m => m.delete({timeout: 2000}))
+            message.delete()
         }
         else if(!mentionedMember) {
             return message.reply("You need to mention a user in order to kick!")

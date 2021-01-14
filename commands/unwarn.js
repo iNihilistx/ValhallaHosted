@@ -10,7 +10,8 @@ module.exports = {
         || message.guild.members.cache.get(args[0])
 
         if (!message.member.hasPermission('MANAGE_ROLES')) {
-            return message.reply("You do not have permissions to use the **Unwarn** command")
+            return message.reply("You do not have permissions to use the **Unwarn** command").then(m => m.delete({timeout: 2000}))
+            message.delete()
         }
         else if (!mentionedMember) {
             return message.reply("A user needs to be mentioned in order to Unwarn them!")

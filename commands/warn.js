@@ -10,7 +10,8 @@ module.exports = {
         || message.guild.members.cache.get(args[0])
 
         if (!message.member.hasPermission('MANAGE_ROLES')) {
-            return message.reply("You do not have permission to use the warn command!")
+            return message.reply("You do not have permission to use the warn command!").then(m => m.delete({timeout: 2000}))
+            message.delete()
         }
         else if (!mentionedMember) {
             return message.reply("You need to mention a member in order to warn them!")

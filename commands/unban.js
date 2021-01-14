@@ -11,7 +11,8 @@ module.exports = {
         const mentionedUser = await message.client.users.fetch(userID).catch(() => null)
         
         if (!message.member.hasPermission("BAN_MEMBERS")) {
-            return message.reply("You do not have permission to use the **Unban** command!")
+            return message.reply("You do not have permission to use the **Unban** command!").then(m => m.delete({timeout: 2000}))
+            message.delete()
         }
         else if (!message.guild.me.hasPermission("BAN_MEMBERS")) {
             return message.reply("Valhalla does not have permission to use the **Unban** command!")
