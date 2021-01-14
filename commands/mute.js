@@ -41,7 +41,7 @@ module.exports = {
             return message.channel.send("I can't mute this user")
         }
         
-        else if(ms(msRegex.exec(args[1])[1]) > 2592000000) {
+        else if(ms(msRegex.exec(args[1])[1]) > 2678400) {
             return message.channel.send('Unable to mute a member for more than a month!')
         } 
 
