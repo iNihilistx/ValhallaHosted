@@ -1,6 +1,7 @@
 
 const Discord = require('discord.js');
 const moment = require('moment');
+const usedCommand = new Set();
 
 module.exports = {
     name: "memberinfo",
