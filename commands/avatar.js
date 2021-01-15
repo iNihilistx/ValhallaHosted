@@ -19,7 +19,7 @@ module.exports = {
 
             const avatarEmbed = new Discord.MessageEmbed()
             .setAuthor(member.user.tag)
-            .setImage(member.user.displayAvatarURL({dynamic: true, size: 256}))
+            .setImage(member.user.displayAvatarURL({format: 'jpg', size: 512}))
             .setTimestamp()
             .setFooter("Valhalla", 'https://i.imgur.com/G5bui5n.png')
 
