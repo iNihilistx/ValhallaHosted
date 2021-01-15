@@ -26,7 +26,7 @@ module.exports = {
                     },
                     {
                         name: ":robot: Random Bot Commands: ",
-                        value: "meme, uwu, wholesome, hug, cursed, slap, bonk"
+                        value: "meme, uwu, wholesome, hug, cursed, slap, bonk, avatar"
                     },
                     {
                         name: "ℹ️ Help Commands: ",

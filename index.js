@@ -58,19 +58,19 @@ client.on('guildCreate', guild => {
         embed: {
             author: {
             },
-            title: "Thank for inviting me! Here's some information about me: ",
+            title: "The Current Commands For Valhalla: ",
             description: "A moderation bot built to keep things simple. Valhalla handles everthing moderator related whilst giving access to some fun commands!",
             fields: [{
                 name: " My prefix is: ",
                 value: "``??``"
             },
             {
-                name: "🛡️ Moderation Commands: ",
-                value: "kick, ban, warn, warnings, unwarn, mute, unmute serverinfo, memberinfo, purge, ping"
+                name: ":shield: Moderation Commands: ",
+                value: "kick, ban, warn, warnings, unwarn, mute, unmute, serverinfo, memberinfo, purge, ping"
             },
             {
-                name: "🤖 Random Bot Commands: ",
-                value: "meme, uwu, wholesome, hug, cursed, slap"
+                name: ":robot: Random Bot Commands: ",
+                value: "meme, uwu, wholesome, hug, cursed, slap, bonk, avatar"
             },
             {
                 name: "ℹ️ Help Commands: ",
