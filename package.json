@@ -1,0 +1,28 @@
+{
+  "name": "valhallahosted",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "discord.js": "^12.4.1",
+    "init": "^0.1.2",
+    "moment": "^2.29.1",
+    "mongoose": "^5.10.17",
+    "ms": "^2.1.2",
+    "twemoji-parser": "^13.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Naiirobii/ValhallaHosted.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Naiirobii/ValhallaHosted/issues"
+  },
+  "homepage": "https://github.com/Naiirobii/ValhallaHosted#readme"
+}
