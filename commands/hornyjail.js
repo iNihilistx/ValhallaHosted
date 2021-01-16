@@ -7,7 +7,7 @@ module.exports = {
     description: "removes a member from the server",
     usage: "<member> {reason}",
     async execute (message, args) {
-        const images = ["https://i.imgur.com/iUEz5fS.gif"];
+        const images = ["https://i.imgur.com/iUEz5fS.gif","https://i.imgur.com/EjgVxtC.gif"];
         const image = images[Math.floor(Math.random() * images.length)];
     
         if (usedCommand.has(message.author.id)) {
