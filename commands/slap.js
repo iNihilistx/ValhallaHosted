@@ -4,7 +4,7 @@ const randomPuppy = require('random-puppy');
 
 module.exports = {
     name: "slap",
-    description: "removes a member from the server",
+    description: "Slaps a user",
     usage: "<member> {reason}",
     async execute (message, args) {
         const images = ["https://i.imgur.com/kQEi7ZG.gif", "https://i.imgur.com/2IkumDO.gif", "https://i.imgur.com/5c6uVv0.gif", "https://i.imgur.com/WKVMfG3.gif", "https://i.imgur.com/pGtMTNK.gif", "https://i.imgur.com/I4vjKtA.gif"];
@@ -24,7 +24,7 @@ module.exports = {
                         .setURL('https://i.imgur.com/G5bui5n.png')
                         .setImage(image)
                         .setTimestamp()
-                        .setFooter("Valhalla", 'https://i.imgur.com/G5bui5n.png')
+                        .setFooter("Sunny", 'https://i.imgur.com/X8ed21I.jpg')
     
                     message.channel.send(hugEmbed);
     

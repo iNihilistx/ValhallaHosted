@@ -2,13 +2,13 @@ const { execute } = require("./help");
 
 module.exports = {
     name: "purgehelp",
-    usage: "??PurgeHelp",
+    usage: "=PurgeHelp",
     async execute(message, args) {
         message.channel.send({
             embed: {
                 author: {
                 },
-                title: "Valhalla Purge Tutorial:",
+                title: "Sunnys' Purge Tutorial:",
                 fields:[{
                     name: "Purge",
                     value: "``??purge [Number 1-99]``"
@@ -20,7 +20,7 @@ module.exports = {
             ],
             timestamp: new Date(),
             footer: {
-                text: "© Valhalla"
+                text: "© Sunny"
             }
             }
         })

@@ -4,7 +4,7 @@ const randomPuppy = require('random-puppy');
 
 module.exports = {
     name: "uwu",
-    description: "removes a member from the server",
+    description: "Sends an uwu",
     usage: "<member> {reason}",
     async execute (message, args) {
         const images = ["https://i.imgur.com/1dDkQNL.gif", "https://i.imgur.com/rjTA8fC.gif", "https://i.imgur.com/Pg4Kp2q.gif", "https://i.imgur.com/NpYpXgI.gif", "https://i.imgur.com/jJ2N5Zu.gif", "https://i.imgur.com/K6bWrmL.gif"];
@@ -21,7 +21,7 @@ module.exports = {
                 .setURL('https://i.imgur.com/G5bui5n.png')
                 .setImage(image)
                 .setTimestamp()
-                .setFooter("Valhalla", 'https://i.imgur.com/G5bui5n.png')
+                .setFooter("Sunny", 'https://i.imgur.com/X8ed21I.jpg')
     
     
     

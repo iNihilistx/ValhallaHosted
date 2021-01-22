@@ -2,7 +2,7 @@ const usedCommand = new Set();
 
 module.exports = {
     name: "purge",
-    usage: "??purge",
+    usage: "=purge",
     async execute(message, args) {
         const messageArray = message.content.split(' ');
 

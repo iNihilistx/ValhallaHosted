@@ -3,7 +3,7 @@ const usedCommand = new Set();
 module.exports = {
     name: "help",
     description: "Displays the list of commands available",
-    usage: "??help",
+    usage: "=help",
     async execute (message, args) {
         if (usedCommand.has(message.author.id)) {
             message.reply("You are currently in a cooldown...").then(m => m.delete({ timeout: 5000 }))
@@ -14,7 +14,7 @@ module.exports = {
                 embed: {
                     author: {
                     },
-                    title: "The Current Commands For Valhalla: ",
+                    title: "The Current Commands For Sunny ",
                     description: "A moderation bot built to keep things simple. Valhalla handles everthing moderator related whilst giving access to some fun commands!",
                     fields: [{
                         name: " My prefix is: ",
@@ -35,7 +35,7 @@ module.exports = {
                     ],
                     timestamp: new Date(),
                     footer: {
-                        text: "© Valhalla"
+                        text: "© Sunny"
                     }
                 }
             })

@@ -2,13 +2,13 @@ const { execute } = require("./help");
 
 module.exports = {
     name: "unmutehelp",
-    usage: "??unmuteHelp",
+    usage: "=unmuteHelp",
     async execute(message, args) {
         message.channel.send({
             embed: {
                 author: {
                 },
-                title: "Valhalla Unmute Tutorial:",
+                title: "Sunnys' Unmute Tutorial:",
                 fields:[{
                     name: "Unmute",
                     value: "``??unmute @member``"
@@ -20,7 +20,7 @@ module.exports = {
             ],
             timestamp: new Date(),
             footer: {
-                text: "© Valhalla"
+                text: "© Sunny"
             }
             }
         })

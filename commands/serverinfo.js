@@ -4,7 +4,7 @@ const Discord = require('discord.js')
 module.exports = {
     name: "serverinfo",
     description: "Shows information regarding the server",
-    usage: "??server",
+    usage: "=server",
     async execute (message, args) {
         if (usedCommand.has(message.author.id)) {
             message.reply('You are currently in a cooldown. Wait 10 seconds before trying this command again...').then(m => m.delete({ timeout: 2000 }))
@@ -38,7 +38,7 @@ module.exports = {
                 .addField("Server Region: ", message.guild.region, true)
                 .setImage(message.guild.iconURL())
                 .setTimestamp()
-                .setFooter('Valhalla', 'https://i.imgur.com/G5bui5n.png')
+                .setFooter('Sunny', 'https://i.imgur.com/X8ed21I.jpg')
     
             message.channel.send(serverinfoEmbed);
         }

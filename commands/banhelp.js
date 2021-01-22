@@ -2,13 +2,13 @@ const { execute } = require("./help");
 
 module.exports = {
     name: "banhelp",
-    usage: "??banHelp",
+    usage: "=banHelp",
     async execute(message, args) {
         message.channel.send({
             embed: {
                 author: {
                 },
-                title: "Valhalla Ban Tutorial:",
+                title: "Sunnys' Ban Tutorial:",
                 fields:[{
                     name: "ban",
                     value: "``??ban @member [reason]``"
@@ -20,7 +20,7 @@ module.exports = {
             ],
             timestamp: new Date(),
             footer: {
-                text: "© Valhalla"
+                text: "© Sunny"
             }
             }
         })

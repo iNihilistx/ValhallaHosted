@@ -2,13 +2,13 @@ const { execute } = require("./help");
 
 module.exports = {
     name: "unwarnhelp",
-    usage: "??unwarnHelp",
+    usage: "=unwarnHelp",
     async execute(message, args) {
         message.channel.send({
             embed: {
                 author: {
                 },
-                title: "Valhalla Unwarn Tutorial:",
+                title: "Sunnys' Unwarn Tutorial:",
                 fields:[{
                     name: "Unwarn",
                     value: "``??unwarn @member [warn id]``"
@@ -20,7 +20,7 @@ module.exports = {
             ],
             timestamp: new Date(),
             footer: {
-                text: "© Valhalla"
+                text: "© Sunny"
             }
             }
         })

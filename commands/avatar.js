@@ -22,7 +22,7 @@ module.exports = {
             .setAuthor(member.user.tag)
             .setImage(member.user.displayAvatarURL({format: 'png', size: 512}))
             .setTimestamp()
-            .setFooter("Valhalla", 'https://i.imgur.com/G5bui5n.png')
+            .setFooter("Sunnys'", 'https://i.imgur.com/I7mrlPC.png')
 
             message.channel.send(avatarEmbed);
         }

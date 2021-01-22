@@ -2,13 +2,13 @@ const { execute } = require("./help");
 
 module.exports = {
     name: "kickhelp",
-    usage: "??KickHelp",
+    usage: "=KickHelp",
     async execute(message, args) {
         message.channel.send({
             embed: {
                 author: {
                 },
-                title: "Valhalla Kick Tutorial:",
+                title: "Sunnys' Kick Tutorial:",
                 fields:[{
                     name: "Kick",
                     value: "``??kick @member [reason]``"
@@ -20,7 +20,7 @@ module.exports = {
             ],
             timestamp: new Date(),
             footer: {
-                text: "© Valhalla"
+                text: "© Sunny"
             }
             }
         })
