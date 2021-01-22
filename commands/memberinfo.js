@@ -38,7 +38,7 @@ module.exports = {
                 .addField('Roles', `<@&${member._roles.join('> <@&')}>`)
                 .addField("Account Created On:", ` ${moment.utc(member.user.createdAt).format("dddd, MMMM Do YYYY")}`, true)
                 .addField('Joined the server At', `${joineddate} \n> ${joined} day(S) Ago`)
-                .setFooter('Sunny', 'https://i.imgur.com/X8ed21I.jpg')
+                .setFooter('Sunny', 'https://i.imgur.com/I7mrlPC.png')
     
             message.channel.send(userEmbed);
         }

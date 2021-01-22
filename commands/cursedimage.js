@@ -23,7 +23,7 @@ module.exports = {
             const embed = new Discord.MessageEmbed()
                 .setImage(img)
                 .setTimestamp()
-                .setFooter('Sunny', 'https://i.imgur.com/X8ed21I.jpg')
+                .setFooter('Sunny', 'https://i.imgur.com/I7mrlPC.png')
     
             message.channel.send(embed);
     
