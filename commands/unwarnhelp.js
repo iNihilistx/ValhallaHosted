@@ -11,7 +11,7 @@ module.exports = {
                 title: "Sunnys' Unwarn Tutorial:",
                 fields:[{
                     name: "Unwarn",
-                    value: "``??unwarn @member [warn id]``"
+                    value: "``=unwarn @member [warn id]``"
                 },
                 {
                     name: "How To:",

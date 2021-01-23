@@ -11,7 +11,7 @@ module.exports = {
                 title: "Sunnys' Memberinfo Tutorial:",
                 fields:[{
                     name: "memberinfo",
-                    value: "``??memberinfo @member``"
+                    value: "``=memberinfo @member``"
                 },
                 {
                     name: "How To:",

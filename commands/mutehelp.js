@@ -11,7 +11,7 @@ module.exports = {
                 title: "Sunnys' Mute Tutorial:",
                 fields:[{
                     name: "Mute",
-                    value: "``??mute @member [Time in seconds][s] [Reason]``"
+                    value: "``=mute @member [Time in seconds][s] [Reason]``"
                 },
                 {
                     name: "How To:",

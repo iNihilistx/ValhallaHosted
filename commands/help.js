@@ -18,7 +18,7 @@ module.exports = {
                     description: "A moderation bot built to keep things simple. Valhalla handles everthing moderator related whilst giving access to some fun commands!",
                     fields: [{
                         name: " My prefix is: ",
-                        value: "``??``"
+                        value: "``=``"
                     },
                     {
                         name: ":shield: Moderation Commands: ",

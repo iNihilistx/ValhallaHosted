@@ -11,7 +11,7 @@ module.exports = {
                 title: "Sunnys' Unmute Tutorial:",
                 fields:[{
                     name: "Unmute",
-                    value: "``??unmute @member``"
+                    value: "``=unmute @member``"
                 },
                 {
                     name: "How To:",

@@ -11,7 +11,7 @@ module.exports = {
                 title: "Sunnys' Kick Tutorial:",
                 fields:[{
                     name: "Kick",
-                    value: "``??kick @member [reason]``"
+                    value: "``=kick @member [reason]``"
                 },
                 {
                     name: "How To:",

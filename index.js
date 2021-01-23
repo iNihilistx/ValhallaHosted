@@ -63,7 +63,7 @@ client.on('guildCreate', guild => {
             description: "A moderation bot built to keep things simple. Valhalla handles everthing moderator related whilst giving access to some fun commands!",
             fields: [{
                 name: " My prefix is: ",
-                value: "``??``"
+                value: "``=``"
             },
             {
                 name: ":shield: Moderation Commands: ",
@@ -88,7 +88,7 @@ client.on('guildCreate', guild => {
 
 client.on("ready", () => {
     let statuses  = [
-        "??help",
+        "=help",
         `over ${client.guilds.cache.size} servers!`
     ]
 

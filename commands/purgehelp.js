@@ -11,11 +11,11 @@ module.exports = {
                 title: "Sunnys' Purge Tutorial:",
                 fields:[{
                     name: "Purge",
-                    value: "``??purge [Number 1-99]``"
+                    value: "``=purge [Number 1-99]``"
                 },
                 {
                     name: "How To:",
-                    value: "??purge followed by the amount of messages you'd like to remove. of the member, followed by the reason. Only 99 messages can be deleted at a time!"
+                    value: "=purge followed by the amount of messages you'd like to remove. of the member, followed by the reason. Only 99 messages can be deleted at a time!"
                 },
             ],
             timestamp: new Date(),

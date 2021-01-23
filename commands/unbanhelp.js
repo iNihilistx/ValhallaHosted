@@ -11,7 +11,7 @@ module.exports = {
                 title: "Sunnys' Unban Tutorial:",
                 fields:[{
                     name: "Unban",
-                    value: "``??unban @member [reason]``"
+                    value: "``=unban @member [reason]``"
                 },
                 {
                     name: "How To:",
