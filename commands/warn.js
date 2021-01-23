@@ -50,7 +50,7 @@ module.exports = {
                     message.channel.send(`${mentionedMember}has reached their 3rd warning, and has been kicked!`)
                 }
                 catch(error){
-                    message.channel.send("There has been an error when removing the member for breaching the rules!")
+                    message.channel.send("There has been an error whilst attempting to warn the user!")
                 }
             }
 
