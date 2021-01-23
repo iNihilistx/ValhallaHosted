@@ -19,7 +19,7 @@ module.exports = {
             if (member) {
                 try {
                     const hugEmbed = new Discord.MessageEmbed()
-                        .setColor('#FFA500')
+                        .setColor('#00c09a')
                         .setURL('https://i.imgur.com/G5bui5n.png')
                         .setImage(image)
                         .setTimestamp()

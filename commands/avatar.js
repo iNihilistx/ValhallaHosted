@@ -18,6 +18,7 @@ module.exports = {
 
 
             const avatarEmbed = new Discord.MessageEmbed()
+            .setColor('#00c09a')
             .setTitle("Avatar Showcase:")
             .setAuthor(member.user.tag)
             .setImage(member.user.displayAvatarURL({format: 'png', size: 512}))

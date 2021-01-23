@@ -16,7 +16,7 @@ module.exports = {
             return;
         } else {
             const uwuEmbed = new Discord.MessageEmbed()
-                .setColor("#FFA500")
+                .setColor('#00c09a')
                 .setTitle('UWU')
                 .setURL('https://i.imgur.com/G5bui5n.png')
                 .setImage(image)

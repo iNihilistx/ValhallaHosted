@@ -23,6 +23,7 @@ module.exports = {
             let member = message.mentions.members.first() || message.guild.members.cache.get(userArgs[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === userArgs.slice(0).join("") || x.user.username === userArgs[0]) || message.member;
     
             const serverinfoEmbed = new Discord.MessageEmbed()
+                .setColor('#00c09a')
                 .setTitle('Server Information: ')
                 .setAuthor(member.user.tag, member.user.displayAvatarURL())
                 .setDescription(`All the information for this guild`)

@@ -32,7 +32,7 @@ module.exports = {
             const userEmbed = new Discord.MessageEmbed()
                 .setAuthor(member.user.tag, member.user.displayAvatarURL())
                 .setTimestamp()
-                .setColor('#FFA500')
+                .setColor('#00c09a')
                 .setImage(member.user.displayAvatarURL())
                 .addField("Member ID", member.id)
                 .addField('Roles', `<@&${member._roles.join('> <@&')}>`)

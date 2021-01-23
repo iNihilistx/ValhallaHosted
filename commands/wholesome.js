@@ -18,6 +18,7 @@ module.exports = {
         } else {
     
             const embed = new Discord.MessageEmbed()
+                .setColor('#00c09a')
                 .setImage(img)
                 .setTimestamp()
                 .setFooter('Sunny', 'https://i.imgur.com/X8ed21I.jpg')

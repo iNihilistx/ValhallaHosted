@@ -22,6 +22,7 @@ module.exports = {
             // the else is where the code is then written to then run the command
     
             const embed = new Discord.MessageEmbed()
+                .setColor('#00c09a')
                 .setImage(img)
                 .setTimestamp()
                 .setFooter('Sunny', 'https://i.imgur.com/I7mrlPC.png')
