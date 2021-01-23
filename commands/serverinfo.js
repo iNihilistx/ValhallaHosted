@@ -25,10 +25,8 @@ module.exports = {
             const serverinfoEmbed = new Discord.MessageEmbed()
                 .setColor('#FFA500')
                 .setTitle('Server Information: ')
-                .setURL('https://i.imgur.com/G5bui5n.png')
                 .setAuthor(member.user.tag, member.user.displayAvatarURL())
                 .setDescription(`All the information for this guild`)
-                .setThumbnail('https://i.imgur.com/G5bui5n.png')
                 .addFields(
                     { name: "Server Name: ", value: `${message.guild.name}` },
                     { name: "Current Members: ", value: `${message.guild.memberCount}` },
