@@ -7,10 +7,16 @@ module.exports = {
     description: "Bonks a user",
     usage: "<member> {reason}",
     async execute (message, args) {
+        const mentionedMember = message.mentions.members.first() || message.guild.members.cache.get(args[0])
         const images = ["https://i.imgur.com/iUEz5fS.gif","https://i.imgur.com/EjgVxtC.gif"];
         const image = images[Math.floor(Math.random() * images.length)];
     
-        if (usedCommand.has(message.author.id)) {
+        if(!mentionedMember){
+            message.reply("You need to mention a user in order to bonk them!").then(m => m.delete({timeout: 2000}))
+            message.delete()
+        }
+
+        else if (usedCommand.has(message.author.id)) {
             message.reply("You are currently in a cooldown...").then(m => m.delete({ timeout: 2000 }))
             message.delete()
             return;
