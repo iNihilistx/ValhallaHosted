@@ -12,7 +12,7 @@ module.exports = {
         const image = images[Math.floor(Math.random() * images.length)];
     
         if(!mentionedMember){
-            message.reply("You need to mention a user in order to bonk them!").then(m => m.delete({timeout: 2000}))
+            message.reply("You need to mention a user in order to use the bonk command!").then(m => m.delete({timeout: 2000}))
             message.delete()
         }
 

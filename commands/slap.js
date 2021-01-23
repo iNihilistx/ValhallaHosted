@@ -14,7 +14,7 @@ module.exports = {
         const image = images[Math.floor(Math.random() * images.length)];
         
         if(!mentionedMember){
-            return message.reply("You need to mention a user in order to slap them!").then(m => m.delete({timeout: 2000}))
+            return message.reply("You need to mention a user in order to use the slap command!").then(m => m.delete({timeout: 2000}))
             message.delete()
         }
 
