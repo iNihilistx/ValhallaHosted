@@ -17,7 +17,7 @@ module.exports = {
             return message.reply("You need to mention a user in order to use the slap command!").then(m => m.delete({timeout: 2000}))
             message.delete()
         }
-
+        
         else if(usedCommand.has(message.author.id)) {
             message.reply("You are currently in a cooldown... Chill out with the slaps Karate Kid").then(m => m.delete({ timeout: 2000 }))
             message.delete()
@@ -25,7 +25,7 @@ module.exports = {
         } else {
             let userArray = message.content.split("");
             let userArgs = userArray.slice(1);
-            let member = message.mentions.members.first() || message.guild.members.cache.get(userArgs[0]) || message.guild.members.cache.find(x => x.user.username.toLowerCase() === userArgs.slice(0).join(" ") || x.user.username === userArgs[0]) || message.member;
+            let member = message.mentions.members.first();
 
 
             if (member) {

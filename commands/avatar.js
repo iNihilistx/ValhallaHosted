@@ -16,7 +16,6 @@ module.exports = {
             let userArgs = userArray.slice(1);
             let member = message.mentions.members.first();
 
-
             const avatarEmbed = new Discord.MessageEmbed()
             .setTitle("Avatar Showcase:")
             .setAuthor(member.user.tag)
