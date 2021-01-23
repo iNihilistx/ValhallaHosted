@@ -18,7 +18,8 @@ for (const file of commandFiles) {
 const muteModel = require('./models/mute')
 
 client.once('ready', () => {
-    console.log('Valhalla Online')
+    console.log('Sunny Online')
+    client.user.setUsername("[=]Sunny")
 
     mongoose.connect(mongo_url, {
         useNewUrlParser: true,
