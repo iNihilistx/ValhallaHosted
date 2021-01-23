@@ -21,7 +21,7 @@ module.exports = {
             .setColor('#00c09a')
             .setTitle("Avatar Showcase:")
             .setAuthor(member.user.tag)
-            .setImage(member.user.displayAvatarURL({format: 'png', size: 512}))
+            .setImage(member.user.displayAvatarURL({format: 'png', size: 2048, dynamic: true}))
             .setTimestamp()
             .setFooter("Sunny", 'https://i.imgur.com/I7mrlPC.png')
 
