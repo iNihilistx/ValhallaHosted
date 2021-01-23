@@ -9,7 +9,8 @@ module.exports = {
     async execute (message, args) {
         const mentionedMember = message.mentions.members.first()
         if(!mentionedMember) {
-            return message.reply("You need to mention someone to use this command!")
+            return message.reply("You need to mention someone to use this command!").then(m => m.delete({timeout: 2000}))
+            message.delete();
         } else{
             let userArray = message.content.split("");
             let userArgs = userArray.slice(1);
