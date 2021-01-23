@@ -16,7 +16,6 @@ module.exports = {
             message.reply('You are currently in a cooldown...').then(m => m.delete({ timeout: 2000 }))
             message.delete()
             return;
-            return;
         } else {
     
             // the else is where the code is then written to then run the command
