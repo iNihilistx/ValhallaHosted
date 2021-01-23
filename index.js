@@ -9,6 +9,7 @@ client.snipes = new Map();
 client.commands = new Discord.Collection()
 
 client.login(bot_token)
+client.snipes = new Map();
 
 const commandFiles = fs.readdirSync('./commands')
 for (const file of commandFiles) {
@@ -122,24 +123,6 @@ client.on('guildMemberAdd', async member => {
 
         await muteDoc.save().catch(err => console.log(err))
     }
-})
-
-client.on('message', message => {
-    let args = message.content.substring(prefix.length).split(' ')
-
-    if(!message.guild || message.author.bot || !message.content.startsWith(prefix)) return;
-    if(!message.member.hasPermission(["MANAGE_MESSAGES"])) return message.reply("You do not have permission to use the snipe command!")
-
-    const msg = client.snipes.get(message.channel.id);
-    if(!msg) return message.reply("There are no messages to snipe")
-
-    const snipeEmbed = new Discord.MessageEmbed()
-    .setAuthor(`Sniped: ${msg.author.tag}`, msg.author.displayAvatarURL({dynamic: true, size: 256}))
-    .setDescription(msg.content)
-    .setTimestamp()
-
-    if(msg.image) snipeEmbed.setImage(msg.image);
-    message.channel.send(snipeEmbed)
 })
 
 client.on('message', message => {
