@@ -15,7 +15,7 @@ module.exports = {
                 },
                 {
                     name: "How To:",
-                    value: "??unmute followed by the @ of the member you want to unwarn!"
+                    value: "=unmute followed by the @ of the member you want to unwarn!"
                 },
             ],
             timestamp: new Date(),

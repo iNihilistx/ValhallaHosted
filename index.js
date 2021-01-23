@@ -1,10 +1,11 @@
 const { bot_token, mongo_url, prefix } = require('./config.json')
 const Discord = require('discord.js')
-const client = new Discord.Client()
+const client = new Discord.Client();
 const mongoose = require('mongoose')
 const fs = require('fs')
 const { ifError } = require('assert')
 
+client.snipes = new Map();
 client.commands = new Discord.Collection()
 
 client.login(bot_token)
@@ -67,7 +68,7 @@ client.on('guildCreate', guild => {
             },
             {
                 name: ":shield: Moderation Commands: ",
-                value: "kick, ban, warn, warnings, unwarn, mute, unmute, serverinfo, memberinfo, purge, ping"
+                value: "kick, ban, warn, warnings, unwarn, mute, unmute, serverinfo, memberinfo, purge, ping, snipe"
             },
             {
                 name: ":robot: Random Bot Commands: ",
@@ -75,7 +76,7 @@ client.on('guildCreate', guild => {
             },
             {
                 name: "ℹ️ Help Commands: ",
-                value: "kickhelp, banhelp, purgehelp, unbanhelp, mutehelp, unmutehelp, warnhelp, warningshelp, unwarnhelp, memberinfohelp "
+                value: "kickhelp, banhelp, purgehelp, unbanhelp, mutehelp, unmutehelp, warnhelp, warningshelp, unwarnhelp, memberinfohelp"
             },
             ],
             timestamp: new Date(),
@@ -83,6 +84,14 @@ client.on('guildCreate', guild => {
                 text: "© Valhalla"
             }
         }
+    })
+})
+
+client.on('messageDelete', function (message, channel) {
+    client.snipes.set(message.channel.id, {
+        content: message.content,
+        author: message.author,
+        image: message.attachments.first() ? message.attachments.first().proxyURL : null
     })
 })
 
@@ -113,6 +122,24 @@ client.on('guildMemberAdd', async member => {
 
         await muteDoc.save().catch(err => console.log(err))
     }
+})
+
+client.on('message', message => {
+    let args = message.content.substring(prefix.length).split(' ')
+
+    if(!message.guild || message.author.bot || !message.content.startsWith(prefix)) return;
+    if(!message.member.hasPermission(["MANAGE_MESSAGES"])) return message.reply("You do not have permission to use the snipe command!")
+
+    const msg = client.snipes.get(message.channel.id);
+    if(!msg) return message.reply("There are no messages to snipe")
+
+    const snipeEmbed = new Discord.MessageEmbed()
+    .setAuthor(`Sniped: ${msg.author.tag}`, msg.author.displayAvatarURL({dynamic: true, size: 256}))
+    .setDescription(msg.content)
+    .setTimestamp()
+
+    if(msg.image) snipeEmbed.setImage(msg.image);
+    message.channel.send(snipeEmbed)
 })
 
 client.on('message', message => {

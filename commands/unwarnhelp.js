@@ -15,7 +15,7 @@ module.exports = {
                 },
                 {
                     name: "How To:",
-                    value: "??unwarn followed by the @ of the member you want to unwarn, followed by the ID of the warn (you will only need to insert the number so it should look similar to: ??unwarn @valhalla 3), this ID can be found from using the warnings command!"
+                    value: "=unwarn followed by the @ of the member you want to unwarn, followed by the ID of the warn (you will only need to insert the number so it should look similar to: =unwarn @Sunny 3), this ID can be found from using the warnings command!"
                 },
             ],
             timestamp: new Date(),

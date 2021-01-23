@@ -15,14 +15,14 @@ module.exports = {
                     author: {
                     },
                     title: "The Current Commands For Sunny ",
-                    description: "A moderation bot built to keep things simple. Valhalla handles everthing moderator related whilst giving access to some fun commands!",
+                    description: "A moderation bot built to keep things simple. Sunny handles everthing moderator related whilst giving access to some fun commands!",
                     fields: [{
                         name: " My prefix is: ",
                         value: "``=``"
                     },
                     {
                         name: ":shield: Moderation Commands: ",
-                        value: "kick, ban, warn, warnings, unwarn, mute, unmute, serverinfo, memberinfo, purge, ping"
+                        value: "kick, ban, warn, warnings, unwarn, mute, unmute, serverinfo, memberinfo, purge, ping, snipe"
                     },
                     {
                         name: ":robot: Random Bot Commands: ",

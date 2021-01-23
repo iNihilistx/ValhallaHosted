@@ -15,7 +15,7 @@ module.exports = {
                 },
                 {
                     name: "How To:",
-                    value: "??unban followed by the @ of the member, followed by the reason. The reason is optional, but it allows for people to see why the user's ban was reversed!"
+                    value: "=unban followed by the @ of the member, followed by the reason. The reason is optional, but it allows for people to see why the user's ban was reversed!"
                 },
             ],
             timestamp: new Date(),

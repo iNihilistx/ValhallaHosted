@@ -15,7 +15,7 @@ module.exports = {
                 },
                 {
                     name: "How To:",
-                    value: "??warnings @member, this will show if the user has any bans against them, then showing what they'd done in order to earn a warn, alongside the ID which can be used to unwarn the member!"
+                    value: "=warnings @member, this will show if the user has any bans against them, then showing what they'd done in order to earn a warn, alongside the ID which can be used to unwarn the member!"
                 },
             ],
             timestamp: new Date(),

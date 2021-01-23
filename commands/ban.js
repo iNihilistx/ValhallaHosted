@@ -13,7 +13,7 @@ module.exports = {
             message.delete()
         }
         else if(!message.guild.me.hasPermission('BAN_MEMBERS')) {
-            return message.reply("Valhalla does not have permission to use the **Ban** command!")
+            return message.reply("Sunny does not have permission to use the **Ban** command!")
         }
         else if(!mentionedUser) {
             return message.reply("You need to mention a valid user!")

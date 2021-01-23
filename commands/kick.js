@@ -11,7 +11,7 @@ module.exports = {
             message.delete()
         }
         else if(!message.guild.me.hasPermission('KICK_MEMBERS')) {
-            return message.reply("Valhalla does not have permission to use the **Kick** command!").then(m => m.delete({timeout: 2000}))
+            return message.reply("Sunny does not have permission to use the **Kick** command!").then(m => m.delete({timeout: 2000}))
             message.delete()
         }
         else if(!mentionedMember) {
@@ -26,7 +26,7 @@ module.exports = {
             return message.reply("Unable to kick this member because of their roles!")
         }
         else if(botPoisition <= mentionedPosition) {
-            return message.reply("Unable to kick this member, because they have higher perms than me")
+            return message.reply("Unable to kick this member, because they have higher permissions than me")
         }
 
         const reason = args.slice(1).join(' ')
