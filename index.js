@@ -5,11 +5,9 @@ const mongoose = require('mongoose')
 const fs = require('fs')
 const { ifError } = require('assert')
 
-client.snipes = new Map();
 client.commands = new Discord.Collection()
 
 client.login(bot_token)
-client.snipes = new Map();
 
 const commandFiles = fs.readdirSync('./commands')
 for (const file of commandFiles) {
@@ -69,7 +67,7 @@ client.on('guildCreate', guild => {
             },
             {
                 name: ":shield: Moderation Commands: ",
-                value: "kick, ban, warn, warnings, unwarn, mute, unmute, serverinfo, memberinfo, purge, ping, snipe"
+                value: "kick, ban, warn, warnings, unwarn, mute, unmute, serverinfo, memberinfo, purge, ping"
             },
             {
                 name: ":robot: Random Bot Commands: ",
@@ -85,14 +83,6 @@ client.on('guildCreate', guild => {
                 text: "© Valhalla"
             }
         }
-    })
-})
-
-client.on('messageDelete', function (message, channel) {
-    client.snipes.set(message.channel.id, {
-        content: message.content,
-        author: message.author,
-        image: message.attachments.first() ? message.attachments.first().proxyURL : null
     })
 })
 
