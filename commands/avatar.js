@@ -19,7 +19,7 @@ module.exports = {
             const avatarEmbed = new Discord.MessageEmbed()
             .setTitle("Avatar Showcase:")
             .setAuthor(member.user.tag)
-            .setImage(member.user.displayAvatarURL({format: 'png', size: 512}))
+            .setImage(member.user.displayAvatarURL({format: 'png', size: 512, dynamic : true}))
             .setTimestamp()
             .setFooter("Sunny", 'https://i.imgur.com/I7mrlPC.png')
 
