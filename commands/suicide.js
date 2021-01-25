@@ -5,7 +5,7 @@ module.exports = {
     name: "kms",
     description: "allows one to commit die",
     async execute(message, args) {
-        const images = ["https://i.imgur.com/iEa1rEP.gif", "https://i.imgur.com/L0Xi8Vh.gif", "https://i.imgur.com/4iv6XIn.gif", "https://i.imgur.com/7cduBMv.gif", "https://i.imgur.com/qv3ZDYb.gif", "https://i.imgur.com/aZbSc1x.gif"];
+        const images = ["https://i.imgur.com/iEa1rEP.gif", "https://i.imgur.com/L0Xi8Vh.gif", "https://i.imgur.com/4iv6XIn.gif", "https://i.imgur.com/7cduBMv.gif", "https://i.imgur.com/qv3ZDYb.gif", "https://i.imgur.com/aZbSc1x.gif", "https://i.imgur.com/NuntcWq.gif"];
         const image = images[Math.floor(Math.random() * images.length)];
 
         const kmsEmbed = new Discord.MessageEmbed()
