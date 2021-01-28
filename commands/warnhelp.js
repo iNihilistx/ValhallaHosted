@@ -15,7 +15,7 @@ module.exports = {
                 },
                 {
                     name: "How To:",
-                    value: "=warn followed by the @ of the member, followed by the reason. A reason should always be provided when warning someone! Once the warning system reaches the max amount of warns[3]. The next warn will remove the user from the server!"
+                    value: "=warn followed by the @ of the member, followed by the reason. A reason should always be provided when warning someone! Once the warning system reaches the max amount of warns[5]. The next warn will remove the user from the server!"
                 },
             ],
             timestamp: new Date(),
