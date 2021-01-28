@@ -71,7 +71,7 @@ client.on('guildCreate', guild => {
             },
             {
                 name: ":robot: Random Bot Commands: ",
-                value: "meme, uwu, wholesome, hug, cursed, slap, bonk, avatar"
+                value: "meme, uwu, wholesome, hug, cursed, slap, bonk, avatar, kms, kill"
             },
             {
                 name: "ℹ️ Help Commands: ",
