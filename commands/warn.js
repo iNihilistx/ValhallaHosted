@@ -47,7 +47,7 @@ module.exports = {
                 const reason = args.slice(1).join('')
                 try {
                     await mentionedMember.kick([reason])
-                    message.channel.send(`${mentionedMember}has reached their 5th warning, and has been kicked!`)
+                    message.channel.send(`${mentionedMember}has been warned more than 5 times, and has been kicked!`)
                 }
                 catch(error){
                     message.channel.send("There has been an error whilst attempting to warn the user!")
