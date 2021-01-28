@@ -9,7 +9,7 @@ module.exports = {
         const mentionedMember = message.mentions.members.first() || message.guild.members.cache.get(args[0])
         let userArray = message.content.split("");
         let userArgs = userArray.slice(1);
-        var deathnotes = ["was killed with kindness, or an axe... I forget which", "took a bullet point black to the face", "**accidentally** fell down the stairs", "overdosed on oxygen and bit the dust", "fell in a vat of boiling milk", "was sent to the shadow realm"];
+        var deathnotes = ["was killed with kindness, or an axe... I forget which", "took a bullet point blank to the face", "**accidentally** fell down the stairs", "overdosed on oxygen and bit the dust", "fell in a vat of boiling milk", "was sent to the shadow realm"];
         var deathnote = Math.floor(Math.random() * deathnotes.length);
 
         if(usedCommand.has(message.author.id)) {
