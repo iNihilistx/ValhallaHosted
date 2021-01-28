@@ -43,7 +43,7 @@ module.exports = {
         await warnDoc.save().catch(err => console.log(err))
         }
         else {
-            if (warnDoc.warnings.length >= 6) {
+            if (warnDoc.warnings.length >= 5) {
                 const reason = args.slice(1).join('')
                 try {
                     await mentionedMember.kick([reason])
