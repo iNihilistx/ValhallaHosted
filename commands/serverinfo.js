@@ -7,7 +7,7 @@ module.exports = {
     usage: "=server",
     async execute (message, args) {
         if (usedCommand.has(message.author.id)) {
-            message.reply('You are currently in a cooldown. Wait 10 seconds before trying this command again...').then(m => m.delete({ timeout: 2000 }))
+            message.reply('You are currently in a cooldown...').then(m => m.delete({ timeout: 2000 }))
             message.delete()
             return;
         } else {
@@ -24,13 +24,15 @@ module.exports = {
     
             const serverinfoEmbed = new Discord.MessageEmbed()
                 .setColor('#00c09a')
-                .setTitle('Server Information: ')
+                .setTitle('Server Information:')
                 .setAuthor(member.user.tag, member.user.displayAvatarURL())
-                .setDescription(`All the information for this guild`)
                 .addFields(
-                    { name: "Server Name: ", value: `${message.guild.name}` },
-                    { name: "Current Members: ", value: `${message.guild.memberCount}` },
+                    { name: "Server Name: ", value: `${message.guild.name}`, inline: true },
+                    { name: "Server ID: ", value: `${message.guild.id}`, inline: true},
                     { name: 'Server Owner: ', value: `${message.guild.owner}`, inline: true },
+                    { name: "Current Members: ", value: `${message.guild.memberCount}`, inline: true },
+                    { name: "Channels: ", value: `${message.guild.channels.cache.size}`, inline: true},
+                    { name: "Roles: ", value: `${message.guild.roles.cache.size}`, inline: true},
                     { name: 'Server Created: ', value: `${message.guild.createdAt.toLocaleString()}`, inline: true},
                     { name: 'Verification Level: ', value: `${message.guild.verificationLevel}`, inline: true },
                     { name: 'AFK Timeout: ', value: `${message.guild.afkTimeout / 60} minutes`, inline: true },
