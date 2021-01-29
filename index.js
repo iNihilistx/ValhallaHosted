@@ -7,7 +7,7 @@ const { ifError } = require('assert')
 
 client.commands = new Discord.Collection()
 
-client.login(bot_token)
+client.login(token)
 
 const commandFiles = fs.readdirSync('./commands')
 for (const file of commandFiles) {
