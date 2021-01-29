@@ -31,6 +31,7 @@ module.exports = {
                     { name: "Server Name: ", value: `${message.guild.name}` },
                     { name: "Current Members: ", value: `${message.guild.memberCount}` },
                     { name: 'Server Owner: ', value: `${message.guild.owner}`, inline: true },
+                    { name: 'Created: ', value: `${message.guild.createdAt.toLocaleString()}`, inline: true},
                     { name: 'Verification Level: ', value: `${message.guild.verificationLevel}`, inline: true }
                 )
                 .addField("Server Region: ", message.guild.region, true)
