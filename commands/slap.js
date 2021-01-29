@@ -25,14 +25,14 @@ module.exports = {
         } else {
             let userArray = message.content.split("");
             let userArgs = userArray.slice(1);
-            let member = message.mentions.members.first();
+            let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
 
 
             if (member) {
                 try {
                     const hugEmbed = new Discord.MessageEmbed()
                         .setColor('#00c09a')
-                        .setTitle(`Sending your slap first class`)
+                        .setTitle(`${message.author.tag} came out of the gate swinging`)
                         .setURL('https://i.imgur.com/G5bui5n.png')
                         .setImage(image)
                         .setTimestamp()
