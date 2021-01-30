@@ -17,18 +17,7 @@ module.exports = {
             return message.reply("You need to mention a user in order to hug them").then(m => m.delete({timeout: 2000}))
             message.delete()
         }
-
-        else if(message.author.tag){
-            message.reply(`Sunny hugs ${message.author.tag}`)
-            const SEmbed = new Discord.MessageEmbed()
-            .setColor('#00c09a')
-            .setTitle(`Sunny Hugs ${message.author.tag}`)
-            .setURL('https://i.imgur.com/I7mrlPC.png')
-            .setImage(image)
-            .setTimestamp()
-            .setFooter("Sunny", "https://i.imgur.com/I7mrlPC.png")
-        }
-
+        
          else if (usedCommand.has(message.author.id)) {
             message.reply("You are currently in a cooldown...").then(m => m.delete({ timeout: 2000 }))
             message.delete()
