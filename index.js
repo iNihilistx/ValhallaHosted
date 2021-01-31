@@ -80,7 +80,7 @@ client.on('guildCreate', guild => {
             ],
             timestamp: new Date(),
             footer: {
-                text: "© Valhalla"
+                text: "© Sunny"
             }
         }
     })
