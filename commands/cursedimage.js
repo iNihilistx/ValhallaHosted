@@ -24,7 +24,7 @@ module.exports = {
                 .setColor('#00c09a')
                 .setImage(img)
                 .setTimestamp()
-                .setFooter('Sunny', 'https://i.imgur.com/I7mrlPC.png')
+                .setFooter('Valhalla', 'https://i.imgur.com/PJfayce.jpg')
     
             message.channel.send(embed);
     

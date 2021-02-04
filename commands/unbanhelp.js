@@ -8,7 +8,7 @@ module.exports = {
             embed: {
                 author: {
                 },
-                title: "Sunnys' Unban Tutorial:",
+                title: "Valhallas' Unban Tutorial:",
                 fields:[{
                     name: "Unban",
                     value: "``=unban @member [reason]``"
@@ -20,7 +20,7 @@ module.exports = {
             ],
             timestamp: new Date(),
             footer: {
-                text: "© Sunny"
+                text: "© Valhalla"
             }
             }
         })

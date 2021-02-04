@@ -8,7 +8,7 @@ module.exports = {
             embed: {
                 author: {
                 },
-                title: "Sunnys' Mute Tutorial:",
+                title: "Valhallas' Mute Tutorial:",
                 fields:[{
                     name: "Mute",
                     value: "``=mute @member [Time in seconds][s] [Reason]``"
@@ -20,7 +20,7 @@ module.exports = {
             ],
             timestamp: new Date(),
             footer: {
-                text: "© Sunny"
+                text: "© Valhalla"
             }
             }
         })

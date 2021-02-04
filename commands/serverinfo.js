@@ -40,7 +40,7 @@ module.exports = {
                 .addField("Server Region: ", message.guild.region, true)
                 .setImage(message.guild.iconURL())
                 .setTimestamp()
-                .setFooter('Sunny', 'https://i.imgur.com/I7mrlPC.png')
+                .setFooter('Valhalla', 'https://i.imgur.com/PJfayce.jpg')
     
             message.channel.send(serverinfoEmbed);
         }

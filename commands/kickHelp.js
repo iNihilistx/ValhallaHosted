@@ -8,7 +8,7 @@ module.exports = {
             embed: {
                 author: {
                 },
-                title: "Sunnys' Kick Tutorial:",
+                title: "Valhallas' Kick Tutorial:",
                 fields:[{
                     name: "Kick",
                     value: "``=kick @member [reason]``"
@@ -20,7 +20,7 @@ module.exports = {
             ],
             timestamp: new Date(),
             footer: {
-                text: "© Sunny"
+                text: "© Valhalla"
             }
             }
         })

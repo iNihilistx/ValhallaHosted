@@ -36,7 +36,7 @@ module.exports = {
                         .setURL('https://i.imgur.com/G5bui5n.png')
                         .setImage(image)
                         .setTimestamp()
-                        .setFooter("Sunny", 'https://i.imgur.com/I7mrlPC.png')
+                        .setFooter("Valhalla", 'https://i.imgur.com/PJfayce.jpg')
     
                     message.channel.send(hugEmbed);
     

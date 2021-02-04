@@ -8,7 +8,7 @@ module.exports = {
             embed: {
                 author: {
                 },
-                title: "Sunnys' Memberinfo Tutorial:",
+                title: "Valhallas' Memberinfo Tutorial:",
                 fields:[{
                     name: "memberinfo",
                     value: "``=memberinfo @member``"
@@ -20,7 +20,7 @@ module.exports = {
             ],
             timestamp: new Date(),
             footer: {
-                text: "© Sunny"
+                text: "© Valhalla"
             }
             }
         })

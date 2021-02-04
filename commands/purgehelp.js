@@ -8,7 +8,7 @@ module.exports = {
             embed: {
                 author: {
                 },
-                title: "Sunnys' Purge Tutorial:",
+                title: "Valhallas' Purge Tutorial:",
                 fields:[{
                     name: "Purge",
                     value: "``=purge [Number 1-99]``"
@@ -20,7 +20,7 @@ module.exports = {
             ],
             timestamp: new Date(),
             footer: {
-                text: "© Sunny"
+                text: "© Valhalla"
             }
             }
         })

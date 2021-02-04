@@ -59,7 +59,7 @@ client.on('guildCreate', guild => {
         embed: {
             author: {
             },
-            title: "The Current Commands For Sunny: ",
+            title: "The Current Commands For Valhalla: ",
             description: "A moderation bot built to keep things simple. Valhalla handles everthing moderator related whilst giving access to some fun commands!",
             fields: [{
                 name: " My prefix is: ",
@@ -80,7 +80,7 @@ client.on('guildCreate', guild => {
             ],
             timestamp: new Date(),
             footer: {
-                text: "© Sunny"
+                text: "© Valhalla"
             }
         }
     })
